@@ -28,18 +28,29 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              "src/assets/template/css/new/bootstrap.css",
+              "src/assets/template/css/new/font-awesome.css",
+              "src/assets/template/css/new/styles.css"
             ],
-            "scripts": []
+            "scripts": [
+              "src/assets/template/js/new/jquery.js",
+              "src/assets/template/js/actions/jquery-ui.js",
+              "src/assets/template/js/new/bootstrap.js",
+              "src/assets/template/js/new/slimmenu.js",
+              "src/assets/template/js/new/bootstrap-datepicker.js",
+              "src/assets/template/js/new/nicescroll.js",
+              "src/assets/template/js/new/dropit.js",
+              "src/assets/template/js/new/typeahead.js",
+              "src/assets/template/js/new/magnific.js",
+              "src/assets/template/js/new/custom_1.js"
+            ]
           },
           "configurations": {
             "production": {
-              "fileReplacements": [
-                {
-                  "replace": "src/environments/environment.ts",
-                  "with": "src/environments/environment.prod.ts"
-                }
-              ],
+              "fileReplacements": [{
+                "replace": "src/environments/environment.ts",
+                "with": "src/environments/environment.prod.ts"
+              }],
               "optimization": true,
               "outputHashing": "all",
               "sourceMap": false,
@@ -49,8 +60,7 @@
               "extractLicenses": true,
               "vendorChunk": false,
               "buildOptimizer": true,
-              "budgets": [
-                {
+              "budgets": [{
                   "type": "initial",
                   "maximumWarning": "2mb",
                   "maximumError": "5mb"
@@ -124,6 +134,7 @@
           }
         }
       }
-    }},
+    }
+  },
   "defaultProject": "gowaka-test"
 }
