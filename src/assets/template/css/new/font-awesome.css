@@ -12,6 +12,7 @@
   url('fonts/icomoonba72.eot') format('embedded-opentype'),
   url('fonts/fontawesome-webfontba72.woff?v=4.0.3') format('woff'),
   url('fonts/fontawesome-webfontba72.ttf?v=4.0.3') format('truetype');
+  src: url('fonts/fontawesome-webfontba72.svg?v=4.0.3#fontawesomeregular') format('svg'), url('fonts/fontawesome-webfontd41d.eot?#iefix&v=4.0.3') format('embedded-opentype'), url('fonts/fontawesome-webfontba72.woff?v=4.0.3') format('woff'), url('fonts/fontawesome-webfontba72.ttf?v=4.0.3') format('truetype');
   font-weight: normal;
   font-style: normal;
 }

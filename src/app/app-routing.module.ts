@@ -17,6 +17,9 @@ const routes: Routes = [
   { path: '**', component: NotfoundComponent }
 ];
 
+
+// const routes: Routes = [];
+
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]

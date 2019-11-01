@@ -9039,7 +9039,6 @@ fieldset[disabled] .datepicker table tr td span.active.disabled:hover.active {
 .owl-controls .owl-buttons div.owl-prev:before {
   content: '\f104';
 }
-
 .owl-carousel .owl-wrapper,
 .owl-carousel .owl-item {
   -webkit-backface-visibility: hidden;
