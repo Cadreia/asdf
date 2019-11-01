@@ -1,0 +1,76 @@
+
+
+<footer id="main-footer">
+    <div class="container">
+        <div class="row row-wrap">
+            <div class="col-md-3">
+                <a class="logo" routerLinK="">
+                  <img [src]="imagepath" alt="Image Alternative text"
+                         title="GoWaka Bus Booking Platform"/>
+                </a>
+                <p class="mb20">{{ "footer_booking" | translate }}</p>
+                <ul class="list list-horizontal list-space">
+                    <li>
+                        <a class="fa fa-facebook box-icon-normal round animate-icon-bottom-to-top" href="#"></a>
+                    </li>
+                    <li>
+                        <a class="fa fa-twitter box-icon-normal round animate-icon-bottom-to-top" href="#"></a>
+                    </li>
+                    <li>
+                        <a class="fa fa-google-plus box-icon-normal round animate-icon-bottom-to-top" href="#"></a>
+                    </li>
+                    <li>
+                        <a class="fa fa-linkedin box-icon-normal round animate-icon-bottom-to-top" href="#"></a>
+                    </li>
+                    <li>
+                        <a class="fa fa-pinterest box-icon-normal round animate-icon-bottom-to-top" href="#"></a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="col-md-3">
+
+                <h4>{{ "footer_subscribe" | translate }}</h4>
+                <div style="display:none" id="message_div" class="alert alert-danger"></div>
+                <form>
+                    <label>{{ "footer_email" | translate }}</label>
+                    <input type="hidden" id="message" value="Please enter an email address to subscribe"/>
+                    <input type="hidden" id="message_1" value="Please enter a valid email address"/>
+                    <input id="user_email" type="text" placeholder="Enter email address for newsletter subscription"
+                           class="form-control">
+                    <p class="mt5">
+                        <small>*{{ "footer_sendspam" | translate }}</small>
+                    </p>
+                    <input type="button" class="btn btn-primary" onclick="submitNewsLetter()" class="btn btn-primary"
+                           value="Subscribe">
+                </form>
+            </div>
+            <div class="col-md-2">
+                <ul class="list list-footer">
+                    <li><a target="_blank" routerLink="/public/about">{{ "header_link_about" | translate }}</a>
+                    </li>
+                    <li><a target="_blank" routerLink="/public/faqs">{{ "header_link_faqs" | translate }}</a>
+                    </li>
+
+                    <li><a target="_blank" routerLink="/public/contacts">{{ "header_link_about" | translate }}</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-md-4">
+                <h6>{{ "footer_havequestion" | translate }}</h6>
+                <h6 class="text-color">+237-672-07-07-35</h6>
+                <h6><a class="text-color">support@gowaka.net</a></h6>
+                <p>{{ "footer_dedicate" | translate }}</p>
+            </div>
+
+        </div>
+    </div>
+    <input type="hidden" id="error_network_msg" value="Error reaching the server. Check your connection">
+    <input type="hidden" id="error_seat_finished_msg" value="Sorry, this journey has only ">
+    <input type="hidden" id="error_seat_finished_msg_2" value=" seats left available for booking">
+    <input type="hidden" id="alert_hold_on_msg_invoice" value=" Preparing your booked invoice ...">
+    <input type="hidden" id="seat_legend_p_msg_1" value=" Available Seat(s)">
+    <input type="hidden" id="seat_legend_p_msg_2" value="Selected Seat(s)">
+    <input type="hidden" id="seat_legend_p_msg_3" value="Already Booked Seat(s)">
+    <input type="hidden" id="check_out_auth_invalid_msg" value="Invalid email/password combination, please try again">
+</footer>

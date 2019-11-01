@@ -1,0 +1,171 @@
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "version": 1,
+  "newProjectRoot": "projects",
+  "projects": {
+    "gowaka-test": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "",
+      "sourceRoot": "src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/gowaka-test",
+            "index": "src/index.html",
+            "main": "src/main.ts",
+            "polyfills": "src/polyfills.ts",
+            "tsConfig": "tsconfig.app.json",
+            "aot": false,
+            "assets": [
+              "src/favicon.ico",
+              "src/assets"
+            ],
+            "styles": [
+              "src/assets/template/css/new/bootstrap.css",
+              "src/assets/template/css/new/font-awesome.css",
+              "src/assets/template/css/new/styles.css",
+              "src/styles.css",
+              "src/assets/template/css/new/icomoon.css",
+              "src/assets/template/css/new/mystyles.css",
+              "src/assets/template/js/modernizr.custom.js",
+              "src/assets/template/css/new/switcher.css",
+              "src/assets/template/css/schemes/bright-turquoise.css",
+              "src/assets/template/css/schemes/turkish-rose.css",
+              "src/assets/template/css/schemes/salem.css",
+              "src/assets/template/css/schemes/hippie-blue.css",
+              "src/assets/template/css/schemes/mandy.css",
+              "src/assets/template/css/schemes/green-smoke.css",
+              "src/assets/template/css/schemes/horizon.css",
+              "src/assets/template/css/schemes/cerise.css",
+              "src/assets/template/css/schemes/brick-red.css",
+              "src/assets/template/css/schemes/de-york.css",
+              "src/assets/template/css/schemes/shamrock.css",
+              "src/assets/template/css/schemes/studio.css",
+              "src/assets/template/css/schemes/leather.css",
+              "src/assets/template/css/schemes/denim.css",
+              "src/assets/template/css/schemes/scarlet.css"
+            ],
+            "scripts": [
+              "src/assets/template/js/new/jquery.js",
+              "src/assets/template/js/actions/jquery-ui.js",
+              "src/assets/template/js/new/bootstrap.js",
+              "src/assets/template/js/new/slimmenu.js",
+              "src/assets/template/js/new/bootstrap-datepicker.js",
+              "src/assets/template/js/new/nicescroll.js",
+              "src/assets/template/js/new/dropit.js",
+              "src/assets/template/js/new/typeahead.js",
+              "src/assets/template/js/new/magnific.js",
+              "src/assets/template/js/new/custom_1.js",
+
+               "src/assets/template/js/new/bootstrap-timepicker.js",
+               "src/assets/template/js/new/ionrangeslider.js",
+               "src/assets/template/js/new/icheck.js",
+               "src/assets/template/js/new/fotorama.js",
+               "src/assets/template/js/new/owl-carousel.js",
+               "src/assets/template/js/new/fitvids.js",
+               "src/assets/template/js/new/tweet.js",
+               "src/assets/template/js/new/countdown.js",
+               "src/assets/template/js/new/gridrotator.js",
+               "src/assets/template/js/new/custom.js"
+            ]
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [{
+                "replace": "src/environments/environment.ts",
+                "with": "src/environments/environment.prod.ts"
+              }],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [{
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "gowaka-test:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "gowaka-test:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "gowaka-test:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "src/test.ts",
+            "polyfills": "src/polyfills.ts",
+            "tsConfig": "tsconfig.spec.json",
+            "karmaConfig": "karma.conf.js",
+            "assets": [
+              "src/favicon.ico",
+              "src/assets"
+            ],
+            "styles": [
+              "src/styles.scss"
+            ],
+            "scripts": []
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "tsconfig.app.json",
+              "tsconfig.spec.json",
+              "e2e/tsconfig.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        },
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "e2e/protractor.conf.js",
+            "devServerTarget": "gowaka-test:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "gowaka-test:serve:production"
+            }
+          }
+        }
+      }
+    }
+  },
+  "defaultProject": "gowaka-test"
+}
