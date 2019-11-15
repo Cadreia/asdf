@@ -5,10 +5,15 @@ import { FaqsComponent } from './public/faqs/faqs.component';
 import { AboutComponent } from './public/about/about.component';
 import { ContactsComponent } from './public/contacts/contacts.component';
 import { NotfoundComponent } from './public/notfound/notfound.component';
+import { RegisterComponent } from './public/authentication/register/register.component';
+import { LoginComponent } from './public/authentication/login/login.component';
 
 
 const routes: Routes = [
   { path: '', redirectTo: 'public/home', pathMatch: 'full' },
+
+  { path: 'public/authentication/register', component: RegisterComponent },
+  { path: 'public/authentication/login', component: LoginComponent },
   { path: 'public/faqs', component: FaqsComponent },
   { path: 'public/about', component: AboutComponent },
   { path: 'public/home', component: HomeComponent },
@@ -30,5 +35,7 @@ export const routingComponents = [
   AboutComponent,
   ContactsComponent,
   NotfoundComponent,
-  HomeComponent
+  HomeComponent,
+  RegisterComponent,
+  LoginComponent
 ];

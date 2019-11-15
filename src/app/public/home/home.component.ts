@@ -8,6 +8,7 @@ import { FormGroup, FormControl, Validator, Validators } from '@angular/forms';
 })
 export class HomeComponent implements OnInit {
   public title = 'GoWaka-home';
+   isloggedIn = false;
 
   searchBus = new FormGroup({
     departing: new FormControl('', Validators.required),

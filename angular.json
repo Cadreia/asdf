@@ -28,10 +28,12 @@
               "src/assets"
             ],
             "styles": [
+              "node_modules/ngx-toastr/toastr.css",
               "src/assets/template/css/new/bootstrap.css",
               "src/assets/template/css/new/font-awesome.css",
               "src/assets/template/css/new/icomoon.css",
               "src/assets/template/css/new/styles.css",
+              "src/assets/template/js/modernizr.custom.js",
               "src/styles.css",
               "src/assets/template/css/new/mystyles.css",
               "src/assets/template/css/new/switcher.css",
@@ -53,10 +55,8 @@
             ],
             "scripts": [
               "src/assets/template/js/new/jquery.js",
-              "src/assets/template/js/modernizr.custom.js",
               "src/assets/template/js/new/bootstrap.js",
               "src/assets/template/js/new/bootstrap-datepicker.js",
-              "src/assets/template/js/new/bootstrap-timepicker.js",
               "src/assets/template/js/new/nicescroll.js",
               "src/assets/template/js/new/dropit.js",
               "src/assets/template/js/new/ionrangeslider.js",
