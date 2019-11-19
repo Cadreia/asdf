@@ -12,6 +12,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { TranslationService } from './services/translate/translation.service';
 import { ToastrModule } from 'ngx-toastr';
 import { TokenInterceptor } from './services/registration/token.interceptor';
+import { ShareModule } from './public/shared/share/share.module';
 
 const setTranslationFactory = (translationService: TranslationService) => {
       return () => translationService.getTranslationMessages('en');
@@ -19,7 +20,6 @@ const setTranslationFactory = (translationService: TranslationService) => {
 @NgModule({
   declarations: [
     AppComponent,
-    TranslatePipe,
     HeaderComponent,
     FooterComponent,
     routingComponents
@@ -30,12 +30,10 @@ const setTranslationFactory = (translationService: TranslationService) => {
     AppRoutingModule,
     ReactiveFormsModule,
     HttpClientModule,
-    FormsModule,
-    AppRoutingModule,
-    HttpClientModule,
+    ShareModule,
     BrowserAnimationsModule,
     ToastrModule.forRoot({
-      timeOut: 8000,
+      timeOut: 15000,
       positionClass: 'toast-top-right',
       preventDuplicates: true
     })
@@ -55,5 +53,6 @@ const setTranslationFactory = (translationService: TranslationService) => {
     },
   ],
   bootstrap: [AppComponent, FooterComponent, HeaderComponent]
+
 })
 export class AppModule {}

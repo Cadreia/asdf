@@ -6,89 +6,99 @@
             <div class="book-grids">
                 <div class="col-md-6 book-left">
                     <div class="book-left-info">
-                      <h4 style="color: #ed8323">Create Your GoWaka Account</h4>
+                      <h4 style="color: #ed8323"> {{ 'register_create_account' | translate}} </h4>
                     </div>
                     <div class="book-left-form">
                         <form [formGroup]="registrationForm" (ngSubmit)="submitForm()">
 
                         <div class="form-group">
-                            <label for="First Name">First Name</label>
+                            <label for="First Name">{{"register_label_firstname" | translate}}</label>
                             <input class="form-control" formControlName="firstName" name="firstName" type="text"
                             [class.is-invalid]="registrationForm.controls['firstName'].invalid && registrationForm.controls['firstName'].touched">
                         </div>
                         <div class="text-danger" *ngIf="registrationForm.controls['firstName'].invalid && registrationForm.controls['firstName'].touched">
                           <b *ngIf="registrationForm.controls['firstName']?.errors.required">
-                            *** the first name is required *** <br>
+                            *** {{ 'register__firstname_required_error'| translate }} *** <br>
                           </b>
                           <b *ngIf="!registrationForm.controls['firstName']?.errors.minLength">
-                            *** the first name must have a minimum of 3 characters ***
+                            *** {{ 'register__firstname_minCharacter_error' | translate }} ***
                           </b>
                         </div>
 
                         <div class="form-group">
-                            <label for="Last Name">Last Name</label>
+                            <label for="Last Name">{{ 'register_label_lastname' | translate}}</label>
                             <input  class="form-control" formControlName="lastName"  name="lastName" type="text"
                             [class.is-invalid]="registrationForm.controls['lastName'].invalid && registrationForm.controls['lastName'].touched">
                         </div>
                          <div class="text-danger" *ngIf="registrationForm.controls['lastName'].invalid && registrationForm.controls['lastName'].touched">
                           <b *ngIf="registrationForm.controls['lastName']?.errors.required">
-                            *** the last name is required ***<br>
+                            *** {{ 'register__lastname_required_error' | translate}} ***<br>
                           </b>
                           <b *ngIf="!registrationForm.controls['lastName']?.errors.minLength">
-                            *** the last must have a minimum of 3 characters ***
+                            ***{{ 'register__lastname_minCharacter_error' | translate}} ***
                           </b>
                         </div>
 
                         <div class="form-group">
-                            <label for="Phone Number">Phone Number</label>
+                            <label for="Phone Number">{{ 'register_label_phoneNumber' | translate}} </label>
                             <input class="form-control" formControlName="phoneNumber"  name="phoneNumber" type="text"
                             [class.is-invalid]="registrationForm.controls['phoneNumber'].invalid && registrationForm.controls['phoneNumber'].touched">
                         </div>
                         <div class="text-danger" *ngIf="registrationForm.controls['phoneNumber'].invalid && registrationForm.controls['phoneNumber'].touched">
                           <b *ngIf="registrationForm.controls['phoneNumber']?.errors.required">
-                            *** the phone Number is required ***<br>
+                            *** {{'register__phoneNumber_required_error' | translate}} ***<br>
                           </b>
                           <b *ngIf="!registrationForm.controls['phoneNumber']?.errors.minLength">
-                            *** the phone number must have a minimum of 9 digits ***
+                            *** {{ 'register__phoneNumber_digit_error' | translate}} ***
                           </b>
                         </div>
 
                         <div class="form-group">
-                            <label for="E-mail Address">E-mail Address</label>
+                            <label for="E-mail Address">{{ 'register_label_email' | translate}}</label>
                             <input class="form-control" formControlName="email"  name="email" type="text"
                             [class.is-invalid]="registrationForm.controls['email'].invalid && registrationForm.controls['email'].touched">
                         </div>
                         <div class="text-danger" *ngIf="registrationForm.controls['email'].invalid && registrationForm.controls['email'].touched">
                           <b *ngIf="registrationForm.controls['email']?.errors.required">
-                            *** the email is required ***<br>
+                            *** {{ 'register__email_required_error' | translate}} ***<br>
                           </b>
                           <b *ngIf="registrationForm.controls['email']?.errors.email">
-                            *** the email is invalid ***
+                            *** {{ 'register__email_invalid_error' | translate}} ***
                           </b>
                         </div>
 
                         <div class="form-group">
-                            <label for="ID Card Number">ID Card Number</label>
+                            <label for="ID Card Number">{{ 'register_label_idcard' | translate}}</label>
                             <input class="form-control" name="idNumber" formControlName="idNumber" type="text"
-                             [class.is-invalid]="registrationForm.controls['idNumber'].invalid && registrationForm.controls['idNumber'].touched">
+                            >
                         </div>
-                        <div class="text-danger" *ngIf="registrationForm.controls['idNumber'].invalid && registrationForm.controls['idNumber'].touched">
+                       <!-- <div class="text-danger" *ngIf="registrationForm.controls['idNumber'].invalid && registrationForm.controls['idNumber'].touched">
                           <b *ngIf="registrationForm.controls['idNumber']?.errors.required">
-                            *** the Number is required ***<br>
+                            *** the Id card Number is required ***<br>
                           </b>
                           <b *ngIf="!registrationForm.controls['idNumber']?.errors.minLength && !registrationForm.controls['idNumber']?.errors.maxLength">
                             *** the ID number must be a  exactly 9 digit ***
                           </b>
-                        </div>
+                        </div> -->
 
                         <input name="role" [hidden]="true" value="user" formControlName="role"/>
 
                         <div class="form-group">
-                            <label for="Password">Password</label>
-                            <input name="password" formControlName="password"  class="form-control" type="password"/>
+                            <label for="Password">{{ 'register_label_password' | translate}}</label>
+                            <input name="password" formControlName="password"  class="form-control" type="password"
+                            [class.is-invalid]="registrationForm.controls['password'].invalid && registrationForm.controls['password'].touched"/>
                         </div>
+                        <div class="text-danger" *ngIf="registrationForm.controls['password'].invalid && registrationForm.controls['password'].touched">
+                          <b *ngIf="registrationForm.controls['password']?.errors.required">
+                            *** {{ 'register__password_required' | translate }} ***<br>
+                          </b>
+                          <b *ngIf="!registrationForm.controls['password']?.errors.minLength && !registrationForm.controls['password']?.errors.maxLength">
+                            *** {{ 'register__password_minlength' | translate }} ***
+                          </b>
+                        </div>
+
                         <div class="form-group">
-                            <label for="Confirm Password">Confirm Password</label>
+                            <label for="Confirm Password">{{ 'register_label_passwordconfirmation' | translate}}</label>
                             <input name="passwordConfirmation" formControlName="passwordConfirmation" class="form-control" type="password"/>
                         </div>
 
@@ -101,16 +111,16 @@
                 </div>
                 <div class="col-md-6 book-left book-right">
                     <div class="book-left-info">
-                        <h4 style="color: #ed8323">Reasons for having a GoWaka account</h4>
+                        <h4 style="color: #ed8323">{{ 'register__label_reasonHavingAccount' | translate}}</h4>
                     </div>
                     <div class="book-left-bottom">
                     </div>
                     <ul>
-                        <li>Access booking history with upcoming trips</li><br>
-                        <li>SMS tickets and invoices</li><br>
-                        <li>Make checkouts simpler</li><br>
-                        <li>Enter your contact details only once</li><br>
-                        <li>Get alerts for low fares</li><br>
+                        <li>{{ 'register__label_accessbooking' | translate}}</li><br>
+                        <li>{{ 'register__label_smsTicket' | translate}}</li><br>
+                        <li>{{ 'register__label_checkoutSimpler' | translate}}</li><br>
+                        <li>{{ 'register__label_contactdetail' | translate}}</li><br>
+                        <li>{{ 'register__label_getalert' | translate}}</li><br>
                     </ul>
                 </div>
                 <div class="clearfix"> </div>

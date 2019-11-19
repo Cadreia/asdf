@@ -8,32 +8,31 @@
                     <div class="book-left-info">
 
 
-                        <h4 style="color: #ed8323">Login to your account</h4>
+                        <h4 style="color: #ed8323">{{ 'login__label_loginToAccount' | translate}}</h4>
                     </div>
                     <div class="book-left-form" >
 
                         <form accept-charset="UTF-8" [formGroup]="loginForm" (ngSubmit)="Login()">
-                          {{ loginForm.value | json }}
 
                         <div class="form-group">
-                            <label for="E-mail Address">E-mail Address</label>
+                            <label for="E-mail Address">{{ 'register_label_email' | translate}}</label>
                             <input formControlName="email" class="form-control" placeholder="Please enter your account email address to proceed" name="email" type="text"
                             [class.is-invalid]="loginForm.controls['email'].invalid && loginForm.controls['email'].touched">
                         </div>
                         <div *ngIf="loginForm.controls['email'].invalid && loginForm.controls['email'].touched">
-                          <small class="text-danger" *ngIf="loginForm.controls['email']?.errors.required">*** the email field is required ***<br></small>
-                          <small class="text-danger" *ngIf="loginForm.controls['email']?.errors.email">*** the email is invalid ***</small>
+                          <small class="text-danger" *ngIf="loginForm.controls['email']?.errors.required">*** {{ 'register__email_required_error' | translate }} ***<br></small>
+                          <small class="text-danger" *ngIf="loginForm.controls['email']?.errors.email">*** {{ 'register__email_invalid_error' | translate }} ***</small>
                         </div>
 
 
                         <div class="form-group">
-                            <label for="password">Password</label>
+                            <label for="password">{{ 'register_label_password' | translate}}</label>
 
                             <input formControlName="password" name="password" placeholder="Please enter your account password to proceed" class="form-control" required="true" type="password"
                             [class.is-invalid]="loginForm.controls['password'].invalid && loginForm.controls['password'].touched"/>
                         </div>
                         <div *ngIf="loginForm.controls['password'].invalid && loginForm.controls['password'].touched">
-                          <small class="text-danger" *ngIf="loginForm.controls['password']?.errors.minLength">*** the password need a nimimum of 6 characters ***<br></small>
+                          <small class="text-danger" *ngIf="loginForm.controls['password']?.errors.minLength">*** {{ 'register__password_minCharacter' | translate }} ***<br></small>
                         </div>
 
 
@@ -43,26 +42,26 @@
 
                         </form>
                         <div class="button-bottom" style="font-size: medium">
-                            <a href="" > Create New account</a>
+                            <a href="" > {{ 'login__label_createNewAccount' | translate}}</a>
 
-                            <a href=""  style="float: right"> Forgot Password</a>
+                            <a href=""  style="float: right">{{ 'login__label_forgotPassword' | translate}}</a>
                         </div>
 
                     </div>
                 </div>
                 <div class="col-md-6 col-sm-6 book-left book-right">
                     <div class="book-left-info">
-                        <h4 style="color: #ed8323">Reasons for having a GoWaka account</h4>
+                        <h4 style="color: #ed8323">{{ 'register__label_reasonHavingAccount' | translate}}</h4>
                     </div>
                     <div class="book-left-bottom">
 
                     </div>
                     <ul>
-                        <li>Access booking history with upcoming trips</li><br>
-                        <li>Print tickets and invoices</li><br>
-                        <li>Make checkouts simpler</li><br/>
-                        <li>Enter your contact details only once</li><br>
-                        <li>Get alerts for low fares</li><br>
+                        <li>{{ 'register__label_accessbooking' | translate}}</li><br>
+                        <li>{{ 'register__label_smsTicket' | translate}}</li><br>
+                        <li>{{ 'register__label_checkoutSimpler' | translate}}</li><br>
+                        <li>{{ 'register__label_contactdetail' | translate}}</li><br>
+                        <li>{{ 'register__label_getalert' | translate}}</li><br>
                     </ul>
                 </div>
                 <div class="clearfix"> </div>

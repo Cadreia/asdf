@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
-import { ToastrService } from 'ngx-toastr';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { RegistrationService } from 'src/app/services/registration/registration.service';
 import { Router } from '@angular/router';
+import { MessageService } from 'src/app/services/messages/message.service';
+// import { TranslatePipe } from 'src/app/pipes/translate.pipe';
+import { TranslationService } from 'src/app/services/translate/translation.service';
 
 @Component({
   selector: 'app-register',
@@ -10,12 +12,12 @@ import { Router } from '@angular/router';
   styleUrls: ['./register.component.scss']
 })
 export class RegisterComponent implements OnInit {
-
    registrationForm: FormGroup;
   constructor(private fb: FormBuilder,
               private registrationservice: RegistrationService,
-              private toastr: ToastrService,
-              private router: Router
+              private router: Router,
+              private toaster: MessageService,
+              private translationserv: TranslationService
       ) {}
 
   ngOnInit() {
@@ -24,10 +26,10 @@ export class RegisterComponent implements OnInit {
   lastName: ['', [Validators.required, Validators.minLength(3)]],
   phoneNumber: ['', [Validators.required, Validators.minLength(9)]], // Validators.pattern('^\d{9}$')
   email: ['', [Validators.required, Validators.email]],
-  idNumber: ['', [Validators.required, Validators.minLength(9), Validators.maxLength(9)]],
+  idNumber: [''],
   role: ['user'],
   password: ['', [Validators.required, Validators.minLength(6)]],
-  passwordConfirmation: [''],
+  passwordConfirmation: ['', Validators.required],
   });
   }
 
@@ -40,30 +42,28 @@ export class RegisterComponent implements OnInit {
     console.log(this.registrationForm.value);
     this.registrationservice.userRegister(this.registrationForm.value).subscribe(
       (data: any) => {
-        this.router.navigate(['public/home']);
-        console.log('successfull');
-        this.toastr.success('Registration to Gowaka was successful, please check your email for confirmation',
-         'Welcome to Gowaka!');
+        this.router.navigate(['public/authentication/login']);
+        this.toaster.successmessage();
       },
      ( error: any) => {
+      console.log(error);
       if (!(error && (Object.keys(error).length === 0))) {
         if (error.errorCode === 404) {
-           this.toastr.error('Sorrry the site could not be found, try again later',
-           'Error Registring to Gowak!');
+           this.toaster.pageNotFound();
         } else if (error.errorCode === 0) {
-          this.toastr.error('You are Offline, please check your internet connection', 'Error Registring to Gowak!');
-        } else if (error.errorCode === 401) {
-          this.toastr.error('you have not been authorized to use this credentials', 'Error Registring to Gowak!');
+          this.toaster.offlineMessage();
         } else if (error.errorCode === 422) {
-          this.toastr.error('the user email exist already, forgot password?', 'Error Registring to Gowak!');
-        } else if (error.errorCode === 403) {
-          this.toastr.error('you are forbidden to use these credentials', 'Forbidden Registring to Gowak!');
+          if (error.code === 'INVALID_EMAIL') {
+            this.toaster.invalidemailMessage();
+          } else if (error.code === 'USERNAME_EXISTS') {
+                this.toaster.emailExists();
+          }
         }
       }
       }
     );
     } else {
-      this.toastr.error('Both Passwords do no match, please check', 'Password mismatch!');
+      this.toaster.passwordMismatch();
     }
 
   }

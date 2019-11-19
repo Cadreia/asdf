@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpRequest, HttpHandler, HttpEvent, HttpInterceptor, HttpErrorResponse } from '@angular/common/http';
 import { Observable, throwError, BehaviorSubject } from 'rxjs';
 import { catchError, filter, take, switchMap } from 'rxjs/operators';
-import { RegistrationService } from './registration.service';
+import { LoginService } from '../login/login.service';
 
 @Injectable()
 export class TokenInterceptor implements HttpInterceptor {
@@ -10,9 +10,9 @@ export class TokenInterceptor implements HttpInterceptor {
   private isRefreshing = false;
   private refreshTokenSubject: BehaviorSubject<any> = new BehaviorSubject<any>(null);
 
-  constructor(public authService: RegistrationService) { }
+  constructor(public authService: LoginService) { }
 
-  intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
+  intercept(request: HttpRequest<any>, next: HttpHandler): Observable<any> {
 
     if (this.authService.getJwtToken()) {
       request = this.addToken(request, this.authService.getJwtToken());

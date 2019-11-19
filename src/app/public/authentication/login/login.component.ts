@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { Router } from '@angular/router';
-import { RegistrationService } from 'src/app/services/registration/registration.service';
+import { LoginService } from 'src/app/services/login/login.service';
+import { MessageService } from 'src/app/services/messages/message.service';
 
 @Component({
   selector: 'app-login',
@@ -13,9 +14,9 @@ export class LoginComponent implements OnInit {
 
 loginForm: FormGroup;
   constructor(private fb: FormBuilder,
-              private toastr: ToastrService,
+              private toaster: MessageService,
               private router: Router,
-              private registrationService: RegistrationService) { }
+              private loginService: LoginService) { }
 
   ngOnInit() {
     this.loginForm = this.fb.group({
@@ -26,27 +27,29 @@ loginForm: FormGroup;
 
   Login() {
 console.log(this.loginForm.value);
-this.registrationService.login(this.loginForm.value).subscribe(
-          (data) => {
-            this.toastr.success('You Successfully login into Gowaka', 'Login Successfully');
-            this.router.navigate(['public/home']);
-          },
-          error => {
-           console.log('there was some error ' + error.errorCode);
-          //  if (!(error && (Object.keys(error).length === 0))) {
-          //     if (error.errorCode === 422) {
-          //       this.toastr.error('email address has not been verified', 'email not verified!');
-          //     } else if ( error.errorCode === 401) {
-          //       this.toastr.error('wrong user email or password', 'Bad Credential!');
-          //     } else if ( error.errorCode === 404) {
-          //       this.toastr.error('please the server encounter an error, try later', 'server page error!');
-          //     } else if ( error.errorCode === 0) {
-          //       this.toastr.error('check your internet connection, you are offline', 'No Internet!');
-          //     } else {
-          //       this.toastr.error('error with code ' + error.errorCode + ' ', 'No!');
-          //     }
-          // }
-          }
-        );
+this.loginService.login(this.loginForm.value).subscribe(
+  data => {
+    this.toaster.loginSuccess();
+    this.router.navigate(['public/home']);
+  },
+ ( error: any) => {
+    console.log(error.errorCode);
+    if (!(error && Object.keys(error).length === 0)) {
+      if (error.errorCode === 422) {
+        if (error.code === 'EMAIL_NOT_VERIFY') {
+        this.toaster.emailNotVerified();
+      }
+      } else if (error.errorCode === 404) {
+        this.toaster.pageNotFound();
+      } else if (error.errorCode === 0) {
+        this.toaster.offlineMessage();
+      } else if (error.errorCode === 401) {
+        if (error.code === 'BAD_CREDENTIALS') {
+        this.toaster.badCredentials();
+      }
+      }
+    }
+  }
+);
   }
 }

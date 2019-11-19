@@ -16,13 +16,23 @@
                         <div class="top-user-area clearfix">
                             <ul class="top-user-area-list list list-horizontal list-border">
 
+                              <div *ngIf="isLoggedIn; then thisBlock; else elseBlock"></div>
+                              <ng-template #thisBlock>
+                                 <li>
+                                  <i class="fa fa-user"></i>&nbsp;<a routerLink="public/authentication/login">{{ "user_name" }}</a>
+                                </li>
 
-                                    <li><i class="fa fa-user"></i>&nbsp;<a routerLink="public/authentication/login">{{ "header_link_login" | translate }}</a>
+                                <li><a routerLink="public/authentication/register"><i class="fa fa-user-plus" (click)="logout()"></i>&nbsp;logout</a>
+                                    </li>
+                                </ng-template>
+
+                                <ng-template #elseBlock>
+                                  <li><i class="fa fa-user"></i>&nbsp;<a routerLink="public/authentication/login">{{ "header_link_login" | translate }}</a>
                                     </li>
 
                                     <li><a routerLink="public/authentication/register"><i class="fa fa-user-plus"></i>&nbsp;{{ "header_link_register" | translate }}</a>
                                     </li>
-
+                                </ng-template>
 
                                 <li class="top-user-area-lang nav-drop">
                                     <a >
