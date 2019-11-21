@@ -12,7 +12,7 @@ export class ErrorhandlerService {
     console.log(error);
     if (error.error instanceof HttpErrorResponse) {
       // client-side error
-      errorResponse = { message: error.error.message, errorCode: error.error.status, code: error.error.code };
+      errorResponse = { message: error.error.message, errorCode: error.error.status, code: error.code };
       // errorMessage = `Error: ${error.error.message}`;
     } else {
       // server-side error

@@ -69,7 +69,7 @@ export class MessageService {
 
   logoutMessage() {
     const logout = this.translation.messages[('user_logout_message')];
-    this.toastr.error(logout);
+    this.toastr.warning(logout);
   }
 
   passwordMismatch() {

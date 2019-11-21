@@ -28,12 +28,13 @@ loginForm: FormGroup;
   Login() {
 console.log(this.loginForm.value);
 this.loginService.login(this.loginForm.value).subscribe(
-  data => {
+  (data: any) => {
+    console.log(data);
     this.toaster.loginSuccess();
     this.router.navigate(['public/home']);
   },
  ( error: any) => {
-    console.log(error.errorCode);
+    console.log('the error is: ', error);
     if (!(error && Object.keys(error).length === 0)) {
       if (error.errorCode === 422) {
         if (error.code === 'EMAIL_NOT_VERIFY') {
@@ -47,6 +48,8 @@ this.loginService.login(this.loginForm.value).subscribe(
         if (error.code === 'BAD_CREDENTIALS') {
         this.toaster.badCredentials();
       }
+      } else {
+        this.toaster.badCredentials();
       }
     }
   }

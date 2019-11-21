@@ -19,10 +19,10 @@
                               <div *ngIf="isLoggedIn; then thisBlock; else elseBlock"></div>
                               <ng-template #thisBlock>
                                  <li>
-                                  <i class="fa fa-user"></i>&nbsp;<a routerLink="public/authentication/login">{{ "user_name" }}</a>
+                                  <i class="fa fa-user"></i>&nbsp;<a routerLink="public/home">{{ "user_name" }}</a>
                                 </li>
 
-                                <li><a routerLink="public/authentication/register"><i class="fa fa-user-plus" (click)="logout()"></i>&nbsp;logout</a>
+                                <li><a  (click)="logout()"><i class="fa fa-user-plus"></i>&nbsp;logout</a>
                                     </li>
                                 </ng-template>
 

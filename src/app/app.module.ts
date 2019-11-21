@@ -5,13 +5,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppRoutingModule, routingComponents } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { TranslatePipe } from './pipes/translate.pipe';
 import { HeaderComponent } from './public/header/header.component';
 import { FooterComponent } from './public/footer/footer.component';
-import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 import { TranslationService } from './services/translate/translation.service';
 import { ToastrModule } from 'ngx-toastr';
-import { TokenInterceptor } from './services/registration/token.interceptor';
 import { ShareModule } from './public/shared/share/share.module';
 
 const setTranslationFactory = (translationService: TranslationService) => {
@@ -40,11 +38,6 @@ const setTranslationFactory = (translationService: TranslationService) => {
   ],
   providers: [
     TranslationService,
-    {
-      provide: HTTP_INTERCEPTORS,
-      useClass: TokenInterceptor,
-      multi: true
-    },
     {
       provide: APP_INITIALIZER,
       useFactory: setTranslationFactory,
