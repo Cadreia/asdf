@@ -16,7 +16,7 @@ export class LoginService {
   private readonly Header = 'header';
   private readonly issuer = 'issuer';
   private readonly token = '';
-  private readonly refresh_token = '';
+  private readonly RefreshToken = '';
   public loggedUser: string;
   private errorhandler = new ErrorhandlerService();
   loginurl = config.api_base_url;
@@ -62,7 +62,7 @@ export class LoginService {
      localStorage.removeItem(this.Header);
      localStorage.removeItem(this.issuer);
      localStorage.removeItem(this.token);
-     localStorage.removeItem(this.refresh_token);
+     localStorage.removeItem(this.RefreshToken);
   }
 
   // private doLogoutUser() {

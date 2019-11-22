@@ -22,6 +22,9 @@ loginForm: FormGroup;
       password: ['', [Validators.required, Validators.minLength(6)]],
     });
     localStorage.removeItem('accessToken');
+    if (this.loginService.isLoggedIn()) {
+      this.router.navigate(['public/home']);
+    }
   }
 
   Login() {
