@@ -7,5 +7,5 @@ export class User {
   idNumber: number;
   password: string;
   passwordConfirmation: string;
-  token?: string;
+  accessToken?: string;
 }

@@ -91,5 +91,6 @@
   "login_notverified_email_error": "you registered successfully but you have not yet verified your email, please check your email for verification",
   "login_notverified_email_error_title": "email not verified!",
   "login_wrongCredential_error": "email and password do not match. Visit the Forgot Password link bellow if you have forgotten your password",
-  "user_logout_message": "You logout successfully, you can omly access access certain the GoWaka platform by loggin In."
+  "user_logout_message": "You logout successfully, you can only access real features of GoWaka platform by login In.",
+  "header_offline_message": "you are offline.. please check youe internet connection"
 }

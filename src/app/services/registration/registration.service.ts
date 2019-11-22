@@ -1,8 +1,7 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
-import { of, Observable, throwError } from 'rxjs';
-import { catchError, mapTo, tap, retry } from 'rxjs/operators';
-import { Tokens } from '../../model/tokens';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { catchError, retry } from 'rxjs/operators';
 import { User } from 'src/app/model/user';
 import { config} from 'src/app/configs/app.config';
 import { ErrorhandlerService } from '../errorhandlers/errorhandler.service';
@@ -13,7 +12,7 @@ import { ErrorhandlerService } from '../errorhandlers/errorhandler.service';
 export class RegistrationService {
 
   readonly baseUrl = config.api_base_url;
-  private readonly JWT_TOKEN = 'JWT_TOKEN';
+  private readonly token = 'accessToken';
   public errorhandler = new ErrorhandlerService();
   constructor(private http: HttpClient) { }
 
@@ -40,7 +39,7 @@ export class RegistrationService {
   }
 
   getJwtToken() {
-    return localStorage.getItem(this.JWT_TOKEN);
+    return localStorage.getItem(this.token);
   }
 
 }

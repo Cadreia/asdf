@@ -1,4 +1,6 @@
 export class Tokens {
-  token: string;
-  refreshToken: string;
+  header: string;
+  accessToken: string;
+  issuer: string;
+  type: string;
 }

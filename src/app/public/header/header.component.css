@@ -1,0 +1,10 @@
+.offline{
+  text-align: center;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  background-color: rgb(192, 78, 167);
+  color: white;
+  font-size: 18px;
+  font-family: 'Comic Sans MS';
+}

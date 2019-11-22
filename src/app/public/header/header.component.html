@@ -1,6 +1,5 @@
 <!-- FACEBOOK WIDGET -->
     <div id="fb-root"></div>
-
 <header id="main-header">
         <div class="header-top">
             <div class="container">
@@ -22,7 +21,7 @@
                                   <i class="fa fa-user"></i>&nbsp;<a routerLink="public/home">{{ "user_name" }}</a>
                                 </li>
 
-                                <li><a  (click)="logout()"><i class="fa fa-user-plus"></i>&nbsp;logout</a>
+                                <li><button  (click)="logout()" class="btn btn-border btn-dark"><i class="fa fa-user-plus"></i>&nbsp;logout</button>
                                     </li>
                                 </ng-template>
 
@@ -97,3 +96,4 @@
             </div>
         </div>
     </header>
+<div *ngIf='isOffline' class="offline">{{ 'header_offline_message' | translate }}</div>

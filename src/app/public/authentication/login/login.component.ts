@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ToastrService } from 'ngx-toastr';
 import { Router } from '@angular/router';
 import { LoginService } from 'src/app/services/login/login.service';
 import { MessageService } from 'src/app/services/messages/message.service';
@@ -11,7 +10,6 @@ import { MessageService } from 'src/app/services/messages/message.service';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
-
 loginForm: FormGroup;
   constructor(private fb: FormBuilder,
               private toaster: MessageService,
@@ -23,13 +21,14 @@ loginForm: FormGroup;
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(6)]],
     });
+    localStorage.removeItem('accessToken');
   }
 
   Login() {
 console.log(this.loginForm.value);
 this.loginService.login(this.loginForm.value).subscribe(
-  (data: any) => {
-    console.log(data);
+  (response: any) => {
+    (JSON.stringify(response));
     this.toaster.loginSuccess();
     this.router.navigate(['public/home']);
   },
