@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { LoginService } from 'src/app/services/login/login.service';
 import { MessageService } from 'src/app/services/messages/message.service';
+import { config } from 'src/app/configs/app.config';
 
 @Component({
   selector: 'app-login',
@@ -11,6 +12,9 @@ import { MessageService } from 'src/app/services/messages/message.service';
 })
 export class LoginComponent implements OnInit {
 loginForm: FormGroup;
+public forgotPath = config.forgot_password;
+public createNewAccount = config.create_new;
+
   constructor(private fb: FormBuilder,
               private toaster: MessageService,
               private router: Router,
@@ -31,6 +35,7 @@ loginForm: FormGroup;
 console.log(this.loginForm.value);
 this.loginService.login(this.loginForm.value).subscribe(
   (response: any) => {
+    // window.location.reload();
     (JSON.stringify(response));
     this.toaster.loginSuccess();
     this.router.navigate(['public/home']);
@@ -50,8 +55,8 @@ this.loginService.login(this.loginForm.value).subscribe(
         if (error.code === 'BAD_CREDENTIALS') {
         this.toaster.badCredentials();
       }
-      } else {
-        this.toaster.badCredentials();
+      } else if (error.errorCode === 500) {
+        this.toaster.internalError();
       }
     }
   }

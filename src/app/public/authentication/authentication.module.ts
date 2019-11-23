@@ -5,18 +5,19 @@ import { LoginComponent } from './login/login.component';
 import { AuthenticationRoutingModule } from './authentication.routing';
 import { ShareModule } from '../shared/share/share.module';
 import { RegistrationService } from 'src/app/services/registration/registration.service';
-// import { TranslationService } from 'src/app/services/translate/translation.service';
-import { TranslatePipe } from 'src/app/pipes/translate.pipe';
+import { ForgotpasswordComponent } from './forgotpassword/forgotpassword.component';
+import { ResetService } from 'src/app/services/resetpassword/reset.service';
+import { LoginService } from 'src/app/services/login/login.service';
 
 
 
 @NgModule({
-  declarations: [RegisterComponent, LoginComponent],
+  declarations: [RegisterComponent, LoginComponent, ForgotpasswordComponent],
   imports: [
     CommonModule,
     ShareModule,
     AuthenticationRoutingModule
   ],
-  providers: [RegistrationService]
+  providers: [RegistrationService, LoginService, ResetService]
 })
 export class AuthenticationModule {}

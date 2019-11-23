@@ -12,20 +12,20 @@
                         <form [formGroup]="registrationForm" (ngSubmit)="submitForm()">
 
                         <div class="form-group">
-                            <label for="First Name">{{"register_label_firstname" | translate}}</label>
-                            <input class="form-control" formControlName="firstName" name="firstName" type="text"
-                            [class.is-invalid]="registrationForm.controls['firstName'].invalid && registrationForm.controls['firstName'].touched">
+                            <label>{{"register_label_fullname" | translate}}</label>
+                            <input class="form-control" formControlName="fullName" name="fullName" type="text"
+                            [class.is-invalid]="registrationForm.controls['fullName'].invalid && registrationForm.controls['fullName'].touched">
                         </div>
-                        <div class="text-danger" *ngIf="registrationForm.controls['firstName'].invalid && registrationForm.controls['firstName'].touched">
-                          <b *ngIf="registrationForm.controls['firstName']?.errors.required">
-                            *** {{ 'register__firstname_required_error'| translate }} *** <br>
+                        <div class="text-danger" *ngIf="registrationForm.controls['fullName'].invalid && registrationForm.controls['fullName'].touched">
+                          <b *ngIf="registrationForm.controls['fullName']?.errors.required">
+                            *** {{ 'register__fullname_required_error'| translate }} *** <br>
                           </b>
-                          <b *ngIf="!registrationForm.controls['firstName']?.errors.minLength">
-                            *** {{ 'register__firstname_minCharacter_error' | translate }} ***
+                          <b *ngIf="!registrationForm.controls['fullName']?.errors.minLength">
+                            *** {{ 'register__fullname_minCharacter_error' | translate }} ***
                           </b>
                         </div>
 
-                        <div class="form-group">
+                        <!-- <div class="form-group">
                             <label for="Last Name">{{ 'register_label_lastname' | translate}}</label>
                             <input  class="form-control" formControlName="lastName"  name="lastName" type="text"
                             [class.is-invalid]="registrationForm.controls['lastName'].invalid && registrationForm.controls['lastName'].touched">
@@ -37,7 +37,7 @@
                           <b *ngIf="!registrationForm.controls['lastName']?.errors.minLength">
                             ***{{ 'register__lastname_minCharacter_error' | translate}} ***
                           </b>
-                        </div>
+                        </div> -->
 
                         <div class="form-group">
                             <label for="Phone Number">{{ 'register_label_phoneNumber' | translate}} </label>
@@ -103,7 +103,7 @@
                         </div>
 
                         <div class="form-group">
-                            <input class="btn btn-primary" type="submit" value="Register" [disabled]="!registrationForm.valid">
+                            <input class="btn btn-primary" type="submit" value="{{ 'register_label_register' | translate }}" [disabled]="!registrationForm.valid">
                         </div>
 
                         </form>

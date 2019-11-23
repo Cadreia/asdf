@@ -42,9 +42,9 @@
 
                         </form>
                         <div class="button-bottom" style="font-size: medium">
-                            <a href="" > {{ 'login__label_createNewAccount' | translate}}</a>
+                            <a [routerLink]="createNewAccount" > {{ 'login__label_createNewAccount' | translate}}</a>
 
-                            <a href=""  style="float: right">{{ 'login__label_forgotPassword' | translate}}</a>
+                            <a [routerLink]="forgotPath"  style="float: right">{{ 'login__label_forgotPassword' | translate}}</a>
                         </div>
 
                     </div>

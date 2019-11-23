@@ -20,8 +20,7 @@ export class RegistrationService {
   userRegister(userinfo: User): Observable<User[]> {
   const  body: User = {
     id: userinfo.id,
-    firstName: userinfo.firstName,
-    lastName: userinfo.lastName,
+    fullName: userinfo.fullName,
     phoneNumber: userinfo.phoneNumber,
     email: userinfo.email,
     idNumber: userinfo.idNumber,

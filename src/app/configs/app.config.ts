@@ -3,4 +3,8 @@ export const config = {
   asset_dir: 'assets/',
   default_lang: 'en',
 
+  forgot_password: '../forgotpassword',
+  create_new: '../register',
+  login_dir: '../login',
+
 };

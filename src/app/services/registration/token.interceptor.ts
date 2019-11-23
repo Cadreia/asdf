@@ -6,31 +6,33 @@ import { LoginService } from '../login/login.service';
 
 @Injectable()
 export class TokenInterceptor implements HttpInterceptor {
-
   private isRefreshing = false;
-  private refreshTokenSubject: BehaviorSubject<any> = new BehaviorSubject<any>(null);
+  private refreshTokenSubject: BehaviorSubject<any> = new BehaviorSubject<any>(
+    null
+  );
 
-  constructor(public authService: LoginService) { }
+  constructor(public loginService: LoginService) {}
 
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<any> {
-
-    if (this.authService.getJwtToken()) {
-      request = this.addToken(request, this.authService.getJwtToken());
+    if (this.loginService.getJwtToken()) {
+      request = this.addToken(request, this.loginService.getJwtToken());
     }
 
-    return next.handle(request).pipe(catchError(error => {
-      if (error instanceof HttpErrorResponse && error.status === 404) {
-        return this.handle404Error(request, next);
-      } else {
-        return throwError(error);
-      }
-    }));
+    return next.handle(request).pipe(
+      catchError(error => {
+        if (error instanceof HttpErrorResponse && error.status === 404) {
+          return this.handle404Error(request, next);
+        } else {
+          return throwError(error);
+        }
+      })
+    );
   }
 
-  private addToken(request: HttpRequest<any>, token: string) {
+  private addToken(request: HttpRequest<any>, accessToken: string) {
     return request.clone({
       setHeaders: {
-        Authorization: `Bearer ${token}`
+        Authorization: `Bearer ${accessToken}`
       }
     });
   }
@@ -40,20 +42,21 @@ export class TokenInterceptor implements HttpInterceptor {
       this.isRefreshing = true;
       this.refreshTokenSubject.next(null);
 
-      return this.authService.refreshToken().pipe(
-        switchMap((token: any) => {
+      return this.loginService.refreshToken().pipe(
+        switchMap((accessToken: any) => {
           this.isRefreshing = false;
-          this.refreshTokenSubject.next(token);
-          return next.handle(this.addToken(request, token));
-        }));
-
+          this.refreshTokenSubject.next(accessToken);
+          return next.handle(this.addToken(request, accessToken));
+        })
+      );
     } else {
       return this.refreshTokenSubject.pipe(
-        filter(token => token != null),
+        filter(accessToken => accessToken != null),
         take(1),
         switchMap(jwt => {
           return next.handle(this.addToken(request, jwt));
-        }));
+        })
+      );
     }
   }
 }

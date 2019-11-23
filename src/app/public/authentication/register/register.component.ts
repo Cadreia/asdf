@@ -22,12 +22,11 @@ export class RegisterComponent implements OnInit {
 
   ngOnInit() {
     this.registrationForm = this.fb.group({
-  firstName: ['', [Validators.required, Validators.minLength(3)]],
-  lastName: ['', [Validators.required, Validators.minLength(3)]],
+  fullName: ['', [Validators.required, Validators.minLength(3)]],
   phoneNumber: ['', [Validators.required, Validators.minLength(9)]], // Validators.pattern('^\d{9}$')
   email: ['', [Validators.required, Validators.email]],
   idNumber: [''],
-  role: ['user'],
+  role: ['User'],
   password: ['', [Validators.required, Validators.minLength(6)]],
   passwordConfirmation: ['', Validators.required],
   });
@@ -36,7 +35,7 @@ export class RegisterComponent implements OnInit {
   submitForm() {
     const passwords = this.registrationForm.get('password').value;
     const passwordconfirmations = this.registrationForm.get('passwordConfirmation').value;
-
+    console.log(this.registrationForm.value);
     if (passwords === passwordconfirmations) {
 
     console.log(this.registrationForm.value);

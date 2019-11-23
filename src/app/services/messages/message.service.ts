@@ -23,11 +23,28 @@ export class MessageService {
     this.toastr.success(successRegistrationBody, successRegistrationTitle);
   }
 
+  successEmailPasswordReset() {
+    const successResetBody = this.translation.messages[
+      ('passsword_reset_link_body')
+    ];
+    const successResetTitle = this.translation.messages[
+      ('password_reset_link_title')
+    ];
+    this.toastr.info(successResetBody, successResetTitle);
+  }
+
   invalidemailMessage() {
     const invalidEmail = this.translation.messages[
       ('register_422_error_invalid_email')
     ];
     this.toastr.error(invalidEmail, this.errorTitle);
+  }
+
+  internalError() {
+    const internal = this.translation.messages[
+      ('login_internal_error')
+    ];
+    this.toastr.error(internal, this.errorTitle);
   }
 
   emailExists() {

@@ -3,6 +3,7 @@ import { LoginService } from 'src/app/services/login/login.service';
 import { MessageService } from 'src/app/services/messages/message.service';
 import { User } from 'src/app/model/user';
 import { first } from 'rxjs/operators';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -17,6 +18,7 @@ export class HeaderComponent implements OnInit {
 public imagepath = '../../../assets/template/images/logo/logo.ico';
   constructor(private loginService: LoginService,
               private toaster: MessageService,
+              private router: Router
              ) { }
 
   ngOnInit() {
@@ -49,8 +51,9 @@ public imagepath = '../../../assets/template/images/logo/logo.ico';
 
   logout() {
     this.loginService.logout();
-    this.toaster.logoutMessage();
     this.isLoggedIn = false;
+    this.toaster.logoutMessage();
+    this.router.navigate(['public/authentication/login']);
   }
 
 }
