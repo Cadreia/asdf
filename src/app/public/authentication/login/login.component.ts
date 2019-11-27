@@ -25,7 +25,6 @@ public createNewAccount = config.create_new;
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(6)]],
     });
-    localStorage.removeItem('accessToken');
     if (this.loginService.isLoggedIn()) {
       this.router.navigate(['public/home']);
     }
@@ -35,8 +34,12 @@ public createNewAccount = config.create_new;
 console.log(this.loginForm.value);
 this.loginService.login(this.loginForm.value).subscribe(
   (response: any) => {
-    // window.location.reload();
-    (JSON.stringify(response));
+    localStorage.setItem('userDetails',
+                  JSON.stringify({id: response.userDetails.id,
+                    fullName: response.userDetails.fullName,
+                    email: response.userDetails.email,
+                    role: response.userDetails.roles})
+                  );
     this.toaster.loginSuccess();
     this.router.navigate(['public/home']);
   },

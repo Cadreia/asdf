@@ -65,12 +65,12 @@
 
         </div>
     </div>
-    <input type="hidden" id="error_network_msg" value="Error reaching the server. Check your connection">
-    <input type="hidden" id="error_seat_finished_msg" value="Sorry, this journey has only ">
-    <input type="hidden" id="error_seat_finished_msg_2" value=" seats left available for booking">
-    <input type="hidden" id="alert_hold_on_msg_invoice" value=" Preparing your booked invoice ...">
-    <input type="hidden" id="seat_legend_p_msg_1" value=" Available Seat(s)">
-    <input type="hidden" id="seat_legend_p_msg_2" value="Selected Seat(s)">
-    <input type="hidden" id="seat_legend_p_msg_3" value="Already Booked Seat(s)">
-    <input type="hidden" id="check_out_auth_invalid_msg" value="{{ 'footer_invalid_email_password_combination' | translate }}">
+    <input [hidden]="true" id="error_network_msg" value="Error reaching the server. Check your connection">
+    <input [hidden]="true" id="error_seat_finished_msg" value="Sorry, this journey has only ">
+    <input [hidden]="true" id="error_seat_finished_msg_2" value=" seats left available for booking">
+    <input [hidden]="true" id="alert_hold_on_msg_invoice" value=" Preparing your booked invoice ...">
+    <input [hidden]="true" id="seat_legend_p_msg_1" value=" Available Seat(s)">
+    <input [hidden]="true" id="seat_legend_p_msg_2" value="Selected Seat(s)">
+    <input [hidden]="true" id="seat_legend_p_msg_3" value="Already Booked Seat(s)">
+    <input [hidden]="true" id="check_out_auth_invalid_msg" value="{{ 'footer_invalid_email_password_combination' | translate }}">
 </footer>

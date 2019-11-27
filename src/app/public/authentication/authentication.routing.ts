@@ -5,7 +5,6 @@ import { LoginComponent } from './login/login.component';
 import { ForgotpasswordComponent } from './forgotpassword/forgotpassword.component';
 
 
-
 const routes: Routes = [
    {
     path: 'forgotpassword',

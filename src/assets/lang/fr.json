@@ -1,5 +1,5 @@
 {
-  "header_link_login": "Login",
+  "header_link_login": "S'identifier",
   "header_link_register": "Register",
   "default_lang": "ENGLISH",
   "header_link_home": "Home",
@@ -76,7 +76,7 @@
   "login__label_createNewAccount": "Create New account",
   "login__label_forgotPassword": "Forgot Password",
 
-  "password_mismatch_messsage": "Both Passwords do no match, the password field and the confirm password field do not match. please check and re-submit !",
+  "password_mismatch_messsage": "Both Passwords do no match, please check",
   "password_mismatch_title": "Password Mismatch",
   "password_reset_link_title": "Redirection Link",
   "passsword_reset_link_body": "A link has been sent to your email to reset account, please check your email and follow the link to reset your Gowaka account password.",
@@ -89,7 +89,6 @@
   "register_error_offline": "You are Offline, please check your internet connection",
   "register_404_error": "Sorry the server is busy, please try again later",
   "login_internal_error": "Sorry the server encounter an issue during you logging in, please try again later",
-  "reset_wrongCredential_error": "The old password do not match with the one you entered. Please if you have forgotten your password: go to the reset forgot password link in the login page and reset it.",
 
   "login_successfull_message": "You Successfully login into Gowaka, an E-mail has been to you, please check",
   "login_successfull_title": "Login Successfully!",
@@ -97,27 +96,5 @@
   "login_notverified_email_error_title": "email not verified!",
   "login_wrongCredential_error": "email and password do not match. Visit the Forgot Password link bellow if you have forgotten your password",
   "user_logout_message": "You logout successfully, you can only access real features of GoWaka platform by login In.",
-  "header_offline_message": "you are offline.. please check youe internet connection",
-  "changepassword_successfull_message": "Congratulations, your Password have been changed successfully, you can re-login to check",
-
-  "account_menu_member_since": "Member since",
-  "account_menu_overview": "Overview",
-  "account_menu_setting": "Account Settings",
-  "account_menu_history": "Booking History",
-  "account_menu_reservation": "Make Reservation",
-  "overview_label_account_profile": "GoWaka Account profile for",
-  "overview_label_travel_statistics": "Travel Statistics",
-  "overview_label_event_attended": "Events Attended",
-  "overview_label_trainTrips": "Train Trips",
-  "overview_label_busTrips": "Bus Trips",
-  "overview_label_edit": "Edit Profile",
-  "overview_label_account_info": "Account information",
-  "setting_label_personal_info": "Personal Information",
-  "setting_label_full_name": "Full Name",
-  "setting_label_change_password": "Change Password",
-  "setting_label_new_password": "New Password",
-  "setting_label_current_password": "Current Password",
-  "setting_current_password_required": "the Current Password field is required",
-  "setting_current_password_minlength": "your Current Password had a minimun of 6 characters",
-  "setting_new_password_minlength": "The new Password must have a minimun of 6 characters"
+  "header_offline_message": "you are offline.. please check youe internet connection"
 }

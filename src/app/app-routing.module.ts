@@ -17,6 +17,13 @@ const routes: Routes = [
         mod => mod.AuthenticationModule
       )
   },
+  {
+    path: 'public/users',
+    loadChildren: () =>
+      import('./public/users/users.module').then(
+        mod => mod.UsersModule
+      )
+  },
   // { path: 'public/authentication/login', component: LoginComponent },
   { path: 'public/faqs', component: FaqsComponent },
   { path: 'public/about', component: AboutComponent },

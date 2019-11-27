@@ -6,5 +6,6 @@ export const config = {
   forgot_password: '../forgotpassword',
   create_new: '../register',
   login_dir: '../login',
+  account_dir: 'public/users/account',
 
 };

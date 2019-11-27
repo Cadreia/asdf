@@ -9,7 +9,7 @@ import { TranslationService } from 'src/app/services/translate/translation.servi
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
-  styleUrls: ['./register.component.scss']
+  styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
    registrationForm: FormGroup;

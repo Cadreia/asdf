@@ -1,5 +1,5 @@
-.errorStyle {
-  border: 1px solid #ccc !important;
+.errorStyle{
+  border:1px solid #ccc !important;
   margin: 0px;
   text-align: center;
   margin-top: -15px;
@@ -9,13 +9,11 @@
 .container {
   margin-top: 50px;
   margin-bottom: 20px;
-  border: 25px solid #E3F2FD;
+  border: 25px solid #dcedc8;
 }
-
-.innnerContainer {
-  border: 1px solid #ed8323 !important;
+.innnerContainer{
+  border:1px solid #ed8323 !important;
 }
-
-.margin {
+.margin{
   margin: 10px;
 }

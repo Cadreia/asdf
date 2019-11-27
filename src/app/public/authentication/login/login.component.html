@@ -1,8 +1,8 @@
 <!-- banner-bottom -->
-<div class="container" style="margin-top: 50px; margin-bottom: 20px">
-    <!-- container -->
-    <div class="row" id="account_login">
-        <div class="faqs-top-grids">
+<div class="container">
+
+    <div class="row innnerContainer" id="account_login">
+        <div class="faqs-top-grids margin">
             <div class="book-grids">
                 <div class="col-md-6 book-left" >
                     <div class="book-left-info">
@@ -19,9 +19,9 @@
                             <input formControlName="email" class="form-control" placeholder="Please enter your account email address to proceed" name="email" type="text"
                             [class.is-invalid]="loginForm.controls['email'].invalid && loginForm.controls['email'].touched">
                         </div>
-                        <div *ngIf="loginForm.controls['email'].invalid && loginForm.controls['email'].touched">
-                          <small class="text-danger" *ngIf="loginForm.controls['email']?.errors.required">*** {{ 'register__email_required_error' | translate }} ***<br></small>
-                          <small class="text-danger" *ngIf="loginForm.controls['email']?.errors.email">*** {{ 'register__email_invalid_error' | translate }} ***</small>
+                        <div class="errorStyle" *ngIf="loginForm.controls['email'].invalid && loginForm.controls['email'].touched">
+                          <b *ngIf="loginForm.controls['email']?.errors.required">{{ 'register__email_required_error' | translate }}<br></b>
+                          <b *ngIf="loginForm.controls['email']?.errors.email"> {{ 'register__email_invalid_error' | translate }}</b>
                         </div>
 
 
@@ -32,7 +32,7 @@
                             [class.is-invalid]="loginForm.controls['password'].invalid && loginForm.controls['password'].touched"/>
                         </div>
                         <div *ngIf="loginForm.controls['password'].invalid && loginForm.controls['password'].touched">
-                          <small class="text-danger" *ngIf="loginForm.controls['password']?.errors.minLength">*** {{ 'register__password_minCharacter' | translate }} ***<br></small>
+                          <b class="text-danger" *ngIf="loginForm.controls['password']?.errors.minLength">{{ 'register__password_minCharacter' | translate }}<br></b>
                         </div>
 
 
@@ -68,4 +68,3 @@
             </div>
         </div>
     </div>
-    <!-- //container -->

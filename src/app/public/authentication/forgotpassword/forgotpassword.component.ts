@@ -26,12 +26,13 @@ public createNewAccount = config.create_new;
   }
 
   resetFunction() {
+    console.log(this.resetForm.value);
     this.resetService.resetPassword(this.resetForm.value, this.tokens).subscribe(
       (response: any) => {
         this.toaster.successEmailPasswordReset();
         console.log('the code is:', response);
       },
-      (error) => {
+      (error: any) => {
         console.log(error);
         if (!(error && Object.keys(error).length === 422)) {
           if (error.errorCode === 0) {

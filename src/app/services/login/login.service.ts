@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { HttpHeaders } from '@angular/common/http';
-import { tap, mapTo, catchError } from 'rxjs/operators';
+import { tap, mapTo, catchError, retry } from 'rxjs/operators';
 import { HttpClient } from '@angular/common/http';
 import { Tokens } from '../../model/tokens';
 import { config } from 'src/app/configs/app.config';
@@ -12,64 +12,54 @@ import { User } from 'src/app/model/user';
   providedIn: 'root'
 })
 export class LoginService {
-  private readonly Token = 'accesstToken';
+  private readonly Token = 'accessToken';
   private readonly Header = 'header';
   private readonly issuer = 'issuer';
-  private readonly token = '';
-  private readonly RefreshToken = '';
+  private readonly type = 'type';
+  public id: any;
+  public fullName = 'fullName';
+  public role = 'role';
+  public email = 'email';
+  private Tokenn = new Tokens();
   public loggedUser: string;
   private errorhandler = new ErrorhandlerService();
   loginurl = config.api_base_url;
   constructor(private http: HttpClient) {}
 
-  login(user: { email: string; password: string }): Observable<boolean> {
+  login(user: { email: string; password: string}): Observable<User> {
     const requestheader = new HttpHeaders({
       'Content-Type': 'application/json',
       Accept: 'application/json',
-      Authorization: 'Bearer'
+      Authorization: 'Bearer ' + this.Tokenn.accessToken
     });
+
     return this.http
       .post<any>(`${this.loginurl}/api/public/login`, user, {
         headers: requestheader
       })
       .pipe(
-        tap(tokens => this.doLoginUser(tokens)),
+        retry(1),
+        tap(data => this.doLoginUser(data)),
         catchError(this.errorhandler.handleError)
       );
   }
-  private doLoginUser(tokens: Tokens) {
+  private doLoginUser(data: Tokens) {
    // this.loggedUser = email;
-    localStorage.setItem(this.Token, tokens.accessToken);
-    localStorage.setItem(this.Header, tokens.header);
-    localStorage.setItem(this.issuer, tokens.issuer);
+    localStorage.setItem(this.Token, data.accessToken);
+    localStorage.setItem(this.Header, data.header);
+    localStorage.setItem(this.issuer, data.issuer);
+    localStorage.setItem(this.type, data.type);
   }
-  // private storeTokens(tokens: Tokens) {
 
-  // }
 
   logout() {
-    // return this.http
-    //   .post<any>(`${this.loginurl}/api/public/login`, {
-    //     refreshToken: localStorage.getItem(this.Token)
-    //   })
-    //   .pipe(
-    //     tap(() => this.doLogoutUser()),
-    //     mapTo(true),
-    //     catchError(this.errorhandler.handleError)
-    //   );
      this.loggedUser = null;
      localStorage.removeItem(this.Token);
      localStorage.removeItem(this.Header);
      localStorage.removeItem(this.issuer);
-     localStorage.removeItem(this.token);
-     localStorage.removeItem(this.RefreshToken);
+     localStorage.removeItem(this.type);
+     localStorage.removeItem('userDetails');
   }
-
-  // private doLogoutUser() {
-  //   this.loggedUser = null;
-  //   localStorage.removeItem(this.Token);
-  //   localStorage.removeItem(this.Header);
-  // }
 
    refreshToken() {
     return this.http
@@ -92,16 +82,24 @@ export class LoginService {
   // private getRefreshToken() {
   //   return localStorage.getItem(this.REFRESH_TOKEN);
   // }
+  getLocalToken() {
+
+  return localStorage.getItem('accessToken');
+  }
 
   isLoggedIn() {
-if (localStorage.hasOwnProperty('accesstToken') && localStorage.getItem('accessToken') !== '') {
+// const aaaa = this.getLocalToken;
+if (localStorage.hasOwnProperty('accessToken') &&
+ localStorage.getItem('type') === 'Bearer' &&
+ localStorage.getItem('issuer') === 'API-Security' &&
+ localStorage.getItem('accessToken') === this.getLocalToken()) {
       return true;
     } else {
       return false;
-    }  }
+    }
+  }
   getUserData() {
 
-   return this.http.get<User[]>(`${this.loginurl}/public/register`,
-    {headers: new HttpHeaders({Authorization: 'bearer' + localStorage.getItem('token'), accessToken: this.Token})});
+ localStorage.getItem('userDetails');
   }
 }

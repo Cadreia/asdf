@@ -12,7 +12,11 @@ import { LoginService } from 'src/app/services/login/login.service';
 
 
 @NgModule({
-  declarations: [RegisterComponent, LoginComponent, ForgotpasswordComponent],
+  declarations: [
+    RegisterComponent,
+    LoginComponent,
+    ForgotpasswordComponent,
+  ],
   imports: [
     CommonModule,
     ShareModule,

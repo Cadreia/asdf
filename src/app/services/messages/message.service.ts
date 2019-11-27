@@ -73,6 +73,11 @@ export class MessageService {
     this.toastr.success(loginsuccess, loginsuccesstitle);
   }
 
+  passwordChangeSuccess() {
+    const passwordsuccess = this.translation.messages[('changepassword_successfull_message')];
+    this.toastr.success(passwordsuccess);
+  }
+
   emailNotVerified() {
     const emailNotVerified = this.translation.messages[('login_notverified_email_error')];
     const emailNotVerifiedtitle = this.translation.messages[('login_notverified_email_error_title')];
@@ -82,6 +87,11 @@ export class MessageService {
   badCredentials() {
     const emailNotVerified = this.translation.messages[('login_wrongCredential_error')];
     this.toastr.error(emailNotVerified, this.errorTitle);
+  }
+
+  badOldCredential() {
+    const resetPasswordError = this.translation.messages[('reset_wrongCredential_error')];
+    this.toastr.error(resetPasswordError, this.errorTitle);
   }
 
   logoutMessage() {

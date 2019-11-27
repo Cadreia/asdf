@@ -1,5 +1,5 @@
 /* Modernizr 2.6.2 (Custom Build) | MIT & BSD
- * Build: http://modernizr.com/download/#-csstransforms3d-shiv-cssclasses-teststyles-testprop-testallprops-prefixes-domprefixes-load
+ * Build: http://modernizr.com/download/#-backgroundsize-csstransforms3d-csstransitions-touch-shiv-cssclasses-prefixed-teststyles-testprop-testallprops-prefixes-domprefixes-load
  */
 ;
 window.Modernizr = function (a, b, c) {
@@ -86,11 +86,20 @@ window.Modernizr = function (a, b, c) {
           return c.apply(b, d.concat(u.call(arguments)))
         };
       return e
-    }), q.csstransforms3d = function () {
+    }), q.touch = function () {
+      var c;
+      return "ontouchstart" in a || a.DocumentTouch && b instanceof DocumentTouch ? c = !0 : w(["@media (", m.join("touch-enabled),("), h, ")", "{#modernizr{top:9px;position:absolute}}"].join(""), function (a) {
+        c = a.offsetTop === 9
+      }), c
+    }, q.backgroundsize = function () {
+      return F("backgroundSize")
+    }, q.csstransforms3d = function () {
       var a = !!F("perspective");
       return a && "webkitPerspective" in g.style && w("@media (transform-3d),(-webkit-transform-3d){#modernizr{left:9px;position:absolute;height:3px;}}", function (b, c) {
         a = b.offsetLeft === 9 && b.offsetHeight === 3
       }), a
+    }, q.csstransitions = function () {
+      return F("transition")
     };
     for (var G in q) y(q, G) && (v = G.toLowerCase(), e[v] = q[G](), t.push((e[v] ? "" : "no-") + v));
     return e.addTest = function (a, b) {
@@ -185,7 +194,9 @@ window.Modernizr = function (a, b, c) {
         a.html5 = r, q(b)
       }(this, b), e._version = d, e._prefixes = m, e._domPrefixes = p, e._cssomPrefixes = o, e.testProp = function (a) {
         return D([a])
-      }, e.testAllProps = F, e.testStyles = w, g.className = g.className.replace(/(^|\s)no-js(\s|$)/, "$1$2") + (f ? " js " + t.join(" ") : ""), e
+      }, e.testAllProps = F, e.testStyles = w, e.prefixed = function (a, b, c) {
+        return b ? F(a, b, c) : F(a, "pfx")
+      }, g.className = g.className.replace(/(^|\s)no-js(\s|$)/, "$1$2") + (f ? " js " + t.join(" ") : ""), e
   }(this, this.document),
   function (a, b, c) {
     function d(a) {
