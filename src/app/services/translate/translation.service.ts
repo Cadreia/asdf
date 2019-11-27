@@ -21,7 +21,7 @@ export class TranslationService {
           }
         },
         error => {
-          console.log(error);
+          // console.log(error);
           resolve(this.messages);
         }
       );

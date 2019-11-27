@@ -3,6 +3,8 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { PasswordValidator } from 'src/app/public/shared/password.validator';
 import { MessageService } from 'src/app/services/messages/message.service';
 import { ChangePasswordService } from 'src/app/services/changepassword/change-password.service';
+import { SharedService } from 'src/app/public/shared/sharedservice/shared.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-setting',
@@ -11,24 +13,35 @@ import { ChangePasswordService } from 'src/app/services/changepassword/change-pa
 })
 export class SettingComponent implements OnInit {
 changePassword: FormGroup;
-  constructor(private formBuilder: FormBuilder, private toaster: MessageService, private changePasswordService: ChangePasswordService) { }
+public userInfos: any;
+  constructor(private formBuilder: FormBuilder,
+              private toaster: MessageService,
+              private changePasswordService: ChangePasswordService,
+              private sharedService: SharedService,
+              private router: Router) { }
 
   ngOnInit() {
     this.changePassword = this.formBuilder.group({
-      currentPassword: ['', [Validators.required, Validators.minLength(6)]],
-      newPassword: ['', [Validators.required, Validators.minLength(6)]],
-      confirmNewPassword: [''],
+      oldPassword: ['', [Validators.required, Validators.minLength(6)]],
+      password: ['', [Validators.required, Validators.minLength(6)]],
+      passwordConfirmation: [''],
     }, {validator: PasswordValidator});
+
+    if (localStorage.getItem('userDetails') !== '') {
+    this.userInfos = this.sharedService.getUserinfo();
+  }
   }
 
   onSubmit() {
-const npassword = this.changePassword.get('newPassword').value;
-const cnpassword = this.changePassword.get('confirmNewPassword').value;
+const npassword = this.changePassword.get('password').value;
+const cnpassword = this.changePassword.get('passwordConfirmation').value;
 if (npassword === cnpassword) {
+  console.log(this.changePassword.value);
   this.changePasswordService.changePassword(this.changePassword.value).subscribe(
     (data: any) => {
       console.log(data);
       this.toaster.passwordChangeSuccess();
+      this.router.navigate(['public/home']);
     },
     (error: any) => {
       console.log(error);

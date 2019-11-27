@@ -76,23 +76,22 @@ export class LoginService {
   getJwtToken() {
     return localStorage.getItem(this.Token);
   }
-  // private storeJwtToken(jwt: string) {
 
-  // }
-  // private getRefreshToken() {
-  //   return localStorage.getItem(this.REFRESH_TOKEN);
-  // }
-  getLocalToken() {
-
+  getAccessToken() {
   return localStorage.getItem('accessToken');
+  }
+  getBearer() {
+  return localStorage.getItem('type');
+  }
+  getIssuer() {
+  return localStorage.getItem('issuer');
   }
 
   isLoggedIn() {
-// const aaaa = this.getLocalToken;
-if (localStorage.hasOwnProperty('accessToken') &&
- localStorage.getItem('type') === 'Bearer' &&
- localStorage.getItem('issuer') === 'API-Security' &&
- localStorage.getItem('accessToken') === this.getLocalToken()) {
+    if (localStorage.hasOwnProperty('accessToken') &&
+        localStorage.getItem('type') === this.getBearer() &&
+        localStorage.getItem('issuer') === this.getIssuer() &&
+        localStorage.getItem('accessToken') === this.getAccessToken()) {
       return true;
     } else {
       return false;

@@ -4,6 +4,8 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { TranslatePipe } from 'src/app/pipes/translate.pipe';
 import { TokenInterceptor } from 'src/app/services/registration/token.interceptor';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { AuthGuard } from '../../authentication/guard/auth.guard';
+import { ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
 
 
 
@@ -16,6 +18,10 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
       provide: HTTP_INTERCEPTORS,
       useClass: TokenInterceptor,
       multi: true
+    },
+    {
+      provide: AuthGuard,
+     useValue: (route: ActivatedRouteSnapshot, state: RouterStateSnapshot) => true
     }
   ]
 })

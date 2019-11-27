@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { SharedService } from 'src/app/public/shared/sharedservice/shared.service';
 
 @Component({
   selector: 'app-overview',
@@ -6,10 +7,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./overview.component.scss']
 })
 export class OverviewComponent implements OnInit {
-
-  constructor() { }
+public userInfos: any;
+  constructor(private sharedService: SharedService) { }
 
   ngOnInit() {
+    if (localStorage.getItem('accessToken') === this.getAccessToken()) {
+    this.userInfos = this.sharedService.getUserinfo();
+  }
+  }
+  getAccessToken() {
+    return localStorage.getItem('accessToken');
   }
 
 }
