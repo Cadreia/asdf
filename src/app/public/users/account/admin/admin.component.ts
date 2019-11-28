@@ -28,7 +28,7 @@ userInfos: any;
       }
     });
     this.userInfos = this.sharedService.getUserinfo();
-    if (this.userInfos.role.toString() !== 'ROLE_USERS') { // ROLE_USERS, ROLE_GW_ADMIN
+    if (this.userInfos.role.toString() !== 'ROLE_GW_ADMIN') { // ROLE_USERS, ROLE_GW_ADMIN
        this.router.navigate(['public/users/account/overview']);
     }
   }
