@@ -47,6 +47,12 @@
             <div class="gap gap-small"></div>
 
             <form accept-charset="UTF-8" [formGroup]="changePassword" (ngSubmit)="onSubmit()">
+                <div class="form-group form-group-icon-left">
+                    <i class="fa fa-envelope input-icon"></i>
+                    <label>{{ 'register_label_email' | translate }}</label>
+                    <input class="form-control" [disabled]="true" type="text" value="{{ userInfos.email }}">
+                </div>
+
                 <div class="form-group form-group-icon-left"><i class="fa fa-lock input-icon"></i>
                     <label>{{ 'setting_label_current_password' | translate }}</label>
                     <input class="form-control" type="password" name="oldPassword" formControlName="oldPassword"
@@ -68,11 +74,11 @@
                 </div>
 
                 <div class="form-group form-group-icon-left"><i class="fa fa-lock input-icon"></i>
-                    <label>Confirm Password</label>
+                    <label>{{ 'setting_label_confirmPassword' | translate }}</label>
                     <input class="form-control" type="password" name="passwordConfirmation" formControlName="passwordConfirmation"
                     [class.is-invalid]="changePassword.controls['passwordConfirmation'].misMatch"/>
                 </div>
-                <div class="errorStyle" *ngIf="changePassword.controls['passwordConfirmation'].misMatch">
+                <div class="errorStyle" *ngIf="changePassword.controls['passwordConfirmation'].misMatch || changePassword.controls['passwordConfirmation'].invalid">
                   <b *ngIf="changePassword.controls['passwordConfirmation']?.errors.misMatch"> password mismatch<br></b>
                 </div>
 
@@ -83,3 +89,19 @@
 
     </div>
 </div>
+
+        <div *ngIf="loader" id="menu">
+          <div class="w3-margin-top">
+            <div class="preloader-wrapper big active" id="loader">
+              <div class="spinner-layer spinner-white-only">
+                <div class="circle-clipper left">
+                  <div class="circle"></div>
+                </div><div class="gap-patch">
+                  <div class="circle"></div>
+                </div><div class="circle-clipper right">
+                  <div class="circle"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>

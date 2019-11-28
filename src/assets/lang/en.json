@@ -119,6 +119,7 @@
   "setting_label_personal_info": "Personal Information",
   "setting_label_full_name": "Full Name",
   "setting_label_change_password": "Change Password",
+  "setting_label_confirmPassword": "Confirm Password",
   "setting_label_new_password": "New Password",
   "setting_label_current_password": "Current Password",
   "setting_current_password_required": "the Current Password field is required",

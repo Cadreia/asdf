@@ -13,6 +13,7 @@ import { Tokens } from 'src/app/model/tokens';
 export class ForgotpasswordComponent implements OnInit {
   resetForm: FormGroup;
   tokens: Tokens;
+  public loader: boolean;
 public loginPath = config.login_dir;
 public createNewAccount = config.create_new;
   constructor(private formBuilder: FormBuilder,
@@ -26,13 +27,16 @@ public createNewAccount = config.create_new;
   }
 
   resetFunction() {
+    this.loader = true;
     console.log(this.resetForm.value);
     this.resetService.resetPassword(this.resetForm.value, this.tokens).subscribe(
       (response: any) => {
+        this.loader = false;
         this.toaster.successEmailPasswordReset();
         console.log('the code is:', response);
       },
       (error: any) => {
+        this.loader = false;
         console.log(error);
         if (!(error && Object.keys(error).length === 422)) {
           if (error.errorCode === 0) {

@@ -88,7 +88,7 @@ export class LoginService {
   }
 
   isLoggedIn() {
-    if (localStorage.hasOwnProperty('accessToken') &&
+    if (localStorage.hasOwnProperty('userDetails') &&
         localStorage.getItem('type') === this.getBearer() &&
         localStorage.getItem('issuer') === this.getIssuer() &&
         localStorage.getItem('accessToken') === this.getAccessToken()) {

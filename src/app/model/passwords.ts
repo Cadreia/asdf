@@ -1,6 +1,7 @@
 export class Passwords {
-  currentPassword: string;
-  newPassword: string;
-  confirmNewPassword: string;
+  oldPassword: string;
+  password: string;
+  passwordConfirmation: string;
+  email: string;
 }
 

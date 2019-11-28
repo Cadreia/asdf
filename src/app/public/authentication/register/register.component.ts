@@ -12,6 +12,7 @@ import { TranslationService } from 'src/app/services/translate/translation.servi
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
+  public loader: boolean;
    registrationForm: FormGroup;
   constructor(private fb: FormBuilder,
               private registrationservice: RegistrationService,
@@ -33,6 +34,7 @@ export class RegisterComponent implements OnInit {
   }
 
   submitForm() {
+    this.loader = true;
     const passwords = this.registrationForm.get('password').value;
     const passwordconfirmations = this.registrationForm.get('passwordConfirmation').value;
     console.log(this.registrationForm.value);
@@ -41,10 +43,12 @@ export class RegisterComponent implements OnInit {
     console.log(this.registrationForm.value);
     this.registrationservice.userRegister(this.registrationForm.value).subscribe(
       (data: any) => {
+        this.loader = false;
         this.router.navigate(['public/authentication/login']);
         this.toaster.successmessage();
       },
      ( error: any) => {
+      this.loader = false;
       console.log(error);
       if (!(error && (Object.keys(error).length === 0))) {
         if (error.errorCode === 404) {
@@ -62,6 +66,7 @@ export class RegisterComponent implements OnInit {
       }
     );
     } else {
+      this.loader = false;
       this.toaster.passwordMismatch();
     }
 

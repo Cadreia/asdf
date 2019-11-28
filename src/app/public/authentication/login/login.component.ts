@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { LoginService } from 'src/app/services/login/login.service';
 import { MessageService } from 'src/app/services/messages/message.service';
 import { config } from 'src/app/configs/app.config';
+import { JsonPipe } from '@angular/common';
 
 @Component({
   selector: 'app-login',
@@ -12,6 +13,7 @@ import { config } from 'src/app/configs/app.config';
 })
 export class LoginComponent implements OnInit {
 loginForm: FormGroup;
+public loader: boolean;
 public forgotPath = config.forgot_password;
 public createNewAccount = config.create_new;
 
@@ -31,19 +33,24 @@ public createNewAccount = config.create_new;
   }
 
   Login() {
+this.loader = true;
 console.log(this.loginForm.value);
 this.loginService.login(this.loginForm.value).subscribe(
   (response: any) => {
+    this.loader = false;
     localStorage.setItem('userDetails',
                   JSON.stringify({id: response.userDetails.id,
                     fullName: response.userDetails.fullName,
                     email: response.userDetails.email,
                     role: response.userDetails.roles})
                   );
-    this.toaster.loginSuccess();
+    console.log(this.getPayload());
+    window.location.reload();
     this.router.navigate(['public/home']);
+    this.toaster.loginSuccess();
   },
  ( error: any) => {
+    this.loader = false;
     console.log('the error is: ', error);
     if (!(error && Object.keys(error).length === 0)) {
       if (error.errorCode === 422) {
@@ -64,5 +71,12 @@ this.loginService.login(this.loginForm.value).subscribe(
     }
   }
 );
+  }
+
+  getPayload() {
+    const token = this.loginService.getAccessToken();
+    let payload = token.split('.')[1];
+    payload = window.atob(payload);
+    return JSON.parse(payload);
   }
 }
