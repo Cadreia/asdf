@@ -35,6 +35,11 @@
           ><i class="fa fa-book"></i>{{ 'account_menu_reservation' | translate }}</a
         >
       </li>
+      <li *ngIf="isAdmin" routerLinkActive="active">
+        <a  routerLink="../reservation"
+          ><i class="fa fa-book"></i>{{ 'account_menu_manageTransitandStop' | translate }}</a
+        >
+      </li>
     </ul>
   </aside>
   </div>

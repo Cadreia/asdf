@@ -108,6 +108,7 @@
   "account_menu_setting": "Account Settings",
   "account_menu_history": "Booking History",
   "account_menu_reservation": "Make Reservation",
+  "account_menu_manageTransitandStop": "Manage Transit and Stop",
   "overview_label_account_profile": "GoWaka Account profile for",
   "overview_label_travel_statistics": "Travel Statistics",
   "overview_label_event_attended": "Events Attended",
@@ -124,5 +125,12 @@
   "setting_label_current_password": "Current Password",
   "setting_current_password_required": "the Current Password field is required",
   "setting_current_password_minlength": "your Current Password had a minimun of 6 characters",
-  "setting_new_password_minlength": "The new Password must have a minimun of 6 characters"
+  "setting_new_password_minlength": "The new Password must have a minimun of 6 characters",
+
+  "about_label_title": "About GoWaka Online booking service",
+  "about_label_description": "GoWaka is an online  booking service  used by  African travel agencies in the bus and train sector  and event organizers for managing their operational activities with ease, GoWaka is based in Cameroon.",
+  "about_label_description_paragraph_two": "GoWaka is product from Go-Groups Ltd a leading software development company in Buea. GoWaka was officially launched in January 2016 by the Go-Groups Ltd",
+  "about_label_description_paragraph_three": "The GoWaka service aim at providing an online  booking system in Africa and other part of the world for various booking services like bus reservation, train reservation and event tickets reservation.",
+  "about_label_price_guarantee": "Best Price Guarantee",
+  "about_label_price_guarantee_describe": "Get the best available price always. Find a better price and we will beat it"
 }

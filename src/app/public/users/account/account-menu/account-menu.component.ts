@@ -8,13 +8,19 @@ import { SharedService } from 'src/app/public/shared/sharedservice/shared.servic
 })
 export class AccountMenuComponent implements OnInit {
   public userInfos: any;
+  public isAdmin: boolean;
   public imagepath = '../../../../../assets/template/images/logo/logo.ico';
   constructor(private sharedService: SharedService) { }
 
   ngOnInit() {
     if (localStorage.getItem('accessToken') === this.getAccessToken()) {
     this.userInfos = this.sharedService.getUserinfo();
-  } else {
+    if (this.userInfos.role.toString() === 'ROLE_GW_ADMIN') {
+           this.isAdmin = true;
+        } else {
+          this.isAdmin = false;
+               }
+    } else {
   }
   }
   getAccessToken() {
