@@ -1,0 +1,55 @@
+
+<div class="container" style="margin-top: 50px; margin-bottom: 20px">
+
+    <h5>{{ 'admin_manage_transit' | translate }}</h5>
+    <div class="row">
+        <app-account-menu></app-account-menu>
+        <div class="col-md-8">
+          <div class="row">
+          <div class="col-md-12">
+            <div class="gap gap-small"></div>
+                <div class="box-body table-responsive">
+                  <table id="example1" class="table table-bordered table-striped">
+                    <thead>
+                      <tr style="background-color: rgb(237, 131, 35);color: white;">
+                        <th class="center upper">{{ 'admin_label_id' | translate }}</th>
+                        <th class="center upper">{{ 'admin_label_country' | translate }}</th>
+                        <th class="center upper">{{ 'admin_label_state' | translate }}</th>
+                        <th class="center upper">{{ 'admin_label_city' | translate }}</th>
+                        <th class="center upper">{{ 'admin_label_address' | translate }}</th>
+                        <th colspan="2" class="center upper">action</th>
+                      </tr>
+                    </thead>
+                    <tbody *ngFor="let location of locations">
+                      <td class="center blue-text">{{ location.id }}</td>
+                      <td class="center">{{ location.country }}</td>
+                      <td class="center">{{ location.state }}</td>
+                      <td class="center">{{ location.city }}</td>
+                      <td class="center">{{ location.address }}</td>
+                      <td class="center"><a class="btn">Edit <i class="fa fa-edit" aria-hidden="true"></i></a></td>
+                      <td class="center" style="color: #ee6e73;">delete</td>
+                    </tbody>
+                    <tfoot>
+                      <div *ngIf="offline; then thisBlock, else elseBlock"></div>
+                      <ng-template #thisBlock>
+                        <tr style="background-color: #f8c1c3;">
+                        <th colspan="7" style="font-size: 14px !important;"><p style="color: #ee6e73 !important">{{ 'admin_offline_message' | translate }}</p>
+                        </th>
+                      </tr>
+                      </ng-template>
+
+                      <ng-template  #elseBlock>
+                        <tr style="background-color: #E3F2FD;">
+                        <th colspan="7">
+                        </th>
+                      </tr>
+                      </ng-template>
+
+                    </tfoot>
+                  </table>
+                </div>
+          </div>
+        </div>
+        </div>
+    </div>
+</div>

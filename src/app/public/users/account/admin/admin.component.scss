@@ -1,0 +1,38 @@
+table{
+  width: 100%;
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+.center{
+  text-align: center !important;
+}
+.blue-text {
+  color: #2196F3 !important;
+}
+
+tr,
+td {
+  height: 50px;
+}
+
+tr,
+td,
+th {
+  border: 1px solid #ccc;
+  text-align: center !important;
+  text-align: center !important;
+}
+
+th {
+  font-size: 17px;
+}
+tbody:nth-child(odd){
+  background-color: #e6e6e6 !important;
+}
+
+.upper {
+  text-transform: uppercase;
+  font-size: 15px;
+  font-weight: bold;
+  font-family: Times New Roman;
+}

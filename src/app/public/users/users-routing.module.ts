@@ -5,6 +5,7 @@ import { BookingComponent } from './account/booking/booking.component';
 import { SettingComponent } from './account/setting/setting.component';
 import { ReservationComponent } from './account/reservation/reservation.component';
 import { AuthGuard } from '../authentication/guard/auth.guard';
+import { AdminComponent } from './account/admin/admin.component';
 
 
 const routes: Routes = [
@@ -23,6 +24,10 @@ const routes: Routes = [
   {
     path: 'account/reservation',
     component: ReservationComponent
+  },
+  {
+    path: 'account/admin',
+    component: AdminComponent
   },
 ];
 

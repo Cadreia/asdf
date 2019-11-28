@@ -132,5 +132,13 @@
   "about_label_description_paragraph_two": "GoWaka is product from Go-Groups Ltd a leading software development company in Buea. GoWaka was officially launched in January 2016 by the Go-Groups Ltd",
   "about_label_description_paragraph_three": "The GoWaka service aim at providing an online  booking system in Africa and other part of the world for various booking services like bus reservation, train reservation and event tickets reservation.",
   "about_label_price_guarantee": "Best Price Guarantee",
-  "about_label_price_guarantee_describe": "Get the best available price always. Find a better price and we will beat it"
+  "about_label_price_guarantee_describe": "Get the best available price always. Find a better price and we will beat it",
+
+  "admin_manage_transit": "Administrators Manage all Transit and Stop",
+  "admin_label_id": "Id",
+  "admin_label_country": "Country",
+  "admin_label_state": "State",
+  "admin_label_city": "city",
+  "admin_label_address": "Address",
+  "admin_offline_message": "Data Could not be loaded because you are offline. Please check your internet connection!"
 }

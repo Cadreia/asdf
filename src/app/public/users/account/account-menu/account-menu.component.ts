@@ -15,7 +15,7 @@ export class AccountMenuComponent implements OnInit {
   ngOnInit() {
     if (localStorage.getItem('accessToken') === this.getAccessToken()) {
     this.userInfos = this.sharedService.getUserinfo();
-    if (this.userInfos.role.toString() === 'ROLE_GW_ADMIN') {
+    if (this.userInfos.role.toString() === 'ROLE_USERS') { // ROLE_GW_ADMIN, ROLE_USERS
            this.isAdmin = true;
         } else {
           this.isAdmin = false;
