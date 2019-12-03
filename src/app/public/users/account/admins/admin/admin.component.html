@@ -26,8 +26,8 @@
                       <td class="center">{{ location.state }}</td>
                       <td class="center">{{ location.city }}</td>
                       <td class="center">{{ location.address }}</td>
-                      <td class="center"><a class="btn">Edit <i class="fa fa-edit" aria-hidden="true"></i></a></td>
-                      <td class="center" style="color: #ee6e73;">delete</td>
+                      <td class="center"><a class="btn" (click)="edit(location)">Edit <i class="fa fa-edit" aria-hidden="true"></i></a></td>
+                      <td class="center"><a class="btn" style="color: #ee6e73 !important;">delete <i class="fa fa-trash-o"></i></a></td>
                     </tbody>
                     <tfoot>
                       <div *ngIf="offline; then thisBlock, else elseBlock"></div>
@@ -44,9 +44,9 @@
                         </th>
                       </tr>
                       </ng-template>
-
                     </tfoot>
                   </table>
+                  <button class="btn btn-primary right" routerLink="../create">{{ 'create_transit_and_stops' | translate }}</button>
                 </div>
           </div>
         </div>

@@ -21,7 +21,7 @@
                                   <i class="fa fa-user"></i>&nbsp;<a [routerLink]="acountPath">{{ userInfos.fullName.split(' ')[0] }}</a>
                                 </li>
 
-                                <li style="cursor: pointer;"><a  (click)="logout()"><i class="fa fa-sign-out" aria-hidden="true"></i>&nbsp;Sign Out</a>
+                                <li style="cursor: pointer;"><a  (click)="logout()"><i class="fa fa-power-off" aria-hidden="true"></i>&nbsp;Sign Out</a>
                                     </li>
                                 </ng-template>
 
@@ -79,17 +79,17 @@
         <div class="container">
             <div class="nav">
                 <ul class="slimmenu" id="slimmenu">
-                    <li id="home" routerLinkActive="active"><a routerLink="/public/home">{{ "header_link_home" | translate }}</a>
+                    <li id="home" routerLinkActive="active"><a routerLink="/public/home">{{ "header_link_home" | translate }} <i class="fa fa-home"></i></a>
 
                     </li>
-                    <li id="faqs" routerLinkActive="active"><a routerLink="/public/faqs">{{ "header_link_faq" | translate }}</a>
+                    <li id="faqs" routerLinkActive="active"><a routerLink="/public/faqs">{{ "header_link_faq" | translate }} <i class="fa fa-file-sound-o"></i></a>
 
                     </li>
-                    <li id="about" routerLinkActive="active"><a routerLink="/public/about">{{ "header_link_about" | translate }}</a>
+                    <li id="about" routerLinkActive="active"><a routerLink="/public/about">{{ "header_link_about" | translate }} <i class="fa fa-hand-o-left"></i></a>
 
                     </li>
 
-                    <li id="contact" routerLinkActive="active"><a routerLink="/public/contacts">{{ "header_link_contact" | translate }}</a>
+                    <li id="contact" routerLinkActive="active"><a routerLink="/public/contacts">{{ "header_link_contact" | translate }} <i class="fa fa-phone"></i></a>
 
                     </li>
                 </ul>

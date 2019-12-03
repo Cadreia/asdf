@@ -11,26 +11,43 @@ import { SharedService } from 'src/app/public/shared/sharedservice/shared.servic
 })
 export class AdminComponent implements OnInit {
 locations: any[];
-offline: boolean;
+public editValues: any;
+isAdmin: boolean;
 userInfos: any;
+offline: boolean;
   constructor(private adminService: AdminService,
-              private toaster: MessageService,
               private router: Router,
               private sharedService: SharedService) { }
 
   ngOnInit() {
+    this.userInfos = this.sharedService.getUserinfo();
+    if (this.sharedService.IsAdmin()) {
+    this.isAdmin = true;
+    } else {
+      this.isAdmin = false;
+      this.router.navigate(['public/users/account/overview']);
+    }
     this.adminService.getTransitsAndStops().subscribe((data: any) => {
       this.locations = data;
-    }, error => {
+    }, (error) => {
+      console.log(error);
       if (error.errorCode === 0) {
         this.offline = true;
-        this.toaster.offlineMessage();
       }
     });
-    this.userInfos = this.sharedService.getUserinfo();
-    if (this.userInfos.role.toString() !== 'ROLE_GW_ADMIN') { // ROLE_USERS, ROLE_GW_ADMIN
-       this.router.navigate(['public/users/account/overview']);
-    }
+  }
+
+edit(location) {
+// localStorage.removeItem('editvalues');
+this.editValues = JSON.stringify({
+  id: location.id,
+  state: location.state,
+  country: location.country,
+  city: location.city,
+  address: location.address
+});
+localStorage.setItem('editvalues', this.editValues);
+this.router.navigate(['public/users/account/edit']);
   }
 
 }

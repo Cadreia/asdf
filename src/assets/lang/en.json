@@ -59,12 +59,13 @@
   "register__fullname_required_error": "the Full name is required",
   "register__email_required_error": "the email is required",
   "register__email_invalid_error": "the email fields is in valid",
+  "edit_required_error": "this field is required",
   "register__fullname_minCharacter_error": "the Full name must have a minimum of 3 characters",
   "register__phoneNumber_required_error": "the phone Number is required",
   "register__phoneNumber_digit_error": "the phone number must have a minimum of 9 digits",
   "register__password_minCharacter": "the password need a nimimum of 6 characters",
   "register__password_required": "the password field is required",
-  "register__password_minlength": "the password is need to contain at least 6 character",
+  "register__password_minlength": "the password need to contain at least 6 character",
 
   "register__label_reasonHavingAccount": "Reasons for having a GoWaka account",
   "register__label_accessbooking": "Access booking history with upcoming trips",
@@ -93,6 +94,10 @@
   "register_404_error": "Sorry the server is busy, please try again later",
   "login_internal_error": "Sorry the server encounter an issue during you logging in, please try again later",
   "reset_wrongCredential_error": "The old password do not match with the one you entered. Please if you have forgotten your password: go to the forgot password link in the login page and reset it.",
+  "update_access_denied_error": "Access have been denied, you are not a Gowaka admin to do this privilege.",
+  "update_successfull_message": "You successfully Updated this Transit/Stop location.",
+  "create_successfull_message": "You successfully Created a new Transit/Stop location.",
+  "create_transit_and_stops": "Click here to add more transit and stops location",
 
   "login_successfull_message": "You Successfully login into Gowaka, an E-mail has been to you, please check",
   "login_successfull_title": "Login Successfully!",
@@ -126,6 +131,9 @@
   "setting_current_password_required": "the Current Password field is required",
   "setting_current_password_minlength": "your Current Password had a minimun of 6 characters",
   "setting_new_password_minlength": "The new Password must have a minimun of 6 characters",
+  "Edit_transit_and_stops": "Edit the Transit and Stops",
+  "Add_transit_and_stops": "Add more Transit and Stops location",
+  "Add_label_back": " Go Back",
 
   "about_label_title": "About GoWaka Online booking service",
   "about_label_description": "GoWaka is an online  booking service  used by  African travel agencies in the bus and train sector  and event organizers for managing their operational activities with ease, GoWaka is based in Cameroon.",
@@ -135,6 +143,7 @@
   "about_label_price_guarantee_describe": "Get the best available price always. Find a better price and we will beat it",
 
   "admin_manage_transit": "Administrators Manage all Transit and Stop",
+  "admin_manage_edit": "Edit the Transit and Stop so that it meets the latest update",
   "admin_label_id": "Id",
   "admin_label_country": "Country",
   "admin_label_state": "State",

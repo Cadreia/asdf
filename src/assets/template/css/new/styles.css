@@ -10782,9 +10782,9 @@ img.mfp-img {
 .comment .comment-like [class^="fa fa-"] {
   font-weight: normal;
 }
-.comment .comment-reply {
+/* .comment .comment-reply {
   [class^="fa fa-"]: 13px;
-}
+} */
 .comment:hover .comment-like {
   opacity: 1;
   -ms-filter: none;

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { SharedService } from 'src/app/public/shared/sharedservice/shared.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-account-menu',
@@ -10,18 +11,17 @@ export class AccountMenuComponent implements OnInit {
   public userInfos: any;
   public isAdmin: boolean;
   public imagepath = '../../../../../assets/template/images/logo/logo.ico';
-  constructor(private sharedService: SharedService) { }
+  constructor(private sharedService: SharedService,
+              private router: Router) { }
 
   ngOnInit() {
-    if (localStorage.getItem('accessToken') === this.getAccessToken()) {
     this.userInfos = this.sharedService.getUserinfo();
-    if (this.userInfos.role.toString() === 'ROLE_GW_ADMIN') { // ROLE_GW_ADMIN, ROLE_USERS
-           this.isAdmin = true;
-        } else {
-          this.isAdmin = false;
-               }
+    if (this.sharedService.IsAdmin()) {
+    this.isAdmin = true;
     } else {
-  }
+      this.isAdmin = false;
+      this.router.navigate(['public/users/account/overview']);
+    }
   }
   getAccessToken() {
     return localStorage.getItem('accessToken');

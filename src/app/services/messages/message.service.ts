@@ -23,6 +23,20 @@ export class MessageService {
     this.toastr.success(successRegistrationBody, successRegistrationTitle);
   }
 
+  successupdate() {
+    const updatemesage = this.translation.messages[
+      ('update_successfull_message')
+    ];
+    this.toastr.success(updatemesage);
+  }
+
+  successCreateTransit() {
+    const updatemesage = this.translation.messages[
+      ('create_successfull_message')
+    ];
+    this.toastr.success(updatemesage);
+  }
+
   successEmailPasswordReset() {
     const successResetBody = this.translation.messages[
       ('passsword_reset_link_body')
@@ -45,6 +59,13 @@ export class MessageService {
       ('login_internal_error')
     ];
     this.toastr.error(internal, this.errorTitle);
+  }
+
+  accessDenied() {
+    const accessdeny = this.translation.messages[
+      ('update_access_denied_error')
+    ];
+    this.toastr.error(accessdeny, this.errorTitle);
   }
 
   emailExists() {

@@ -5,7 +5,9 @@ import { BookingComponent } from './account/booking/booking.component';
 import { SettingComponent } from './account/setting/setting.component';
 import { ReservationComponent } from './account/reservation/reservation.component';
 import { AuthGuard } from '../authentication/guard/auth.guard';
-import { AdminComponent } from './account/admin/admin.component';
+import { AdminComponent } from './account/admins/admin/admin.component';
+import { EditComponent } from './account/admins/edit/edit.component';
+import { AddTransitComponent } from './account/admins/add-transit/add-transit.component';
 
 
 const routes: Routes = [
@@ -29,6 +31,14 @@ const routes: Routes = [
     path: 'account/admin',
     component: AdminComponent
   },
+  {
+    path: 'account/edit',
+    component: EditComponent
+  },
+  {
+    path: 'account/create',
+    component: AddTransitComponent
+  },
 ];
 
 @NgModule({
@@ -40,5 +50,8 @@ export const UserRoutingComponent = [
 OverviewComponent,
 BookingComponent,
 SettingComponent,
-ReservationComponent
+ReservationComponent,
+AdminComponent,
+EditComponent,
+AddTransitComponent
 ];

@@ -9,7 +9,11 @@ table{
 .blue-text {
   color: #2196F3 !important;
 }
-
+.right {
+  width: 100%;
+  background-color: #2196F3 !important;
+  border: 1px solid #ccc !important;
+}
 tr,
 td {
   height: 50px;

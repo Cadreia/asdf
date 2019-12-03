@@ -2,18 +2,15 @@
   border: 1px solid #ccc !important;
   margin: 0px;
   text-align: center;
-  margin-top: -15px;
+  margin-top: 0px;
   background-color: #f8c1c3 !important;
   color: #ea454b !important;
 }
-.container {
-  margin-top: 50px;
-  margin-bottom: 20px;
-  border: 25px solid #E3F2FD;
-}
+
 .submitButton {
   width: 100%;
-  border: none !important;
+  background-color: #4285f4;
+  border: none;
 }
 
 .submitButton:disabled {
@@ -21,25 +18,37 @@
   cursor: not-allowed !important;
 }
 
-.innnerContainer {
-  border: 1px solid #ed8323 !important;
+.containers {
+  border: 25px solid #dcedc8;
+}
+
+.innerContent {
+  border: 5px solid transparent !important;
+}
+
+.container {
+  margin-top: 50px;
+  margin-bottom: 20px;
+  border: 5px solid #f5d2b2 !important;
 }
 
 .margin {
   margin: 10px;
 }
-#menu{
+
+#menu {
   height: 800px !important;
   width: 100% !important;
   background-color: rgb(51, 211, 11) !important;
   position: fixed !important;
-  top:0px;
+  top: 0px;
   bottom: 0px;
   left: 0px;
   right: 0px;
   z-index: 1000;
   opacity: .7
 }
+
 #loader {
   margin: 0;
   position: absolute;
