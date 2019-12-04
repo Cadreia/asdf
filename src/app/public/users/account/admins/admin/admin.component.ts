@@ -4,6 +4,7 @@ import { MessageService } from 'src/app/services/messages/message.service';
 import { Router } from '@angular/router';
 import { SharedService } from 'src/app/public/shared/sharedservice/shared.service';
 import Swal from 'sweetalert2';
+import { FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-admin',
@@ -16,16 +17,24 @@ public editValues: any;
 isAdmin: boolean;
 userInfos: any;
 offline: boolean;
-offlinelocations = [
-  {id: 5, country: 'cameroon', state: 'south west', city: 'Ekona', address: 'Ekona Motto Park'},
-  {id: 6, country: 'nigeria', state: 'calabar', city: 'uyo', address: 'cross river'},
-];
+searchResult = [];
+foundResult: boolean;
+NumberOfCity: number;
+cityName: string;
+searchsomething: boolean;
+loader: boolean;
+search: FormGroup;
+
   constructor(private adminService: AdminService,
               private router: Router,
               private sharedService: SharedService,
-              private readonly toaster: MessageService) { }
+              private readonly toaster: MessageService,
+              private formBuilder: FormBuilder) { }
 
   ngOnInit() {
+    this.search = this.formBuilder.group({
+      city: ['']
+    });
     this.userInfos = this.sharedService.getUserinfo();
     if (this.sharedService.IsAdmin()) {
     this.isAdmin = true;
@@ -33,7 +42,8 @@ offlinelocations = [
       this.isAdmin = false;
       this.router.navigate(['public/users/account/overview']);
     }
-    this.adminService.getTransitsAndStops().subscribe((data: any) => {
+    this.adminService.getTransitsAndStops().subscribe(
+      (data: any) => {
       this.locations = data;
     }, (error) => {
       console.log(error);
@@ -67,7 +77,7 @@ sweetalert(location) {
     this.deleteTransit(location),
     swalWithBootstrapButtons.fire(
       'Request sent!',
-      'the delete request has been, wait for feedback.',
+      'the delete request has been. Wait for feedback.',
       'success',
     );
   } else if (
@@ -117,6 +127,31 @@ this.editValues = JSON.stringify({
 });
 localStorage.setItem('editvalues', this.editValues);
 this.router.navigate(['public/users/account/edit']);
+  }
+
+
+  searchMe() {
+    this.loader = true;
+    console.log('the form builder ', this.search.value);
+    this.adminService.SearchCity(this.search.value).subscribe(
+       (response: any) => {
+        this.loader = false;
+        this.cityName = this.search.get('city').value;
+        this.searchResult = response;
+        this.NumberOfCity = response.length;
+        if (response.length === 0) {
+          this.searchsomething = true;
+          this.foundResult = false;
+         } else {
+          this.foundResult = true;
+         }
+
+        console.log('the response: ', response);
+       }, error => {
+        this.loader = false;
+        console.log('error: ', error);
+       }
+     );
   }
 
 }

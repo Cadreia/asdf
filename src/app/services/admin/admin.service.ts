@@ -1,3 +1,8 @@
+/*
+@created by bimeri
+@go-groups lmt
+on the 27 november 2019
+*/
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { config } from 'src/app/configs/app.config';
@@ -52,6 +57,14 @@ export class AdminService {
   DeleteTransitsAndStops(location): Observable<void> {
     return this.http
       .delete<void>(`${this.baseUrl}/api/protected/location/${location.id}`, {
+        headers: this.Requestheader
+      })
+      .pipe(retry(1), catchError(this.errorHandlerService.handleError));
+  }
+
+  SearchCity(search): Observable<Transit> {
+    return this.http
+      .get<Transit>(`${this.baseUrl}/api/public/location/search?city=${search.city}`, {
         headers: this.Requestheader
       })
       .pipe(retry(1), catchError(this.errorHandlerService.handleError));
