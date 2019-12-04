@@ -40,7 +40,7 @@ export class RegisterComponent implements OnInit {
     console.log(this.registrationForm.value);
     if (passwords === passwordconfirmations) {
 
-    console.log(this.registrationForm.value);
+    // console.log(this.registrationForm.value);
     this.registrationservice.userRegister(this.registrationForm.value).subscribe(
       (data: any) => {
         this.loader = false;

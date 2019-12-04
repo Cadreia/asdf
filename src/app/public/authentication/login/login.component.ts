@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 import { LoginService } from 'src/app/services/login/login.service';
 import { MessageService } from 'src/app/services/messages/message.service';
 import { config } from 'src/app/configs/app.config';
-import { JsonPipe } from '@angular/common';
+// import { JsonPipe } from '@angular/common';
 
 @Component({
   selector: 'app-login',
@@ -34,7 +34,7 @@ public createNewAccount = config.create_new;
 
   Login() {
 this.loader = true;
-console.log(this.loginForm.value);
+// console.log(this.loginForm.value);
 this.loginService.login(this.loginForm.value).subscribe(
   (response: any) => {
     this.loader = false;
@@ -45,9 +45,12 @@ this.loginService.login(this.loginForm.value).subscribe(
                     role: response.userDetails.roles})
                   );
     console.log(this.getPayload());
-    window.location.reload();
-    this.router.navigate(['public/home']);
     this.toaster.loginSuccess();
+    this.router.navigate(['public/home']);
+    // tslint:disable-next-line: only-arrow-functions
+    setTimeout(function() {
+      window.location.reload();
+    }, 2000);
   },
  ( error: any) => {
     this.loader = false;
@@ -71,7 +74,7 @@ this.loginService.login(this.loginForm.value).subscribe(
     }
   }
 );
-  }
+}
 
   getPayload() {
     const token = this.loginService.getAccessToken();

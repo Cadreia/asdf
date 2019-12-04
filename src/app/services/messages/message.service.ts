@@ -37,6 +37,13 @@ export class MessageService {
     this.toastr.success(updatemesage);
   }
 
+  successDeleteTransit() {
+    const deletesuccessmesage = this.translation.messages[
+      ('delete_successfull_message')
+    ];
+    this.toastr.success(deletesuccessmesage);
+  }
+
   successEmailPasswordReset() {
     const successResetBody = this.translation.messages[
       ('passsword_reset_link_body')
@@ -66,6 +73,20 @@ export class MessageService {
       ('update_access_denied_error')
     ];
     this.toastr.error(accessdeny, this.errorTitle);
+  }
+
+  locationExists() {
+    const locationexist = this.translation.messages[
+      ('update_location_exists_error')
+    ];
+    this.toastr.error(locationexist, this.errorTitle);
+  }
+
+  noJourney() {
+    const deletedeny = this.translation.messages[
+      ('delete_no_journey_error')
+    ];
+    this.toastr.error(deletedeny, this.errorTitle);
   }
 
   emailExists() {

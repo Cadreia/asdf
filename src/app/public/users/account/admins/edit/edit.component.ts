@@ -33,6 +33,8 @@ export class EditComponent implements OnInit {
   ngOnInit() {
     if (localStorage.hasOwnProperty('editvalues')) {
       this.EditContent = this.getEditData();
+    } else {
+      this.router.navigate(['public/users/account/admin']);
     }
 
     this.adminService.getTransitsAndStops().subscribe((response: any) => {
@@ -55,23 +57,6 @@ export class EditComponent implements OnInit {
       address: [this.EditContent.address, Validators.required]
     });
 
-    // swal({
-    //     title: 'Are you sure?',
-    //     text: 'Once deleted, you will not be able to recover this imaginary file!',
-    //     type: 'warning',
-    //     showConfirmButton: true,
-    //     showCancelButton: true
-    //   })
-    //   .then((willDelete) => {
-
-    //       if (willDelete.value) {
-    //            swal('Success');
-    //       } else {
-    //         swal('Fail');
-    //       }
-
-    //       console.log(willDelete);
-    //   });
   }
 
   getEditData() {

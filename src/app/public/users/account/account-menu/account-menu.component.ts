@@ -20,7 +20,6 @@ export class AccountMenuComponent implements OnInit {
     this.isAdmin = true;
     } else {
       this.isAdmin = false;
-      this.router.navigate(['public/users/account/overview']);
     }
   }
   getAccessToken() {

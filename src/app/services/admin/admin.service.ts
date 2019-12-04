@@ -14,56 +14,46 @@ import { SharedService } from 'src/app/public/shared/sharedservice/shared.servic
 export class AdminService {
   baseUrl = config.api_base_url;
   public errorhandler = new ErrorhandlerService();
+  Requestheader = this.shareService.requestheader;
   // location = new Subject<number>();
   constructor(
     private http: HttpClient,
-    private loginService: LoginService,
     private errorHandlerService: ErrorhandlerService,
     private shareService: SharedService
-    ) { }
+  ) {}
 
   getTransitsAndStops(): Observable<Transit> {
-    const requestheader = new HttpHeaders({
-      'Content-Type': 'application/json',
-      Accept: 'application/json',
-      Authorization: 'Bearer ' + this.loginService.getAccessToken()
-    });
-    return this.http.get<any>(`${this.baseUrl}/api/public/location`, {headers: requestheader}).pipe(
-      retry(1),
-      catchError(this.errorHandlerService.handleError)
-    );
+    return this.http
+      .get<any>(`${this.baseUrl}/api/public/location`, {
+        headers: this.Requestheader
+      })
+      .pipe(retry(1), catchError(this.errorHandlerService.handleError));
   }
-  // getOneTransitAndStop(id: number) {
-  //   return this.locations[id];
-  // }
 
-  // updateTransitForms(editData: Transit): Observable<any> {
-  //   const Requestheader = this.shareService.requestheader;
-  //   return this.http
-  //     .get<any>(`${this.baseUrl}/api/protected/location/${editData.id}`, {headers: Requestheader})
-  //     .pipe(
-  //       retry(1),
-  //       tap(
-  //         data => this.updateTransitForm(editData),
-  //         catchError(this.errorhandler.handleError)
-  //       )
-  //     );
-  // }
-
-  updateTransitForm(editData: Transit): Observable<Transit[]> {
-    const Requestheader = this.shareService.requestheader;
-    return this.http.post<any>(`${this.baseUrl}/api/protected/location/${editData.id}`,  editData, {headers: Requestheader})
-    .pipe(retry(1), catchError(this.errorhandler.handleError));
+  updateTransitForm(editData: Transit): Observable<Transit> {
+    return this.http
+      .post<any>(
+        `${this.baseUrl}/api/protected/location/${editData.id}`,
+        editData,
+        { headers: this.Requestheader }
+      )
+      .pipe(retry(1), catchError(this.errorhandler.handleError));
   }
 
   addTransitForm(addData: Transit): Observable<Transit[]> {
-    const Requestheader = this.shareService.requestheader;
+    console.log('the header is: ', this.Requestheader);
     return this.http
-      .post<any>(
-        `${this.baseUrl}/api/protected/location`,
-        addData,
-        { headers: Requestheader }
-      )
+      .post<Transit[]>(`${this.baseUrl}/api/protected/location`, addData, {
+        headers: this.Requestheader
+      })
       .pipe(retry(1), catchError(this.errorhandler.handleError));
+  }
+
+  DeleteTransitsAndStops(location): Observable<void> {
+    return this.http
+      .delete<void>(`${this.baseUrl}/api/protected/location/${location.id}`, {
+        headers: this.Requestheader
+      })
+      .pipe(retry(1), catchError(this.errorHandlerService.handleError));
   }
 }

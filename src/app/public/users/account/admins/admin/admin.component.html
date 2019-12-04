@@ -20,14 +20,14 @@
                         <th colspan="2" class="center upper">action</th>
                       </tr>
                     </thead>
-                    <tbody *ngFor="let location of locations">
-                      <td class="center blue-text">{{ location.id }}</td>
+                    <tbody *ngFor="let location of locations; let i = index">
+                      <td class="center blue-text">{{ i + 1 }}</td>
                       <td class="center">{{ location.country }}</td>
                       <td class="center">{{ location.state }}</td>
                       <td class="center">{{ location.city }}</td>
                       <td class="center">{{ location.address }}</td>
                       <td class="center"><a class="btn" (click)="edit(location)">Edit <i class="fa fa-edit" aria-hidden="true"></i></a></td>
-                      <td class="center"><a class="btn" style="color: #ee6e73 !important;">delete <i class="fa fa-trash-o"></i></a></td>
+                      <td class="center"><a class="btn" style="color: #ee6e73 !important;" (click)="sweetalert(location)">delete <i class="fa fa-trash-o"></i></a></td>
                     </tbody>
                     <tfoot>
                       <div *ngIf="offline; then thisBlock, else elseBlock"></div>
@@ -48,6 +48,29 @@
                   </table>
                   <button class="btn btn-primary right" routerLink="../create">{{ 'create_transit_and_stops' | translate }}</button>
                 </div>
+
+                <table id="example1" class="table table-bordered table-striped">
+                    <thead>
+                      <tr style="background-color: rgb(237, 131, 35);color: white;">
+                        <th class="center upper">{{ 'admin_label_id' | translate }}</th>
+                        <th class="center upper">{{ 'admin_label_country' | translate }}</th>
+                        <th class="center upper">{{ 'admin_label_state' | translate }}</th>
+                        <th class="center upper">{{ 'admin_label_city' | translate }}</th>
+                        <th class="center upper">{{ 'admin_label_address' | translate }}</th>
+                        <th colspan="2" class="center upper">action</th>
+                      </tr>
+                    </thead>
+                    <tbody *ngFor="let location of offlinelocations; let i = index">
+                      <td class="center blue-text">{{ i+1 }}</td>
+                      <td class="center">{{ location.country }}</td>
+                      <td class="center">{{ location.state }}</td>
+                      <td class="center">{{ location.city }}</td>
+                      <td class="center">{{ location.address }}</td>
+                      <td class="center"><a class="btn" (click)="edit(location)">Edit <i class="fa fa-edit" aria-hidden="true"></i></a></td>
+                      <td class="center"><a class="btn" style="color: #ee6e73 !important;" (click)="sweetalert(location)">delete <i class="fa fa-trash-o"></i></a></td>
+                    </tbody>
+                  </table>
+
           </div>
         </div>
         </div>

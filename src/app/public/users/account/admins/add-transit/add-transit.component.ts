@@ -45,7 +45,7 @@ public loader: boolean;
     this.adminService.addTransitForm(this.addtransitform.value).subscribe(
       (response: any) => {
         this.loader = false;
-        console.log(response);
+        console.log('success', response);
         this.router.navigate(['public/users/account/admin']);
         this.toaster.successCreateTransit();
       }, (error: any) => {
@@ -55,9 +55,16 @@ public loader: boolean;
           if (error.errorCode === 0) {
             this.toaster.offlineMessage();
           }
+          if (error.errorCode === 500) {
+            this.toaster.internalError();
+          }
           if (error.errorCode === 401) {
             if (error.code === 'ACCESS_DENIED') {
               this.toaster.accessDenied();
+            }
+          } else if (error.errorCode === 409) {
+            if (error.code === 'TRANSIT_AND_STOP_ALREADY_IN_USE') {
+              this.toaster.locationExists();
             }
           }
         }
