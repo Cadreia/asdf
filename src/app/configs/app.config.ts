@@ -1,7 +1,7 @@
 export const config = {
   api_base_url: 'http://golab.top:8081',
   asset_dir: 'assets',
-  default_lang: 'fr',
+  default_lang: 'en',
 
   forgot_password: '../forgotpassword',
   create_new: '../register',
