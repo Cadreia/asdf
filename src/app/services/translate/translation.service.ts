@@ -12,7 +12,7 @@ export class TranslationService {
   getTranslationMessages(lang: string) {
     return new Promise<{}>(
       (resolve, reject) => {
-      const transPath = `${config.asset_dir}/lang/${lang || config.default_lang}.json`;
+      const transPath = `${config.asset_dir}/lang/${'fr' || config.default_lang}.json`;
       this.http.get<{}>(transPath).subscribe(
         message => {
           if (message) {
@@ -21,7 +21,7 @@ export class TranslationService {
           }
         },
         error => {
-          // console.log(error);
+          console.log(error);
           resolve(this.messages);
         }
       );

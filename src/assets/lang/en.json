@@ -6,6 +6,7 @@
   "header_link_contact": "Contact US",
   "header_link_about": "About US",
   "header_link_faq": "FAQs",
+  "header_label_signOut": "Sign Out",
   "home_label_perfecttrip": "Find Your Perfect Trip and Experience",
   "home_label_bus": "Buses",
   "home_label_train": "Trains",
@@ -79,6 +80,9 @@
   "login__label_loginToAccount": "Login to your account",
   "login__label_createNewAccount": "Create New account",
   "login__label_forgotPassword": "Forgot Password",
+  "login__label_placeholder_email": "Please enter your account email address to proceed",
+  "login__label_placeholder_password": "Please enter your account password to proceed",
+  "login_label_login": "sign in",
 
   "password_mismatch_messsage": "Both Passwords do no match, the password field and the confirm password field do not match. please check and re-submit !",
   "password_mismatch_title": "Password Mismatch",
@@ -89,7 +93,7 @@
   "register_successfull_message": "Registration to Gowaka was successful, please check your email for confirmation before login in",
   "register_successfull_title": "Welcome to Gowaka!",
   "register_422_error_invalid_email": "The email address you entered is invalid. Please enter a valid email address to continue",
-  "register_422_error_email_exist": "Sorry! A user with usrename already exist. Please use the forgot password link in case you've forgotten your password?",
+  "register_422_error_email_exist": "Sorry! A user with user name already exist. Please use the forgot password link in case you've forgotten your password?",
   "register_error_offline": "You are Offline, please check your internet connection",
   "register_404_error": "Sorry the server is busy, please try again later",
   "login_internal_error": "Sorry the server encounter an issue during authentication, please try again later",
@@ -152,5 +156,11 @@
   "admin_label_state": "State",
   "admin_label_city": "city",
   "admin_label_address": "Address",
-  "admin_offline_message": "Data Could not be loaded because you are offline. Please check your internet connection!"
+  "admin_label_action": "Action",
+  "admin_offline_message": "Data Could not be loaded because you are offline. Please check your internet connection!",
+  "admin_label_edit": "Edit",
+  "admin_label_delete": "Delete",
+  "admin_label_noResult": "No result found for:",
+  "admin_label_found": "found",
+  "admin_label_resultfor": "result for:"
 }

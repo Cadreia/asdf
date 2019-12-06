@@ -14,7 +14,6 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 export class AdminComponent implements OnInit {
 locations: any[];
 public editValues: any;
-isAdmin: boolean;
 userInfos: any;
 offline: boolean;
 searchResult = [];
@@ -36,12 +35,6 @@ search: FormGroup;
       city: ['']
     });
     this.userInfos = this.sharedService.getUserinfo();
-    if (this.sharedService.IsAdmin()) {
-    this.isAdmin = true;
-    } else {
-      this.isAdmin = false;
-      this.router.navigate(['public/users/account/overview']);
-    }
     this.adminService.getTransitsAndStops().subscribe(
       (data: any) => {
       this.locations = data;
@@ -81,7 +74,7 @@ sweetalert(location) {
       'success',
     );
   } else if (
-    /* Read more about handling dismissals below */
+    /* Bimeri Noel @ goGroups ltd */
     result.dismiss === Swal.DismissReason.cancel
   ) {
     swalWithBootstrapButtons.fire(

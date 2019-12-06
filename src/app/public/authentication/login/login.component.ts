@@ -27,9 +27,9 @@ public createNewAccount = config.create_new;
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(6)]],
     });
-    if (this.loginService.isLoggedIn()) {
-      this.router.navigate(['public/home']);
-    }
+    // if (this.loginService.isLoggedIn()) {
+    //   this.router.navigate(['public/home']);
+    // }
   }
 
   Login() {
@@ -44,7 +44,7 @@ this.loginService.login(this.loginForm.value).subscribe(
                     email: response.userDetails.email,
                     role: response.userDetails.roles})
                   );
-    console.log(this.getPayload());
+    console.log(this.loginForm.value);
     this.toaster.loginSuccess();
     this.router.navigate(['public/home']);
     // tslint:disable-next-line: only-arrow-functions
@@ -76,10 +76,28 @@ this.loginService.login(this.loginForm.value).subscribe(
 );
 }
 
-  getPayload() {
-    const token = this.loginService.getAccessToken();
-    let payload = token.split('.')[1];
-    payload = window.atob(payload);
-    return JSON.parse(payload);
-  }
+  // getPayload() {
+  //   const token = this.loginService.getAccessToken();
+  //   let payload = token.split('.')[1];
+  //   payload = JSON.parse(this.urlBase64Decode(payload));
+  //   console.log('the payload is: ', payload.exp);
+  //   return JSON.stringify(payload);
+  // }
+
+  // urlBase64Decode(str) {
+  //          let output = str.replace('-', '+').replace('_', '/');
+  //          switch (output.length % 4) {
+  //              case 0:
+  //                  break;
+  //              case 2:
+  //                  output += '==';
+  //                  break;
+  //              case 3:
+  //                  output += '=';
+  //                  break;
+  //              default:
+  //                  throw new Error('Illegal base64url string!');
+  //          }
+  //          return window.atob(output);
+  //      }
 }

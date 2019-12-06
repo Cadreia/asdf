@@ -14,14 +14,14 @@
                     <div class="col-md-4">
                         <div class="top-user-area clearfix">
                             <ul class="top-user-area-list list list-horizontal list-border">
-
+                                <!-- <li><button (click)="changelang('fr')" class="btn btn-primary"> french</button></li> -->
                               <div *ngIf="isLoggedIn; then thisBlock; else elseBlock"></div>
                               <ng-template #thisBlock>
                                  <li>
                                   <i class="fa fa-user"></i>&nbsp;<a [routerLink]="acountPath">{{ userInfos.fullName.split(' ')[0] }}</a>
                                 </li>
 
-                                <li style="cursor: pointer;"><a  (click)="logout()"><i class="fa fa-power-off" aria-hidden="true"></i>&nbsp;Sign Out</a>
+                                <li style="cursor: pointer;"><a  (click)="logout()"><i class="fa fa-power-off" aria-hidden="true"></i>&nbsp;{{ 'header_label_signOut' | translate }}</a>
                                     </li>
                                 </ng-template>
 
@@ -34,7 +34,7 @@
                                 </ng-template>
 
                                 <li class="top-user-area-lang nav-drop">
-                                    <a >
+                                    <a (click)="changelang('en')">
                                         <img src="../../../assets/template/images/flags/32/uk.png" alt="Image Alternative text" title="Image Title" />{{ "default_lang" | translate }}<i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i>
                                     </a>&nbsp;
                                     <ul class="list nav-drop-menu">
@@ -54,7 +54,7 @@
                                                 </a>
                                             </li>
                                             <li>
-                                                <a title="French" href="#">
+                                                <a title="French" href="#" (click)="changelang('fr')">
                                                     <img src="../../../assets/template/images/flags/32/fr.png" alt="Image Alternative text" title="Image Title" /><span class="right">FRE</span>
                                                 </a>
                                             </li>

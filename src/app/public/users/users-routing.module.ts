@@ -29,15 +29,18 @@ const routes: Routes = [
   },
   {
     path: 'account/admin',
-    component: AdminComponent
+    component: AdminComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'account/edit',
-    component: EditComponent
+    component: EditComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'account/create',
-    component: AddTransitComponent
+    component: AddTransitComponent,
+    canActivate: [AuthGuard]
   },
 ];
 

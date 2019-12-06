@@ -20,7 +20,9 @@
           <div class="row">
           <div class="col-md-12">
             <div class="gap gap-small"></div>
-            <p class="resultSearch" style="color: #4CAF50">found {{ NumberOfCity }} result for <b><u>{{ cityName }}</u></b></p>
+            <p class="resultSearch" style="color: #4CAF50">
+              {{ 'admin_label_found' | translate }} {{ NumberOfCity }} {{ 'admin_label_resultfor' | translate }}
+              <b><u>{{ cityName }}</u></b></p>
                 <div class="box-body table-responsive">
           <table id="example1" class="table table-bordered table-striped">
                     <thead>
@@ -30,7 +32,7 @@
                         <th class="center upper">{{ 'admin_label_state' | translate }}</th>
                         <th class="center upper">{{ 'admin_label_city' | translate }}</th>
                         <th class="center upper">{{ 'admin_label_address' | translate }}</th>
-                        <th colspan="2" class="center upper">Action</th>
+                        <th colspan="2" class="center upper">{{ 'admin_label_action' | translate }}</th>
                       </tr>
                     </thead>
                     <tbody *ngFor="let location of searchResult; let i = index">
@@ -39,20 +41,24 @@
                       <td class="center">{{ location.state }}</td>
                       <td class="center">{{ location.city }}</td>
                       <td class="center">{{ location.address }}</td>
-                      <td class="center"><a class="btn" (click)="edit(location)">Edit <i class="fa fa-edit" aria-hidden="true"></i></a></td>
-                      <td class="center"><a class="btn" style="color: #ee6e73 !important;" (click)="sweetalert(location)">delete <i class="fa fa-trash-o"></i></a></td>
+                      <td class="center"><a class="btn" (click)="edit(location)">{{ 'admin_label_edit' | translate }}
+                        <i class="fa fa-edit" aria-hidden="true"></i></a></td>
+                      <td class="center"><a class="btn" style="color: #ee6e73 !important;"
+                          (click)="sweetalert(location)">{{ 'admin_label_delete' | translate }}<i
+                            class="fa fa-trash-o"></i></a></td>
                     </tbody>
                   </table>
                 </div>
               </div>
             </div>
           </div>
-          
+
         </ng-template>
 
         <ng-template #noData>
-          <p *ngIf="searchsomething" class="resultSearch" style="color: #ee6e73;">No result found for <b><u>{{ cityName }}</u></b></p>
-        </ng-template>
+          <p *ngIf="searchsomething" class="resultSearch" style="color: #ee6e73;">
+            {{ 'admin_label_noResult' | translate }} <b><u> {{ cityName }}</u></b></p>
+       
 
         <div class="col-md-8">
           <div class="row">
@@ -76,8 +82,11 @@
                       <td class="center">{{ location.state }}</td>
                       <td class="center">{{ location.city }}</td>
                       <td class="center">{{ location.address }}</td>
-                      <td class="center"><a class="btn" (click)="edit(location)">Edit <i class="fa fa-edit" aria-hidden="true"></i></a></td>
-                      <td class="center"><a class="btn" style="color: #ee6e73 !important;" (click)="sweetalert(location)">delete <i class="fa fa-trash-o"></i></a></td>
+                      <td class="center"><a class="btn" (click)="edit(location)">{{ 'admin_label_delete' | translate }}
+                          <i class="fa fa-edit" aria-hidden="true"></i></a></td>
+                      <td class="center"><a class="btn" style="color: #ee6e73 !important;"
+                          (click)="sweetalert(location)">{{ 'admin_label_delete' | translate }} <i
+                            class="fa fa-trash-o"></i></a></td>
                     </tbody>
                     <tfoot>
                       <div *ngIf="offline; then thisBlock, else elseBlock"></div>
@@ -101,6 +110,8 @@
           </div>
         </div>
         </div>
+        </ng-template>
+        <!-- to end no data -->
     </div>
 </div>
 

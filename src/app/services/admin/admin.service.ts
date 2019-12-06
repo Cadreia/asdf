@@ -6,10 +6,9 @@ on the 27 november 2019
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { config } from 'src/app/configs/app.config';
-import { LoginService } from '../login/login.service';
 import { retry, catchError, tap } from 'rxjs/operators';
 import { ErrorhandlerService } from '../errorhandlers/errorhandler.service';
-import { Observable, Subject } from 'rxjs';
+import { Observable } from 'rxjs';
 import { Transit } from 'src/app/model/transit';
 import { SharedService } from 'src/app/public/shared/sharedservice/shared.service';
 
@@ -20,7 +19,6 @@ export class AdminService {
   baseUrl = config.api_base_url;
   public errorhandler = new ErrorhandlerService();
   Requestheader = this.shareService.requestheader;
-  // location = new Subject<number>();
   constructor(
     private http: HttpClient,
     private errorHandlerService: ErrorhandlerService,

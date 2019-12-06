@@ -88,6 +88,16 @@ export class LoginService {
   }
 
   isLoggedIn() {
+//     const checkTokenExpirationMiddleware = store => next => action => {
+//   const token =
+//     JSON.parse(localStorage.getItem('userDetails')) &&
+//     JSON.parse(localStorage.getItem('userDetails'))[('accessToken')];
+//   if (this.getJwtToken(token).exp < Date.now() / 1000) {
+//     next(action);
+//     localStorage.clear();
+//   }
+//   next(action);
+// };
     if (localStorage.hasOwnProperty('userDetails') &&
         localStorage.getItem('type') === this.getBearer() &&
         localStorage.getItem('issuer') === this.getIssuer() &&

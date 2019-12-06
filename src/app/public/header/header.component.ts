@@ -5,6 +5,7 @@ import { User } from 'src/app/model/user';
 import { Router } from '@angular/router';
 import { config } from 'src/app/configs/app.config';
 import { SharedService } from '../shared/sharedservice/shared.service';
+import { TranslationService } from 'src/app/services/translate/translation.service';
 
 
 @Component({
@@ -21,7 +22,8 @@ public acountPath = `${config.account_dir}/overview`;
   constructor(private loginService: LoginService,
               private toaster: MessageService,
               private router: Router,
-              private shareService: SharedService
+              private shareService: SharedService,
+              private TranslatinService: TranslationService
              ) { }
 
   ngOnInit() {
@@ -41,6 +43,9 @@ public acountPath = `${config.account_dir}/overview`;
     this.userInfos = this.shareService.getUserinfo();
   }
 
+  }
+  changelang(lang){
+ this.TranslatinService.getTranslationMessages(lang);
   }
 
   logout() {

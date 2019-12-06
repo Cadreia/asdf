@@ -1,6 +1,5 @@
 <!-- banner-bottom -->
 <div class="container">
-
     <div class="row innnerContainer" id="account_login">
         <div class="faqs-top-grids margin">
             <div class="book-grids">
@@ -16,7 +15,7 @@
 
                         <div class="form-group">
                             <label for="E-mail Address">{{ 'register_label_email' | translate}}</label>
-                            <input formControlName="email" class="form-control" placeholder="Please enter your account email address to proceed" name="email" type="text"
+                            <input formControlName="email" class="form-control" placeholder="{{ 'login__label_placeholder_email' | translate }}" name="email" type="text"
                             [class.is-invalid]="loginForm.controls['email'].invalid && loginForm.controls['email'].touched">
                         </div>
                         <div class="errorStyle" *ngIf="loginForm.controls['email'].invalid && loginForm.controls['email'].touched">
@@ -28,7 +27,7 @@
                         <div class="form-group">
                             <label for="password">{{ 'register_label_password' | translate}}</label>
 
-                            <input formControlName="password" name="password" placeholder="Please enter your account password to proceed" class="form-control" required="true" type="password"
+                            <input formControlName="password" name="password" placeholder="{{ 'login__label_placeholder_password' | translate }}" class="form-control" required="true" type="password"
                             [class.is-invalid]="loginForm.controls['password'].invalid && loginForm.controls['password'].touched"/>
                         </div>
                         <div *ngIf="loginForm.controls['password'].invalid && loginForm.controls['password'].touched">
@@ -37,7 +36,7 @@
 
 
                         <div class="form-group">
-                            <input class="btn btn-primary submitButton" type="submit" value="Sign in" [disabled]="!loginForm.valid">
+                            <input class="btn btn-primary submitButton" type="submit" value="{{ 'login_label_login' | translate}}" [disabled]="!loginForm.valid">
                         </div>
 
                         </form>
