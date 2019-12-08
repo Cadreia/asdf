@@ -13,7 +13,6 @@ export class ErrorhandlerService {
     if (error.error instanceof HttpErrorResponse) {
       // client-side error
       errorResponse = { message: error.error.message, errorCode: error.error.status, code: error.code };
-      // errorMessage = `Error: ${error.error.message}`;
     } else {
       // server-side error
       errorResponse = {
@@ -21,9 +20,7 @@ export class ErrorhandlerService {
         errorCode: error.status,
         code: error.error.code
       };
-      // errorMessage = `Error Code: ${error.status}\nMessage: ${error.message}`;
     }
-    // window.alert(errorResponse);
     return throwError(errorResponse);
   }
 }

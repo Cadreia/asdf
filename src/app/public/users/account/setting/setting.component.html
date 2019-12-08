@@ -59,8 +59,8 @@
                     [class.is-invalid]="changePassword.controls['oldPassword'].invalid && changePassword.controls['oldPassword'].touched" />
                 </div>
                 <div class="errorStyle" *ngIf="changePassword.controls['oldPassword'].invalid && changePassword.controls['oldPassword'].touched">
-                  <b *ngIf="changePassword.controls['oldPassword']?.errors.required">{{ 'setting_current_password_required' | translate }}<br></b>
-                  <b *ngIf="!changePassword.controls['oldPassword']?.errors.minLength"> {{ 'setting_current_password_minlength' | translate }}</b>
+                  <small *ngIf="changePassword.controls['oldPassword']?.errors.required">* {{ 'setting_current_password_required' | translate }}<br></small>
+                  <small *ngIf="!changePassword.controls['oldPassword']?.errors.minLength">* {{ 'setting_current_password_minlength' | translate }}</small>
                 </div>
 
                 <div class="form-group form-group-icon-left"><i class="fa fa-lock input-icon"></i>
@@ -69,8 +69,8 @@
                     [class.is-invalid]="changePassword.controls['password'].invalid && changePassword.controls['password'].touched"/>
                 </div>
                 <div class="errorStyle" *ngIf="changePassword.controls['password'].invalid && changePassword.controls['password'].touched">
-                  <b *ngIf="changePassword.controls['password']?.errors.required">{{ 'setting_current_password_required' | translate }}<br></b>
-                  <b *ngIf="!changePassword.controls['password']?.errors.minLength"> {{ 'setting_new_password_minlength' | translate }}</b>
+                  <small *ngIf="changePassword.controls['password']?.errors.required">* {{ 'setting_current_password_required' | translate }}<br></small>
+                  <small *ngIf="!changePassword.controls['password']?.errors.minLength">* {{ 'setting_new_password_minlength' | translate }}</small>
                 </div>
 
                 <div class="form-group form-group-icon-left"><i class="fa fa-lock input-icon"></i>
@@ -79,7 +79,7 @@
                     [class.is-invalid]="changePassword.controls['passwordConfirmation'].misMatch"/>
                 </div>
                 <div class="errorStyle" *ngIf="changePassword.controls['passwordConfirmation'].misMatch || changePassword.controls['passwordConfirmation'].invalid">
-                  <b *ngIf="changePassword.controls['passwordConfirmation']?.errors.misMatch"> password mismatch<br></b>
+                  <b *ngIf="changePassword.controls['passwordConfirmation']?.errors.misMatch">* password mismatch<br></b>
                 </div>
 
                 <hr />

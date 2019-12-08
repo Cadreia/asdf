@@ -19,8 +19,8 @@
                             [class.is-invalid]="loginForm.controls['email'].invalid && loginForm.controls['email'].touched">
                         </div>
                         <div class="errorStyle" *ngIf="loginForm.controls['email'].invalid && loginForm.controls['email'].touched">
-                          <b *ngIf="loginForm.controls['email']?.errors.required">{{ 'register__email_required_error' | translate }}<br></b>
-                          <b *ngIf="loginForm.controls['email']?.errors.email"> {{ 'register__email_invalid_error' | translate }}</b>
+                          <small *ngIf="loginForm.controls['email']?.errors.required">* {{ 'register__email_required_error' | translate }}<br></small>
+                          <small *ngIf="loginForm.controls['email']?.errors.email">* {{ 'register__email_invalid_error' | translate }}</small>
                         </div>
 
 
@@ -31,7 +31,7 @@
                             [class.is-invalid]="loginForm.controls['password'].invalid && loginForm.controls['password'].touched"/>
                         </div>
                         <div *ngIf="loginForm.controls['password'].invalid && loginForm.controls['password'].touched">
-                          <b class="text-danger" *ngIf="loginForm.controls['password']?.errors.minLength">{{ 'register__password_minCharacter' | translate }}<br></b>
+                          <small class="text-danger" *ngIf="loginForm.controls['password']?.errors.minLength">* {{ 'register__password_minCharacter' | translate }}<br></small>
                         </div>
 
 

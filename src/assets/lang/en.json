@@ -121,6 +121,7 @@
   "account_menu_history": "Booking History",
   "account_menu_reservation": "Make Reservation",
   "account_menu_manageTransitandStop": "Manage Transit and Stop",
+  "account_menu_manageOfficailAgency": " Manage Official Agency",
   "overview_label_account_profile": "GoWaka Account profile for",
   "overview_label_travel_statistics": "Travel Statistics",
   "overview_label_event_attended": "Events Attended",
@@ -151,7 +152,7 @@
 
   "admin_manage_transit": "Administrators Manage all Transit and Stop",
   "admin_manage_edit": "Edit the Transit and Stop so that it meets the latest update",
-  "admin_label_id": "Id",
+  "admin_label_id": "S/N",
   "admin_label_country": "Country",
   "admin_label_state": "State",
   "admin_label_city": "city",

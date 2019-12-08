@@ -58,7 +58,10 @@ export class EditComponent implements OnInit {
     });
 
   }
-
+  
+  clear(){
+    localStorage.removeItem('editvalues');
+  }
   getEditData() {
     return JSON.parse(localStorage.getItem('editvalues'));
   }

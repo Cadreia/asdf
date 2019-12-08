@@ -10,6 +10,7 @@ import { Router } from '@angular/router';
 export class AccountMenuComponent implements OnInit {
   public userInfos: any;
   public isAdmin: boolean;
+  public isAdminOfficial: boolean;
   public imagepath = '../../../../../assets/template/images/logo/logo.ico';
   constructor(private sharedService: SharedService,
               private router: Router) { }
@@ -20,6 +21,11 @@ export class AccountMenuComponent implements OnInit {
     this.isAdmin = true;
     } else {
       this.isAdmin = false;
+    }
+    if (this.sharedService.IsAdminOfficial()) {
+      this.isAdminOfficial = true;
+    } else {
+      this.isAdminOfficial = false;
     }
   }
   getAccessToken() {

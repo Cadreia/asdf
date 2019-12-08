@@ -6,6 +6,7 @@ import { TokenInterceptor } from 'src/app/services/registration/token.intercepto
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthGuard } from '../../authentication/guard/auth.guard';
 import { ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
+import { AgencyGuard } from '../../authentication/guard/agency.guard';
 
 
 
@@ -19,10 +20,8 @@ import { ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
       useClass: TokenInterceptor,
       multi: true
     },
-    {
-      provide: AuthGuard,
-     useValue: (route: ActivatedRouteSnapshot, state: RouterStateSnapshot) => true
-    }
+    AuthGuard,
+    AgencyGuard
   ]
 })
 export class ShareModule {}

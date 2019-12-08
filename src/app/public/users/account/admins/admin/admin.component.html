@@ -20,9 +20,12 @@
           <div class="row">
           <div class="col-md-12">
             <div class="gap gap-small"></div>
+            <div style="background-color:#C8E6C9">
+              <span onclick="this.parentElement.style.display='none'" class="btn-close">x</span>
             <p class="resultSearch" style="color: #4CAF50">
               {{ 'admin_label_found' | translate }} {{ NumberOfCity }} {{ 'admin_label_resultfor' | translate }}
               <b><u>{{ cityName }}</u></b></p>
+             </div>
                 <div class="box-body table-responsive">
           <table id="example1" class="table table-bordered table-striped">
                     <thead>
@@ -56,14 +59,16 @@
         </ng-template>
 
         <ng-template #noData>
-          <p *ngIf="searchsomething" class="resultSearch" style="color: #ee6e73;">
-            {{ 'admin_label_noResult' | translate }} <b><u> {{ cityName }}</u></b></p>
-       
 
         <div class="col-md-8">
           <div class="row">
           <div class="col-md-12">
             <div class="gap gap-small"></div>
+            <div *ngIf="searchsomething" style="background-color:#f8c1c3">
+              <span onclick="this.parentElement.style.display='none'" class="btn-close">x</span>
+              <p class="resultSearch" style="color: #ee6e73;">
+                {{ 'admin_label_noResult' | translate }} <b><u> {{ cityName }}</u></b></p>
+            </div>
                 <div class="box-body table-responsive">
                   <table id="example1" class="table table-bordered table-striped">
                     <thead>
@@ -82,7 +87,7 @@
                       <td class="center">{{ location.state }}</td>
                       <td class="center">{{ location.city }}</td>
                       <td class="center">{{ location.address }}</td>
-                      <td class="center"><a class="btn" (click)="edit(location)">{{ 'admin_label_delete' | translate }}
+                      <td class="center"><a class="btn" (click)="edit(location)">{{ 'admin_label_edit' | translate }}
                           <i class="fa fa-edit" aria-hidden="true"></i></a></td>
                       <td class="center"><a class="btn" style="color: #ee6e73 !important;"
                           (click)="sweetalert(location)">{{ 'admin_label_delete' | translate }} <i

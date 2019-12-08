@@ -1,20 +1,22 @@
 import { Injectable } from '@angular/core';
 import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, UrlTree, Router } from '@angular/router';
+import { Observable } from 'rxjs';
 import { SharedService } from '../../shared/sharedservice/shared.service';
 
 @Injectable({
   providedIn: 'root'
 })
-export class AuthGuard implements CanActivate {
-  constructor(private router: Router, private sharesService: SharedService) {}
+export class AgencyGuard implements CanActivate {
+  constructor(private shareService: SharedService, private router: Router){}
   canActivate(
     next: ActivatedRouteSnapshot,
-    state: RouterStateSnapshot): boolean | boolean | UrlTree {
-      if (this.sharesService.IsAdmin()) {
-    return true;
+    state: RouterStateSnapshot): Observable<boolean> | boolean | UrlTree {
+      if(this.shareService.IsAdminOfficial()) {
+        return true;
       } else {
         this.router.navigate(['public/users/account/overview']);
         return false;
       }
   }
+  
 }

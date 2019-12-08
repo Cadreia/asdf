@@ -4,7 +4,6 @@ import { Router } from '@angular/router';
 import { LoginService } from 'src/app/services/login/login.service';
 import { MessageService } from 'src/app/services/messages/message.service';
 import { config } from 'src/app/configs/app.config';
-// import { JsonPipe } from '@angular/common';
 
 @Component({
   selector: 'app-login',
@@ -27,9 +26,9 @@ public createNewAccount = config.create_new;
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(6)]],
     });
-    // if (this.loginService.isLoggedIn()) {
-    //   this.router.navigate(['public/home']);
-    // }
+    if (this.loginService.isLoggedIn()) {
+      this.router.navigate(['public/home']);
+    }
   }
 
   Login() {

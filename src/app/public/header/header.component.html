@@ -18,7 +18,7 @@
                               <div *ngIf="isLoggedIn; then thisBlock; else elseBlock"></div>
                               <ng-template #thisBlock>
                                  <li>
-                                  <i class="fa fa-user"></i>&nbsp;<a [routerLink]="acountPath">{{ userInfos.fullName.split(' ')[0] }}</a>
+                                  <i class="fa fa-user"></i>&nbsp;<a [routerLink]="acountPath">Hi, {{ userInfos.fullName.split(' ')[0] }}</a>
                                 </li>
 
                                 <li style="cursor: pointer;"><a  (click)="logout()"><i class="fa fa-power-off" aria-hidden="true"></i>&nbsp;{{ 'header_label_signOut' | translate }}</a>

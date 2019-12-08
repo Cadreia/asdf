@@ -94,7 +94,7 @@
 
                             <input class="btn btn-primary submitButton" type="submit" value="Update" [disabled]="!updateform.valid" />
                               <div class="gap gap-small"></div>
-                            <a class="btn btn-default" routerLink="../admin"><i class="fa  fa-mail-reply"></i>{{ 'Add_label_back' | translate }}</a>
+                            <a class="btn btn-default" (click)="clear()" routerLink="../admin"><i class="fa  fa-mail-reply"></i>{{ 'Add_label_back' | translate }}</a>
                         </form>
                       </div>
                 </div>

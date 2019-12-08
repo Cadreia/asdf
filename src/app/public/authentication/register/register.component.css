@@ -10,6 +10,9 @@
   width: 100%;
   border: none !important;
 }
+small{
+  color: #ea454b;
+}
 .submitButton:disabled {
   background-color: rgb(187, 184, 184);
   cursor: not-allowed !important;

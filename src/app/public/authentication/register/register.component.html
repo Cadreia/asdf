@@ -17,27 +17,13 @@
                             [class.is-invalid]="registrationForm.controls['fullName'].invalid && registrationForm.controls['fullName'].touched">
                         </div>
                         <div class="errorStyle" *ngIf="registrationForm.controls['fullName'].invalid && registrationForm.controls['fullName'].touched">
-                          <b *ngIf="registrationForm.controls['fullName']?.errors.required">
-                            {{ 'register__fullname_required_error'| translate }} <br>
-                          </b>
-                          <b *ngIf="!registrationForm.controls['fullName']?.errors.minLength">
-                            {{ 'register__fullname_minCharacter_error' | translate }}
-                          </b>
+                          <small *ngIf="registrationForm.controls['fullName']?.errors.required">
+                           * {{ 'register__fullname_required_error'| translate }} <br>
+                          </small>
+                          <small *ngIf="!registrationForm.controls['fullName']?.errors.minLength">
+                           * {{ 'register__fullname_minCharacter_error' | translate }}
+                          </small>
                         </div>
-
-                        <!-- <div class="form-group">
-                            <label for="Last Name">{{ 'register_label_lastname' | translate}}</label>
-                            <input  class="form-control" formControlName="lastName"  name="lastName" type="text"
-                            [class.is-invalid]="registrationForm.controls['lastName'].invalid && registrationForm.controls['lastName'].touched">
-                        </div>
-                         <div class="text-danger" *ngIf="registrationForm.controls['lastName'].invalid && registrationForm.controls['lastName'].touched">
-                          <b *ngIf="registrationForm.controls['lastName']?.errors.required">
-                            *** {{ 'register__lastname_required_error' | translate}} ***<br>
-                          </b>
-                          <b *ngIf="!registrationForm.controls['lastName']?.errors.minLength">
-                            ***{{ 'register__lastname_minCharacter_error' | translate}} ***
-                          </b>
-                        </div> -->
 
                         <div class="form-group">
                             <label for="Phone Number">{{ 'register_label_phoneNumber' | translate}} </label>
@@ -45,12 +31,12 @@
                             [class.is-invalid]="registrationForm.controls['phoneNumber'].invalid && registrationForm.controls['phoneNumber'].touched">
                         </div>
                         <div class="errorStyle" *ngIf="registrationForm.controls['phoneNumber'].invalid && registrationForm.controls['phoneNumber'].touched">
-                          <b *ngIf="registrationForm.controls['phoneNumber']?.errors.required">
-                            {{'register__phoneNumber_required_error' | translate}}<br>
-                          </b>
-                          <b *ngIf="!registrationForm.controls['phoneNumber']?.errors.minLength">
-                             {{ 'register__phoneNumber_digit_error' | translate}}
-                          </b>
+                          <small *ngIf="registrationForm.controls['phoneNumber']?.errors.required">
+                            * {{'register__phoneNumber_required_error' | translate}}<br>
+                          </small>
+                          <small *ngIf="!registrationForm.controls['phoneNumber']?.errors.minLength">
+                            * {{ 'register__phoneNumber_digit_error' | translate}}
+                          </small>
                         </div>
 
                         <div class="form-group">
@@ -59,12 +45,12 @@
                             [class.is-invalid]="registrationForm.controls['email'].invalid && registrationForm.controls['email'].touched">
                         </div>
                         <div class="errorStyle" *ngIf="registrationForm.controls['email'].invalid && registrationForm.controls['email'].touched">
-                          <b *ngIf="registrationForm.controls['email']?.errors.required">
-                            {{ 'register__email_required_error' | translate}}<br>
-                          </b>
-                          <b *ngIf="registrationForm.controls['email']?.errors.email">
-                            {{ 'register__email_invalid_error' | translate}}
-                          </b>
+                          <small *ngIf="registrationForm.controls['email']?.errors.required">
+                           * {{ 'register__email_required_error' | translate}}<br>
+                          </small>
+                          <small *ngIf="registrationForm.controls['email']?.errors.email">
+                           * {{ 'register__email_invalid_error' | translate}}
+                          </small>
                         </div>
 
                         <div class="form-group">
@@ -72,14 +58,6 @@
                             <input class="form-control" name="idNumber" formControlName="idNumber" type="text"
                             >
                         </div>
-                       <!-- <div class="text-danger" *ngIf="registrationForm.controls['idNumber'].invalid && registrationForm.controls['idNumber'].touched">
-                          <b *ngIf="registrationForm.controls['idNumber']?.errors.required">
-                            *** the Id card Number is required ***<br>
-                          </b>
-                          <b *ngIf="!registrationForm.controls['idNumber']?.errors.minLength && !registrationForm.controls['idNumber']?.errors.maxLength">
-                            *** the ID number must be a  exactly 9 digit ***
-                          </b>
-                        </div> -->
 
                         <input name="role" [hidden]="true" value="user" formControlName="role"/>
 
@@ -89,12 +67,12 @@
                             [class.is-invalid]="registrationForm.controls['password'].invalid && registrationForm.controls['password'].touched"/>
                         </div>
                         <div class="errorStyle" *ngIf="registrationForm.controls['password'].invalid && registrationForm.controls['password'].touched">
-                          <b *ngIf="registrationForm.controls['password']?.errors.required">
-                            {{ 'register__password_required' | translate }}<br>
-                          </b>
-                          <b *ngIf="!registrationForm.controls['password']?.errors.minLength && !registrationForm.controls['password']?.errors.maxLength">
-                            {{ 'register__password_minlength' | translate }}
-                          </b>
+                          <small *ngIf="registrationForm.controls['password']?.errors.required">
+                           * {{ 'register__password_required' | translate }}<br>
+                          </small>
+                          <small *ngIf="!registrationForm.controls['password']?.errors.minLength && !registrationForm.controls['password']?.errors.maxLength">
+                           * {{ 'register__password_minlength' | translate }}
+                          </small>
                         </div>
 
                         <div class="form-group">

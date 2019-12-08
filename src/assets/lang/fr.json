@@ -122,6 +122,7 @@
   "account_menu_history": "Historique des réservations",
   "account_menu_reservation": "Effectuer une réservation",
   "account_menu_manageTransitandStop": "Gérer le transit et arrêter",
+   "account_menu_manageOfficailAgency": "Gérer les agence Officielle",
   "overview_label_account_profile": "Profil de compte GoWaka pour",
   "overview_label_travel_statistics": "Statistiques de voyage",
   "overview_label_event_attended": "Événements suivis",
@@ -152,7 +153,7 @@
 
   "admin_manage_transit": "Les administrateurs gèrent tous les transit et arrêt",
   "admin_manage_edit": "éditer le transit et s 'arrête pour qu'il réponde à la dernière mise à jour ",
-  "admin_label_id": "Id",
+  "admin_label_id": "S/N",
   "admin_label_country": "Pays",
   "admin_label_state": "Ville",
   "admin_label_city": "Etat",
