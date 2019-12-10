@@ -173,5 +173,9 @@
   "admin_label_resultfor": "result for:",
   "admin_label_agency_name": "Agency Name",
   "admin_label_admin_email": "Admin Email",
-  "admin_label_agency_reg_number": "Agency Registration Number"
+  "admin_label_agency_reg_number": "Agency Registration Number",
+
+  "admin_placeholder_agency_name": "Enter agency name",
+  "admin_placeholder_admin_email": "Enter admin email",
+  "admin_placeholder_agency_reg_number": "Enter agency registration number"
 }

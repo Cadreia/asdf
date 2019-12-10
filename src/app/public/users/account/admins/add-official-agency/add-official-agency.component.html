@@ -10,34 +10,34 @@
         <form [formGroup]="addAgencyForm" (ngSubmit)="onSubmit()">
           <div class="form-group">
               <label class="text">{{ 'admin_label_agency_name' | translate }}</label>
-              <input class="form-control" type="text" placeholder="Enter agency name"
+              <input class="form-control" type="text" placeholder="{{ 'admin_label_agency_name' | translate }}"
               formControlName="agency_name"
               [class.is-invalid]="addAgencyForm.controls['agency_name'].invalid && addAgencyForm.controls['agency_name'].dirty">
               <div class="errorStyle" *ngIf="addAgencyForm.controls['agency_name'].invalid && addAgencyForm.controls['agency_name'].dirty">
-                <b *ngIf="addAgencyForm.controls['agency_name']?.errors.required">{{ 'edit_required_error' | translate }}<br></b>
+                <small><b *ngIf="addAgencyForm.controls['agency_name']?.errors.required">{{ 'edit_required_error' | translate }}<br></b></small>
               </div>
           </div>
 
           <div class="form-group">
               <label class="text">{{ 'admin_label_admin_email' | translate }}</label>
-              <input class="form-control" formControlName="admin_email" name="admin_email" type="text" placeholder="Enter email"
+              <input class="form-control" formControlName="admin_email" name="admin_email" type="text" placeholder="{{ 'admin_placeholder_admin_email' | translate }}"
               [class.is-invalid]="addAgencyForm.controls['admin_email'].invalid && addAgencyForm.controls['admin_email'].dirty">
               <div class="errorStyle" *ngIf="addAgencyForm.controls['admin_email'].invalid && addAgencyForm.controls['admin_email'].dirty">
                 <b *ngIf="addAgencyForm.controls['admin_email']?.errors.required">{{ 'edit_required_error' | translate }}<br></b>
-                <b *ngIf="addAgencyForm.controls['admin_email']?.errors.email">{{ 'edit_email_error' | translate }}<br></b>
+                <small><b *ngIf="addAgencyForm.controls['admin_email']?.errors.email">{{ 'edit_email_error' | translate }}<br></b></small>
               </div>
           </div>
 
           <div class="form-group">
               <label class="text">{{ 'admin_label_agency_reg_number' | translate }}</label>
-              <input class="form-control" type="text" formControlName="agency_reg_number" name="agency_reg_number" placeholder="Enter number"
+              <input class="form-control" type="text" formControlName="agency_reg_number" name="agency_reg_number" placeholder="{{ 'admin_placeholder_agency_reg_number' | translate }}"
               [class.is-invalid]="addAgencyForm.controls['agency_reg_number'].invalid && addAgencyForm.controls['agency_reg_number'].dirty"/>
               <div class="errorStyle" *ngIf="addAgencyForm.controls['agency_reg_number'].invalid && addAgencyForm.controls['agency_reg_number'].dirty">
-                <b *ngIf="addAgencyForm.controls['agency_reg_number']?.errors.required">{{ 'edit_required_error' | translate }}<br></b>
+                <small><b *ngIf="addAgencyForm.controls['agency_reg_number']?.errors.required">{{ 'edit_required_error' | translate }}<br></b></small>
               </div>
           </div>
 
-          <input class="btn btn-success submitButton" type="submit" value="Add" [disabled]="!addAgencyForm.valid" />
+          <input class="btn btn-primary submitButton" type="submit" value="Add" [disabled]="!addAgencyForm.valid" />
             <div class="gap gap-small"></div>
           <a class="btn btn-default" routerLink="../officialAgency"><i class="fa fa-mail-reply"></i>{{ 'Add_label_back' | translate }}</a>
       </form>
@@ -45,3 +45,6 @@
     </div>
   </div>
 </div>
+<div *ngIf="loader">
+  <app-loader></app-loader>
+ </div>

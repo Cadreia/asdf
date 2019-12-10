@@ -174,5 +174,10 @@
   "admin_label_resultfor": "résultats pour:",
   "admin_label_agency_name": "Nom d'agence",
   "admin_label_admin_email": "Courriel de l'administrateur",
-  "admin_label_agency_reg_number": "Numéro d'enregistrement d'agence"
+  "admin_label_agency_reg_number": "Numéro d'enregistrement d'agence",
+
+  "admin_placeholder_agency_name": "Saisissez le nom de l'agence",
+  "admin_placeholder_admin_email": "Saisissez l'adresse e-mail de l'administrateur",
+  "admin_placeholder_agency_reg_number": "Saisissez le numéro d'enregistrement de l'agence"
+
 }
