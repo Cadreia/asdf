@@ -29,7 +29,7 @@ public requestheader = new HttpHeaders({
     }
     return this.isAdmin;
   }
-  
+
   IsAdminOfficial() {
     if (localStorage.getItem('accessToken') === this.loginService.getAccessToken()) {
       if (this.userInfos.role.includes('ROLE_AGENCY_ADMIN') ||

@@ -108,6 +108,8 @@
   "delete_no_journey_error": "Échec de la suppression de cet emplacement de transit / arrêt. Un trajet a déjà été affecté à cet emplacement.",
   "create_transit_and_stops": "Cliquez ici pour ajouter d'autres emplacements de transit et d'arrêt",
   "create_official_agency": "Cliquez ici pour ajouter une Agence officielle",
+  "create_official_agency_label": "creyez une agence officielle",
+  "create_official_agency_label_nonCreated": "Aucune agence officielle a été créé",
 
   "success_message_create_agency": "Vous avez créé avec succès une nouvelle agence",
 

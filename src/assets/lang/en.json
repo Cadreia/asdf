@@ -109,7 +109,6 @@
   "create_official_agency": "Click here to add an Official Agency",
   "create_official_agency_label": "Create Official Agency",
   "create_official_agency_label_nonCreated": "No Official Agency have been created yet",
-
   "success_message_create_agency": "You successfully created a new Agency",
 
   "error_message_admin_email_invalid": "Error creating a new Agency. This Admin Email does not exist",

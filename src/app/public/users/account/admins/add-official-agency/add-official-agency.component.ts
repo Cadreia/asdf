@@ -24,9 +24,9 @@ export class AddOfficialAgencyComponent implements OnInit {
 
   ngOnInit() {
     this.addAgencyForm = this.formBuilder.group({
-      agency_name: ['', Validators.required],
-      admin_email: ['', [Validators.required, Validators.email]],
-      agency_reg_number: ['', Validators.required]
+      agencyName: ['', Validators.required],
+      agencyAdminEmail: ['', [Validators.required, Validators.email]],
+      agencyRegistrationNumber: ['', Validators.required]
     });
 
     if (!this.sharedService.IsAdmin()) {
@@ -46,7 +46,7 @@ export class AddOfficialAgencyComponent implements OnInit {
       }, (error: any) => {
         this.loader = false;
         console.log(error);
-        if (!(error && Object.keys(error).length === 0)) {
+        if (!(error && (Object.keys(error).length === 0))) {
           if (error.errorCode === 0) {
             this.toaster.offlineMessage();
           }
@@ -57,7 +57,8 @@ export class AddOfficialAgencyComponent implements OnInit {
             if (error.code === 'ACCESS_DENIED') {
               this.toaster.accessDenied();
             }
-          } else if (error.errorCode === 404) {
+          }
+          if (error.errorCode === 422) {
             if (error.code === 'RESOURCE_NOT_FOUND') {
               this.toaster.adminEmailNotExist();
             } else if (error.code === 'USER_ALREADY_IN_AN_AGENCY') {

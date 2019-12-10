@@ -11,12 +11,12 @@ export class AgencyGuard implements CanActivate {
   canActivate(
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean> | boolean | UrlTree {
-      if(this.shareService.IsAdminOfficial()) {
+      if (this.shareService.IsAdminOfficial()) {
         return true;
       } else {
         this.router.navigate(['public/users/account/overview']);
         return false;
       }
   }
-  
+
 }
