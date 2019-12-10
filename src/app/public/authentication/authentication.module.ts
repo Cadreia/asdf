@@ -15,7 +15,7 @@ import { LoginService } from 'src/app/services/login/login.service';
   declarations: [
     RegisterComponent,
     LoginComponent,
-    ForgotpasswordComponent,
+    ForgotpasswordComponent
   ],
   imports: [
     CommonModule,

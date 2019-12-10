@@ -3,51 +3,7 @@
 
     <h5 class="innerContent">{{ 'admin_manage_edit' | translate }}</h5>
     <div class="row">
-
-<div class="col-md-4">
-
-  <aside class="user-profile-sidebar containers">
-    <div class="user-profile-avatar text-center">
-      <img
-        [src]="imagepath"
-        class="origin round img-responsive img-rounded"
-        alt="User Account Avatar"
-      />
-      <h5>{{ userInfos.fullName }}</h5>
-      <p>{{ 'account_menu_member_since' | translate }} 23 Nov 2019</p>
-    </div>
-    <ul class="list user-profile-nav">
-      <li routerLinkActive="active">
-        <a
-          routerLink="../overview"
-          ><i class="fa fa-user"></i>{{ 'account_menu_overview' | translate }}</a
-        >
-      </li>
-      <li routerLinkActive="active">
-        <a
-           routerLink="../setting"
-          ><i class="fa fa-cog"></i>{{ 'account_menu_setting' | translate }}</a
-        >
-      </li>
-      <li routerLinkActive="active">
-        <a
-          routerLink="../booking"
-          ><i class="fa fa-clock-o"></i>{{ 'account_menu_history'|  translate }}</a
-        >
-      </li>
-      <li routerLinkActive="active">
-        <a  routerLink="../reservation"
-          ><i class="fa fa-book"></i>{{ 'account_menu_reservation' | translate }}</a
-        >
-      </li>
-      <li *ngIf="isAdmin" routerLinkActive="active">
-        <a  routerLink="../create"
-          ><i class="fa fa-tasks"></i>{{ 'account_menu_manageTransitandStop' | translate }}</a
-        >
-      </li>
-    </ul>
-  </aside>
-  </div>
+<app-account-menu></app-account-menu>
         <div class="col-md-8">
           <div class="row">
             <div class="gap gap-small"></div>
@@ -102,22 +58,6 @@
         </div>
     </div>
 </div>
-<div *ngIf="loader" id="menu">
-  <div class="w3-margin-top">
-    <div
-      class="preloader-wrapper big active" id="loader"
-    >
-      <div class="spinner-layer spinner-white-only">
-        <div class="circle-clipper left">
-          <div class="circle"></div>
-        </div>
-        <div class="gap-patch">
-          <div class="circle"></div>
-        </div>
-        <div class="circle-clipper right">
-          <div class="circle"></div>
-        </div>
-      </div>
-    </div>
-  </div>
+<div *ngIf="loader">
+ <app-loader></app-loader>
 </div>

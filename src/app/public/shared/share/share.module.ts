@@ -5,15 +5,15 @@ import { TranslatePipe } from 'src/app/pipes/translate.pipe';
 import { TokenInterceptor } from 'src/app/services/registration/token.interceptor';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthGuard } from '../../authentication/guard/auth.guard';
-import { ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
 import { AgencyGuard } from '../../authentication/guard/agency.guard';
+import { LoaderComponent } from '../../users/account/loader/loader.component';
 
 
 
 @NgModule({
-  declarations: [TranslatePipe],
+  declarations: [TranslatePipe, LoaderComponent],
   imports: [CommonModule, ReactiveFormsModule, FormsModule],
-  exports: [TranslatePipe, CommonModule, ReactiveFormsModule, FormsModule],
+  exports: [TranslatePipe, LoaderComponent, CommonModule, ReactiveFormsModule, FormsModule],
   providers: [
     {
       provide: HTTP_INTERCEPTORS,

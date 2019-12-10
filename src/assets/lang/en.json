@@ -105,6 +105,7 @@
   "create_successfull_message": "You successfully Created a new Transit/Stop location.",
   "delete_no_journey_error": "Fail to Delete this Transit/Stop location. A journey has been assigned already to this location.",
   "create_transit_and_stops": "Click here to add more transit and stop locations",
+  "create_official_agency": "Click here to add an Official Agency",
 
   "login_successfull_message": "You Successfully login into Gowaka, an E-mail has been to you, please check",
   "login_successfull_title": "Login Successfully!",

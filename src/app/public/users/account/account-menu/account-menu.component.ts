@@ -11,6 +11,8 @@ export class AccountMenuComponent implements OnInit {
   public userInfos: any;
   public isAdmin: boolean;
   public isAdminOfficial: boolean;
+  public addTransitLink: boolean;
+  public officialAgencyLink: boolean;
   public imagepath = '../../../../../assets/template/images/logo/logo.ico';
   constructor(private sharedService: SharedService,
               private router: Router) { }
@@ -26,6 +28,21 @@ export class AccountMenuComponent implements OnInit {
       this.isAdminOfficial = true;
     } else {
       this.isAdminOfficial = false;
+    }
+    if (window.location.href === 'http://localhost:4200/public/users/account/add' ||
+    window.location.href === 'http://localhost:4200/public/users/account/officialAgency') {
+      this.officialAgencyLink = true;
+    }
+
+    if (
+      window.location.href ===
+        'http://localhost:4200/public/users/account/create' ||
+      window.location.href ===
+        'http://localhost:4200/public/users/account/admin' ||
+      window.location.href ===
+        'http://localhost:4200/public/users/account/edit'
+    ) {
+      this.addTransitLink = true;
     }
   }
   getAccessToken() {

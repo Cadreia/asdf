@@ -6,7 +6,6 @@ import { ShareModule } from '../shared/share/share.module';
 import { AccountMenuComponent } from './account/account-menu/account-menu.component';
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 
-
 @NgModule({
   declarations: [UserRoutingComponent, AccountMenuComponent],
   imports: [CommonModule, ShareModule, UsersRoutingModule, SweetAlert2Module.forRoot()]

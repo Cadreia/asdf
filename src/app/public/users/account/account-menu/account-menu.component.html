@@ -35,12 +35,12 @@
           ><i class="fa fa-book"></i>{{ 'account_menu_reservation' | translate }}</a
         >
       </li>
-      <li *ngIf="isAdmin" routerLinkActive="active">
+      <li *ngIf="isAdmin" [class]=" addTransitLink ? 'active' : '' ">
         <a  routerLink="../admin"
           ><i class="fa fa-tasks"></i>{{ 'account_menu_manageTransitandStop' | translate }}</a
         >
       </li>
-      <li *ngIf="isAdminOfficial" routerLinkActive="active">
+      <li *ngIf="isAdminOfficial" [class]="officialAgencyLink ? 'active' : '' ">
         <a  routerLink="../officialAgency"
           ><i class="fa fa-tasks"></i>{{ 'account_menu_manageOfficailAgency' | translate }}</a
         >
