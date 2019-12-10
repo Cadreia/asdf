@@ -106,7 +106,11 @@
   "create_successfull_message": "Vous avez créé avec succès un nouvel emplacement de transit / arrêt.",
   "delete_no_journey_error": "Échec de la suppression de cet emplacement de transit / arrêt. Un trajet a déjà été affecté à cet emplacement.",
   "create_transit_and_stops": "Cliquez ici pour ajouter d'autres emplacements de transit et d'arrêt",
- "create_official_agency": "Cliquez ici pour ajouter une Agence officielle",
+  "create_official_agency": "Cliquez ici pour ajouter une Agence officielle",
+  "create_official_agency_label": "Créer une agence officielle",
+  "create_official_agency_label_nonCreated": "Aucune agence officielle n'a encore été créée",
+
+
   "login_successfull_message": " Vous êtes connecté avec succès à Gowaka, un courriel vous a été envoyé, vous pouvez vérifier",
   "login_successfull_title": "Vous Étes connecté avec succès!",
   "login_notverified_email_error": "vous vous êtes enregistré avec succès mais vous n'avez pas encore vérifié votre email, veuillez vérifier votre email pour vérification",
