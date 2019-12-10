@@ -153,4 +153,25 @@ export class MessageService {
       passwordMismatchTitle
     );
   }
+
+  successAddAgency() {
+    const addAgencySuccessMessage = this.translation.messages[
+      ('success_message_create_agency')
+    ];
+    this.toastr.success(addAgencySuccessMessage);
+  }
+
+  adminEmailNotExist() {
+    const invalidAdminEmailMessage = this.translation.messages[
+      ('error_message_admin_email_invalid')
+    ];
+    this.toastr.error(invalidAdminEmailMessage, this.errorTitle);
+  }
+
+  adminEmailInUse() {
+    const inUseAdminEmailMessage = this.translation.messages[
+      ('error_message_admin_email_in_use')
+    ];
+    this.toastr.error(inUseAdminEmailMessage, this.errorTitle);
+  }
 }

@@ -57,16 +57,17 @@
   "register_label_role": "Your Role",
   "register_label_lastName": "Last Name",
   "register_label_passwordconfirmation": "Confirm Password",
-  "register__fullname_required_error": "the Full name is required",
-  "register__email_required_error": "the email is required",
-  "register__email_invalid_error": "the email fields is in valid",
-  "edit_required_error": "this field is required",
-  "register__fullname_minCharacter_error": "the Full name must have a minimum of 3 characters",
-  "register__phoneNumber_required_error": "the phone Number is required",
-  "register__phoneNumber_digit_error": "the phone number must have a minimum of 9 digits",
-  "register__password_minCharacter": "the password need a nimimum of 6 characters",
-  "register__password_required": "the password field is required",
-  "register__password_minlength": "the password need to contain at least 6 character",
+  "register__fullname_required_error": "The Full name is required",
+  "register__email_required_error": "The email is required",
+  "register__email_invalid_error": "The email fields is in valid",
+  "edit_required_error": "This field is required",
+  "edit_email_error": "Please provide a valid email address",
+  "register__fullname_minCharacter_error": "The Full name must have a minimum of 3 characters",
+  "register__phoneNumber_required_error": "The phone Number is required",
+  "register__phoneNumber_digit_error": "The phone number must have a minimum of 9 digits",
+  "register__password_minCharacter": "The password need a nimimum of 6 characters",
+  "register__password_required": "The password field is required",
+  "register__password_minlength": "The password need to contain at least 6 character",
 
   "register__label_reasonHavingAccount": "Reasons for having a GoWaka account",
   "register__label_accessbooking": "Access booking history with upcoming trips",
@@ -108,6 +109,11 @@
   "create_official_agency": "Click here to add an Official Agency",
   "create_official_agency_label": "Create Official Agency",
   "create_official_agency_label_nonCreated": "No Official Agency have been created yet",
+
+  "success_message_create_agency": "You successfully created a new Agency",
+
+  "error_message_admin_email_invalid": "Error creating a new Agency. This Admin Email does not exist",
+  "error_message_admin_email_in_use": "Error creating a new Agency. This Admin already belongs to another agency",
 
   "login_successfull_message": "You Successfully login into Gowaka, an E-mail has been to you, please check",
   "login_successfull_title": "Login Successfully!",
@@ -166,5 +172,12 @@
   "admin_label_delete": "Delete",
   "admin_label_noResult": "No result found for:",
   "admin_label_found": "found",
-  "admin_label_resultfor": "result for:"
+  "admin_label_resultfor": "result for:",
+  "admin_label_agency_name": "Agency Name",
+  "admin_label_admin_email": "Admin Email",
+  "admin_label_agency_reg_number": "Agency Registration Number",
+
+  "admin_placeholder_agency_name": "Enter agency name",
+  "admin_placeholder_admin_email": "Enter admin email",
+  "admin_placeholder_agency_reg_number": "Enter agency registration number"
 }

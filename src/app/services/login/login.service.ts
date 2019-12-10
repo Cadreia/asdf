@@ -3,10 +3,10 @@ import { Observable } from 'rxjs';
 import { HttpHeaders } from '@angular/common/http';
 import { tap, mapTo, catchError, retry } from 'rxjs/operators';
 import { HttpClient } from '@angular/common/http';
-import { Tokens } from '../../model/tokens';
 import { config } from 'src/app/configs/app.config';
 import { ErrorhandlerService } from '../errorhandlers/errorhandler.service';
 import { User } from 'src/app/model/user';
+import { Tokens } from 'src/app/model/tokens';
 
 @Injectable({
   providedIn: 'root'

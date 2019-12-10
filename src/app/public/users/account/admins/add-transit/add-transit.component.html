@@ -17,7 +17,7 @@
                                 formControlName="country" name="country"
                                 [class.is-invalid]="addtransitform.controls['country'].invalid && addtransitform.controls['country'].dirty">
                                 <div class="errorStyle" *ngIf="addtransitform.controls['country'].invalid && addtransitform.controls['country'].dirty">
-                                  <b *ngIf="addtransitform.controls['country']?.errors.required">{{ 'edit_required_error' | translate }}<br></b>
+                                  <small *ngIf="addtransitform.controls['country']?.errors.required">{{ 'edit_required_error' | translate }}<br></small>
                                 </div>
                             </div>
 
