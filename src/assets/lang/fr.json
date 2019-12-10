@@ -58,15 +58,16 @@
   "register_label_lastName": "Nom de famille",
   "register_label_passwordconfirmation": "Confirmer le mot de passe",
   "register__fullname_required_error": "le nom complet est requis",
-  "register__email_required_error": "l'email est requis",
-  "register__email_invalid_error": "les champs de l'email sont valides",
-  "edit_required_error": "ce champ est obligatoire",
-  "register__fullname_minCharacter_error": "le nom complet doit comporter au moins 3 caractères",
-  "register__phoneNumber_required_error": "le numéro de téléphone est requis",
-  "register__phoneNumber_digit_error": "le numéro de téléphone doit comporter au moins 9 chiffres",
-  "register__password_minCharacter": "le mot de passe doit comporter au moins 6 caractères",
-  "register__password_required": "le champ du mot de passe est obligatoire",
-  "register__password_minlength": "le mot de passe doit contenir au moins 6 caractères",
+  "register__email_required_error": "L'email est requis",
+  "register__email_invalid_error": "Les champs de l'email sont valides",
+  "edit_required_error": "Ce champ est obligatoire",
+  "edit_email_error": "Veuillez fournir une adresse email valide",
+  "register__fullname_minCharacter_error": "Le nom complet doit comporter au moins 3 caractères",
+  "register__phoneNumber_required_error": "Le numéro de téléphone est requis",
+  "register__phoneNumber_digit_error": "Le numéro de téléphone doit comporter au moins 9 chiffres",
+  "register__password_minCharacter": "Le mot de passe doit comporter au moins 6 caractères",
+  "register__password_required": "Le champ du mot de passe est obligatoire",
+  "register__password_minlength": "Le mot de passe doit contenir au moins 6 caractères",
 
   "register__label_reasonHavingAccount": "Raisons pour avoir un compte GoWaka",
   "register__label_accessbooking": "Accéder à l'historique des réservations pour les prochains voyages",
@@ -106,7 +107,13 @@
   "create_successfull_message": "Vous avez créé avec succès un nouvel emplacement de transit / arrêt.",
   "delete_no_journey_error": "Échec de la suppression de cet emplacement de transit / arrêt. Un trajet a déjà été affecté à cet emplacement.",
   "create_transit_and_stops": "Cliquez ici pour ajouter d'autres emplacements de transit et d'arrêt",
- "create_official_agency": "Cliquez ici pour ajouter une Agence officielle",
+  "create_official_agency": "Cliquez ici pour ajouter une Agence officielle",
+
+  "success_message_create_agency": "Vous avez créé avec succès une nouvelle agence",
+
+  "error_message_admin_email_invalid": "Erreur lors de la création d'une nouvelle agence. Cet e-mail d'administrateur n'existe pas",
+  "error_message_admin_email_in_use": "Erreur lors de la création d'une nouvelle agence. Cet administrateur appartient déjà à une autre agence",
+
   "login_successfull_message": " Vous êtes connecté avec succès à Gowaka, un courriel vous a été envoyé, vous pouvez vérifier",
   "login_successfull_title": "Vous Étes connecté avec succès!",
   "login_notverified_email_error": "vous vous êtes enregistré avec succès mais vous n'avez pas encore vérifié votre email, veuillez vérifier votre email pour vérification",
@@ -164,5 +171,8 @@
   "admin_label_delete": "supprimer",
   "admin_label_noResult": "Aucun  résultat trouvé pour:",
   "admin_label_found": "trouvé",
-  "admin_label_resultfor": "résultats pour:"
+  "admin_label_resultfor": "résultats pour:",
+  "admin_label_agency_name": "Nom d'agence",
+  "admin_label_admin_email": "Courriel de l'administrateur",
+  "admin_label_agency_reg_number": "Numéro d'enregistrement d'agence"
 }

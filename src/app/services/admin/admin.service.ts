@@ -11,6 +11,7 @@ import { ErrorhandlerService } from '../errorhandlers/errorhandler.service';
 import { Observable } from 'rxjs';
 import { Transit } from 'src/app/model/transit';
 import { SharedService } from 'src/app/public/shared/sharedservice/shared.service';
+import { OfficialAgency } from 'src/app/model/official-agency';
 
 @Injectable({
   providedIn: 'root'
@@ -66,5 +67,14 @@ export class AdminService {
         headers: this.Requestheader
       })
       .pipe(retry(1), catchError(this.errorHandlerService.handleError));
+  }
+
+  addOfficialAgency(addData: OfficialAgency): Observable<OfficialAgency> {
+    console.log('the header is: ', this.Requestheader);
+    return this.http
+      .post<OfficialAgency>(`${this.baseUrl}/api/protected/agency`, addData, {
+        headers: this.Requestheader
+      })
+      .pipe(retry(1), catchError(this.errorhandler.handleError));
   }
 }
