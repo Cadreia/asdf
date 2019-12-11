@@ -11,6 +11,7 @@ import { AddTransitComponent } from './account/admins/add-transit/add-transit.co
 import { AgencyComponent } from './account/admins/agency/agency.component';
 import { AgencyGuard } from '../authentication/guard/agency.guard';
 import { AddOfficialAgencyComponent } from './account/admins/add-official-agency/add-official-agency.component';
+import { AgencyAdminGuard } from '../authentication/guard/agency-admin.guard';
 
 
 
@@ -47,7 +48,7 @@ const routes: Routes = [
     canActivate: [AuthGuard]
   },
   {
-    path: 'account/officialAgency',
+    path: 'account/official-agency',
     component: AgencyComponent,
     canActivate: [AgencyGuard]
   },
@@ -55,7 +56,7 @@ const routes: Routes = [
     path: 'account/add',
     component: AddOfficialAgencyComponent,
     canActivate: [AgencyGuard]
-  }
+  },
 ];
 
 @NgModule({
@@ -72,5 +73,5 @@ AdminComponent,
 EditComponent,
 AddTransitComponent,
 AgencyComponent,
-AddOfficialAgencyComponent
+AddOfficialAgencyComponent,
 ];

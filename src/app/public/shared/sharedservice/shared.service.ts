@@ -33,12 +33,21 @@ public requestheader = new HttpHeaders({
       if (this.userInfos.role.includes('ROLE_AGENCY_ADMIN') ||
         this.userInfos.role.includes('ROLE_AGENCY_MANAGER') ||
         this.userInfos.role.includes('ROLE_AGENCY_OPERATO') ||
-        this.userInfos.role.includes('ROLE_AGENCY_OPERATO') ||
         this.userInfos.role.includes('ROLE_AGENCY_BOOKING') ||
         this.userInfos.role.includes('ROLE_AGENCY_CHECKING') ||
         this.userInfos.role.includes('ROLE_GW_ADMIN')
         ) {
         // ROLE_GW_ADMIN, ROLE_USERS
+        return true;
+      }
+    }
+    return false;
+  }
+
+  IsAdminAgency() {
+    if (localStorage.getItem('accessToken') === this.loginService.getAccessToken()) {
+      if (this.userInfos.role.includes('ROLE_AGENCY_ADMIN')) {
+        // ROLE_AGENCY_ADMIN, ROLE_USERS
         return true;
       }
     }

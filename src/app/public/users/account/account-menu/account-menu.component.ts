@@ -11,16 +11,18 @@ export class AccountMenuComponent implements OnInit {
   public userInfos: any;
   public isAdmin: boolean;
   public isAdminOfficial: boolean;
+  public isAdminAgency: boolean;
   public addTransitLink: boolean;
   public officialAgencyLink: boolean;
+  public uniqueAgencyLink: boolean;
   public imagepath = '../../../../../assets/template/images/logo/logo.ico';
   constructor(private sharedService: SharedService,
-              private router: Router) { }
+    private router: Router) { }
 
   ngOnInit() {
     this.userInfos = this.sharedService.getUserinfo();
     if (this.sharedService.IsAdmin()) {
-    this.isAdmin = true;
+      this.isAdmin = true;
     } else {
       this.isAdmin = false;
     }
@@ -29,20 +31,30 @@ export class AccountMenuComponent implements OnInit {
     } else {
       this.isAdminOfficial = false;
     }
+    if (this.sharedService.IsAdminAgency()) {
+      this.isAdminAgency = true;
+    } else {
+      this.isAdminAgency = false;
+    }
+
     if (window.location.href === 'http://localhost:4200/public/users/account/add' ||
-    window.location.href === 'http://localhost:4200/public/users/account/officialAgency') {
+      window.location.href === 'http://localhost:4200/public/users/account/officialAgency') {
       this.officialAgencyLink = true;
     }
 
     if (
       window.location.href ===
-        'http://localhost:4200/public/users/account/create' ||
+      'http://localhost:4200/public/users/account/create' ||
       window.location.href ===
-        'http://localhost:4200/public/users/account/admin' ||
+      'http://localhost:4200/public/users/account/admin' ||
       window.location.href ===
-        'http://localhost:4200/public/users/account/edit'
+      'http://localhost:4200/public/users/account/edit'
     ) {
       this.addTransitLink = true;
+    }
+
+    if (window.location.href === 'http://localhost:4200/public/users/account/unique-agency') {
+      this.uniqueAgencyLink = true;
     }
   }
   getAccessToken() {

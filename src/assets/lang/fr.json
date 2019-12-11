@@ -131,7 +131,7 @@
   "account_menu_history": "Historique des réservations",
   "account_menu_reservation": "Effectuer une réservation",
   "account_menu_manageTransitandStop": "Gérer le transit et arrêter",
-   "account_menu_manageOfficailAgency": "Gérer les agence Officielle",
+  "account_menu_manageOfficialAgency": "Gérer une agence officielle",
   "overview_label_account_profile": "Profil de compte GoWaka pour",
   "overview_label_travel_statistics": "Statistiques de voyage",
   "overview_label_event_attended": "Événements suivis",

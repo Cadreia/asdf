@@ -40,9 +40,9 @@
           ><i class="fa fa-tasks"></i>{{ 'account_menu_manageTransitandStop' | translate }}</a
         >
       </li>
-      <li *ngIf="isAdminOfficial" [class]="officialAgencyLink ? 'active' : '' ">
-        <a  routerLink="../officialAgency"
-          ><i class="fa fa-tasks"></i>{{ 'account_menu_manageOfficailAgency' | translate }}</a
+      <li *ngIf="isAdmin || isAdminAgency" [class]="officialAgencyLink ? 'active' : '' ">
+        <a  routerLink="../official-agency"
+          ><i class="fa fa-tasks"></i>{{ 'account_menu_manageOfficialAgency' | translate }}</a
         >
       </li>
     </ul>
