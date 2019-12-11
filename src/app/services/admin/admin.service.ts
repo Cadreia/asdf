@@ -78,4 +78,12 @@ export class AdminService {
       })
       .pipe(retry(1), catchError(this.errorhandler.handleError));
   }
+
+  getOfficialAgencyUsers() {
+    return this.http
+      .get<any>(`${this.baseUrl}/api/protected/agency/user`, {
+        headers: this.Requestheader
+      })
+      .pipe(retry(1), catchError(this.errorhandler.handleError));
+  }
 }

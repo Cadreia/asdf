@@ -176,6 +176,9 @@
   "admin_label_agency_name": "Agency Name",
   "admin_label_admin_email": "Admin Email",
   "admin_label_agency_reg_number": "Agency Registration Number",
+  "admin_label_user_id": "Id",
+  "admin_label_user_fullname": "Full Name",
+  "admin_label_user_roles": "Roles",
 
   "admin_placeholder_agency_name": "Enter agency name",
   "admin_placeholder_admin_email": "Enter admin email",
