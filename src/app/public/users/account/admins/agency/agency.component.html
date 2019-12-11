@@ -28,9 +28,8 @@
                 </tr>
               </thead>
               <tbody *ngFor="let user of users; let i = index">
-                <td class="center blue-text">{{ i + 1 }}</td>
                 <td class="center">{{ user.id }}</td>
-                <td class="center">{{ user.fullname }}</td>
+                <td class="center">{{ user.fullName }}</td>
                 <td class="center">{{ user.roles }}</td>
                 <td class="center"><a class="btn" (click)="edit(location)">{{ 'admin_label_edit' | translate }}
                     <i class="fa fa-edit" aria-hidden="true"></i></a></td>
