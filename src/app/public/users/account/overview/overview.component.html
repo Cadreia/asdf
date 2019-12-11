@@ -36,11 +36,11 @@
                         <th>{{ 'register_label_firstName' | translate }}</th>
                         <th>{{ 'register_label_lastName' | translate }}</th>
                         <th>{{ 'register_label_email' | translate }}</th>
-                        <th>{{ 'register_label_role' | translate }}</th>
+                        <th >{{ 'register_label_role' | translate }}</th>
                         <th>{{ 'overview_label_accountEdit' | translate }}</th>
                       </tr>
                     </thead>
-                    <tbody>
+                    <tbody style="max-width:50px !important">
                       <td>{{ userInfos.fullName.split(' ')[0] }}</td>
                       <td>{{ userInfos.fullName.split(' ')[1] }}</td>
                       <td>{{ userInfos.email }}</td>
@@ -48,7 +48,7 @@
                       <td style="text-align: center;"><a class="btn btn-warning fa fa-edit" routerLink="../setting">{{ 'overview_label_edit'| translate }}</a></td>
                     </tbody>
                     <tfoot>
-                      <tr  >
+                      <tr>
                         <th colspan="4"></th>
                         <th></th>
                       </tr>

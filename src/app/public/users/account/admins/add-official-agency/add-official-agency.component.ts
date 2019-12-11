@@ -12,7 +12,7 @@ import { MessageService } from 'src/app/services/messages/message.service';
 })
 export class AddOfficialAgencyComponent implements OnInit {
   addAgencyForm: FormGroup;
-  loader: boolean;
+  loader = false;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -45,7 +45,7 @@ export class AddOfficialAgencyComponent implements OnInit {
         this.toaster.successAddAgency();
       }, (error: any) => {
         this.loader = false;
-        console.log(error);
+        console.log('error at:', error);
         if (!(error && (Object.keys(error).length === 0))) {
           if (error.errorCode === 0) {
             this.toaster.offlineMessage();
@@ -59,10 +59,13 @@ export class AddOfficialAgencyComponent implements OnInit {
             }
           }
           if (error.errorCode === 422) {
+              if (error.code === 'USER_ALREADY_IN_AN_AGENCY') {
+              this.toaster.adminEmailInUse();
+            }
+          }
+          if (error.errorCode === 404) {
             if (error.code === 'RESOURCE_NOT_FOUND') {
               this.toaster.adminEmailNotExist();
-            } else if (error.code === 'USER_ALREADY_IN_AN_AGENCY') {
-              this.toaster.adminEmailInUse();
             }
           }
         }

@@ -7,8 +7,6 @@ import { LoginService } from 'src/app/services/login/login.service';
 })
 export class SharedService {
   public userInfos = this.getUserinfo();
-  public isAdmin: boolean;
-  public isAdminOfficial: boolean;
 public requestheader = new HttpHeaders({
       'Content-Type': 'application/json',
       Accept: 'application/json',
@@ -24,10 +22,10 @@ public requestheader = new HttpHeaders({
     if (localStorage.getItem('accessToken') === this.loginService.getAccessToken()) {
       if (this.userInfos.role.includes('ROLE_GW_ADMIN')) {
         // ROLE_GW_ADMIN, ROLE_USERS
-        this.isAdmin = true;
+        return true;
       }
     }
-    return this.isAdmin;
+    return false;
   }
 
   IsAdminOfficial() {
@@ -41,9 +39,10 @@ public requestheader = new HttpHeaders({
         this.userInfos.role.includes('ROLE_GW_ADMIN')
         ) {
         // ROLE_GW_ADMIN, ROLE_USERS
-        this.isAdminOfficial = true;
+        return true;
       }
     }
-    return this.isAdminOfficial;
+    return false;
   }
+
 }

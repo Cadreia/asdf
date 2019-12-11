@@ -22,7 +22,6 @@ export class AdminService {
   Requestheader = this.shareService.requestheader;
   constructor(
     private http: HttpClient,
-    private errorHandlerService: ErrorhandlerService,
     private shareService: SharedService
   ) {}
 
@@ -31,7 +30,7 @@ export class AdminService {
       .get<any>(`${this.baseUrl}/api/public/location`, {
         headers: this.Requestheader
       })
-      .pipe(retry(1), catchError(this.errorHandlerService.handleError));
+      .pipe(retry(1), catchError(this.errorhandler.handleError));
   }
 
   updateTransitForm(editData: Transit): Observable<Transit> {
@@ -58,21 +57,23 @@ export class AdminService {
       .delete<void>(`${this.baseUrl}/api/protected/location/${location.id}`, {
         headers: this.Requestheader
       })
-      .pipe(retry(1), catchError(this.errorHandlerService.handleError));
+      .pipe(retry(1), catchError(this.errorhandler.handleError));
   }
 
   SearchCity(search): Observable<Transit> {
     return this.http
-      .get<Transit>(`${this.baseUrl}/api/public/location/search?city=${search.city}`, {
-        headers: this.Requestheader
-      })
-      .pipe(retry(1), catchError(this.errorHandlerService.handleError));
+      .get<Transit>(
+        `${this.baseUrl}/api/public/location/search?city=${search.city}`,
+        {
+          headers: this.Requestheader
+        }
+      )
+      .pipe(retry(1), catchError(this.errorhandler.handleError));
   }
 
   addOfficialAgency(addData: OfficialAgency): Observable<OfficialAgency> {
-    console.log('the header is: ', this.Requestheader);
     return this.http
-      .post<OfficialAgency>(`${this.baseUrl}/api/protected/agency`, addData, {
+      .post<any>(`${this.baseUrl}/api/protected/agency`, addData, {
         headers: this.Requestheader
       })
       .pipe(retry(1), catchError(this.errorhandler.handleError));

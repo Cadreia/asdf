@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { SharedService } from 'src/app/public/shared/sharedservice/shared.service';
 
 @Component({
   selector: 'app-agency',
@@ -6,10 +7,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./agency.component.scss']
 })
 export class AgencyComponent implements OnInit {
-
-  constructor() { }
+isOfficialAdmin: boolean;
+  constructor(private sharedSevice: SharedService) { }
 
   ngOnInit() {
+    if (this.sharedSevice.IsAdmin()) {
+      this.isOfficialAdmin = true;
+    } else {
+      this.isOfficialAdmin = false;
+    }
   }
 
 }
