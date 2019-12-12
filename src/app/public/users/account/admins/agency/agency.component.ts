@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { SharedService } from 'src/app/public/shared/sharedservice/shared.service';
 import { AdminService } from 'src/app/services/admin/admin.service';
+import { MessageService } from 'src/app/services/messages/message.service';
 
 @Component({
   selector: 'app-agency',
@@ -11,31 +12,34 @@ export class AgencyComponent implements OnInit {
 isAdmin: boolean;
 isAgencyAdmin: boolean;
 users: any[] = [];
-  constructor(private sharedSevice: SharedService, private adminService: AdminService) { }
+loading: boolean;
+  constructor(
+    private sharedSevice: SharedService, 
+    private adminService: AdminService,
+    private toaster: MessageService
+    ) { }
 
   ngOnInit() {
-    this.users = [
-      {
-        id: 1,
-        fullName: "Indiana Poli",
-        roles: [
-          "ROLE_USERS", 
-          "ROLE_AGENCY_MANAGER"
-        ]      
-      },
-      {
-        id: 2,
-        fullName: "Mary Kay",
-        roles: [
-          "ROLE_USERS", 
-          "ROLE_AGENCY_OPERATOR"
-        ]      
-      }
-    ]
+    this.loading = true;
     this.adminService.getOfficialAgencyUsers().subscribe((users: any[]) => {
+      this.loading = false;
       this.users = users;
       console.log("Agency Users" + this.users);
-    })
+    }, error => {
+      this.loading = false;
+      console.log(error);
+      if (!(error && Object.keys(error).length === 0)) {
+        if (error.errorCode === 0) {
+          this.toaster.offlineMessage();
+        }
+        if (error.errorCode === 500) {
+          this.toaster.internalError();
+        } else if (error.errorCode === 403) {
+            this.toaster.unAuthorized();
+        }
+      }
+    });
+
     if (this.sharedSevice.IsAdmin()) {
       this.isAdmin = true;
     } else {

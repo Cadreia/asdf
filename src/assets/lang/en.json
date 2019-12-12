@@ -114,6 +114,7 @@
 
   "error_message_admin_email_invalid": "Error creating a new Agency. This Admin Email does not exist",
   "error_message_admin_email_in_use": "Error creating a new Agency. This Admin already belongs to another agency",
+  "error_message_unauthorized_action": "You are not authorized to perform this operation",
 
   "login_successfull_message": "You Successfully login into Gowaka, an E-mail has been to you, please check",
   "login_successfull_title": "Login Successfully!",

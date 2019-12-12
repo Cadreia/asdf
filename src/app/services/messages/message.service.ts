@@ -174,4 +174,11 @@ export class MessageService {
     ];
     this.toastr.error(inUseAdminEmailMessage, this.errorTitle);
   }
+
+  unAuthorized() {
+    const message = this.translation.messages[
+      ('error_message_unauthorized_action')
+    ];
+    this.toastr.error(message, this.errorTitle);
+  }
 }

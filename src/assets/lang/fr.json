@@ -115,6 +115,7 @@
 
   "error_message_admin_email_invalid": "Erreur lors de la création d'une nouvelle agence. Cet e-mail d'administrateur n'existe pas",
   "error_message_admin_email_in_use": "Erreur lors de la création d'une nouvelle agence. Cet administrateur appartient déjà à une autre agence",
+  "error_message_unauthorized_action": "Vous n'êtes pas autorisé à effectuer cette opération",
 
   "login_successfull_message": " Vous êtes connecté avec succès à Gowaka, un courriel vous a été envoyé, vous pouvez vérifier",
   "login_successfull_title": "Vous Étes connecté avec succès!",
