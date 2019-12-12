@@ -31,10 +31,8 @@
                 <td class="center">{{ user.id }}</td>
                 <td class="center">{{ user.fullName }}</td>
                 <td class="center">{{ user.roles }}</td>
-                <td class="center"><a class="btn" (click)="edit(location)">{{ 'admin_label_edit' | translate }}
-                    <i class="fa fa-edit" aria-hidden="true"></i></a></td>
                 <td class="center"><a class="btn" style="color: #ee6e73 !important;"
-                    (click)="sweetalert(location)">{{ 'admin_label_delete' | translate }}<i class="fa fa-trash-o"></i></a>
+                    (click)="sweetalert(user)">{{ 'admin_label_delete' | translate }}<i class="fa fa-trash-o"></i></a>
                 </td>
               </tbody>
             </table>

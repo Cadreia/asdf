@@ -1,5 +1,5 @@
 export const config = {
-  api_base_url: 'http://ggs2.space:8081',
+  api_base_url: 'http://golab.top:8081',
   asset_dir: 'assets',
   default_lang: 'en',
 

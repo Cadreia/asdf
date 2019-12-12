@@ -106,6 +106,8 @@
   "delete_successfull_message": "Vous avez supprimé avec succès cet emplacement de transit / arrêt.",
   "addOfficialUser_successfull_message": " Vous avez ajouté avec succès un utilisateur officiel à cette agence",
   "create_successfull_message": "Vous avez créé avec succès un nouvel emplacement de transit / arrêt.",
+  "delete_agency_user_successful_message": "L'utilisateur de l'agence a été supprimé avec succès",
+
   "delete_no_journey_error": "Échec de la suppression de cet emplacement de transit / arrêt. Un trajet a déjà été affecté à cet emplacement.",
   "create_transit_and_stops": "Cliquez ici pour ajouter d'autres emplacements de transit et d'arrêt",
   "create_official_agency": "Cliquez ici pour ajouter une Agence officielle",
@@ -118,6 +120,8 @@
   "error_message_admin_email_in_use": "Erreur lors de la création d'une nouvelle agence. Cet administrateur appartient déjà à une autre agence",
   "error_invalid_user_email": "l'e-mail que vous avez entré n'est pas une adresse valide en gowaka",
   "error_message_unauthorized_action": "Vous n'êtes pas autorisé à effectuer cette opération",
+  "error_invalid_agency_user": "Erreur! L'utilisateur que vous essayez de supprimer n'existe pas",
+  "error_user_not_in_agency": "Erreur! L'utilisateur que vous tentez de supprimer n'est pas membre de votre agence",
 
   "login_successfull_message": " Vous êtes connecté avec succès à Gowaka, un courriel vous a été envoyé, vous pouvez vérifier",
   "login_successfull_title": "Vous Étes connecté avec succès!",

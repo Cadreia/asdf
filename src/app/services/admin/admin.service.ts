@@ -94,4 +94,12 @@ export class AdminService {
       })
       .pipe(retry(1), catchError(this.errorhandler.handleError));
   }
+
+  deleteOfficialAgencyUser(user): Observable<void> {
+    return this.http
+      .delete<void>(`${this.baseUrl}/api/protected/agency/user/${user.id}`, {
+        headers: this.Requestheader
+      })
+      .pipe(retry(1), catchError(this.errorhandler.handleError));
+  }
 }

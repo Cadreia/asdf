@@ -51,6 +51,13 @@ export class MessageService {
     this.toastr.success(addOfficialUser);
   }
 
+  successDeleteAgencyUser() {
+    const deletesuccessmesage = this.translation.messages[
+      ('delete_agency_user_successful_message')
+    ];
+    this.toastr.success(deletesuccessmesage);
+  }
+
   successEmailPasswordReset() {
     const successResetBody = this.translation.messages[
       ('passsword_reset_link_body')
@@ -199,6 +206,20 @@ export class MessageService {
   unAuthorized() {
     const message = this.translation.messages[
       ('error_message_unauthorized_action')
+    ];
+    this.toastr.error(message, this.errorTitle);
+  }
+
+  agencyUserNotFound() {
+    const invalidAgencyUser = this.translation.messages[
+      ('error_invalid_agency_user')
+    ];
+    this.toastr.error(invalidAgencyUser, this.errorTitle);
+  }
+
+  userNotAgencyMember() {
+    const message = this.translation.messages[
+      ('error_user_not_in_agency')
     ];
     this.toastr.error(message, this.errorTitle);
   }

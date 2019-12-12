@@ -1,66 +1,67 @@
-
 <div class="container">
 
-    <h5>{{ 'admin_manage_transit' | translate }}</h5>
-    <div class="row">
-        <app-account-menu></app-account-menu>
-        <div class="col-md-3 col-md-offset-5 search">
-          <form class="main-header-search" accept-charset="UTF-8" [formGroup]="search" (ngSubmit)="searchMe()">
-            <div class="form-group form-group-icon-left">
-              <i class="fa fa-search input-icon"></i>
-                <input name="search" type="text" formControlName="city" class="form-control" placeholder="type the city name here..">
-                <input type="submit" class="btn btn-primary col-md-3 col-md-offset-9" value="search" style="margin-top: -33.8px !important; float: right !important; background-color:  #2196F3 !important; border: 1px solid  #2196F3 !important">
-            </div>
-          </form>
+  <h5>{{ 'admin_manage_transit' | translate }}</h5>
+  <div class="row">
+    <app-account-menu></app-account-menu>
+    <div class="col-md-3 col-md-offset-5 search">
+      <form class="main-header-search" accept-charset="UTF-8" [formGroup]="search" (ngSubmit)="searchMe()">
+        <div class="form-group form-group-icon-left">
+          <i class="fa fa-search input-icon"></i>
+          <input name="search" type="text" formControlName="city" class="form-control"
+            placeholder="type the city name here..">
+          <input type="submit" class="btn btn-primary col-md-3 col-md-offset-9" value="search"
+            style="margin-top: -33.8px !important; float: right !important; background-color:  #2196F3 !important; border: 1px solid  #2196F3 !important">
         </div>
-        <div *ngIf="foundResult; then showData; else noData"></div>
-        <ng-template #showData>
-           <div class="col-md-8">
-          <div class="row">
+      </form>
+    </div>
+    <div *ngIf="foundResult; then showData; else noData"></div>
+    <ng-template #showData>
+      <div class="col-md-8">
+        <div class="row">
           <div class="col-md-12">
             <div class="gap gap-small"></div>
             <div style="background-color:#C8E6C9">
               <span onclick="this.parentElement.style.display='none'" class="btn-close">x</span>
-            <p class="resultSearch" style="color: #4CAF50">
-              {{ 'admin_label_found' | translate }} {{ NumberOfCity }} {{ 'admin_label_resultfor' | translate }}
-              <b><u>{{ cityName }}</u></b></p>
-             </div>
-                <div class="box-body table-responsive">
-          <table id="example1" class="table table-bordered table-striped">
-                    <thead>
-                      <tr style="background-color: rgb(237, 131, 35);color: white;">
-                        <th class="center upper">{{ 'admin_label_id' | translate }}</th>
-                        <th class="center upper">{{ 'admin_label_country' | translate }}</th>
-                        <th class="center upper">{{ 'admin_label_state' | translate }}</th>
-                        <th class="center upper">{{ 'admin_label_city' | translate }}</th>
-                        <th class="center upper">{{ 'admin_label_address' | translate }}</th>
-                        <th colspan="2" class="center upper">{{ 'admin_label_action' | translate }}</th>
-                      </tr>
-                    </thead>
-                    <tbody *ngFor="let location of searchResult; let i = index">
-                      <td class="center blue-text">{{ i + 1 }}</td>
-                      <td class="center">{{ location.country }}</td>
-                      <td class="center">{{ location.state }}</td>
-                      <td class="center">{{ location.city }}</td>
-                      <td class="center">{{ location.address }}</td>
-                      <td class="center"><a class="btn" (click)="edit(location)">{{ 'admin_label_edit' | translate }}
-                        <i class="fa fa-edit" aria-hidden="true"></i></a></td>
-                      <td class="center"><a class="btn" style="color: #ee6e73 !important;"
-                          (click)="sweetalert(location)">{{ 'admin_label_delete' | translate }}<i
-                            class="fa fa-trash-o"></i></a></td>
-                    </tbody>
-                  </table>
-                </div>
-              </div>
+              <p class="resultSearch" style="color: #4CAF50">
+                {{ 'admin_label_found' | translate }} {{ NumberOfCity }} {{ 'admin_label_resultfor' | translate }}
+                <b><u>{{ cityName }}</u></b></p>
+            </div>
+            <div class="box-body table-responsive">
+              <table id="example1" class="table table-bordered table-striped">
+                <thead>
+                  <tr style="background-color: rgb(237, 131, 35);color: white;">
+                    <th class="center upper">{{ 'admin_label_id' | translate }}</th>
+                    <th class="center upper">{{ 'admin_label_country' | translate }}</th>
+                    <th class="center upper">{{ 'admin_label_state' | translate }}</th>
+                    <th class="center upper">{{ 'admin_label_city' | translate }}</th>
+                    <th class="center upper">{{ 'admin_label_address' | translate }}</th>
+                    <th colspan="2" class="center upper">{{ 'admin_label_action' | translate }}</th>
+                  </tr>
+                </thead>
+                <tbody *ngFor="let location of searchResult; let i = index">
+                  <td class="center blue-text">{{ i + 1 }}</td>
+                  <td class="center">{{ location.country }}</td>
+                  <td class="center">{{ location.state }}</td>
+                  <td class="center">{{ location.city }}</td>
+                  <td class="center">{{ location.address }}</td>
+                  <td class="center"><a class="btn" (click)="edit(location)">{{ 'admin_label_edit' | translate }}
+                      <i class="fa fa-edit" aria-hidden="true"></i></a></td>
+                  <td class="center"><a class="btn" style="color: #ee6e73 !important;"
+                      (click)="sweetalert(location)">{{ 'admin_label_delete' | translate }}<i
+                        class="fa fa-trash-o"></i></a></td>
+                </tbody>
+              </table>
             </div>
           </div>
+        </div>
+      </div>
 
-        </ng-template>
+    </ng-template>
 
-        <ng-template #noData>
+    <ng-template #noData>
 
-        <div class="col-md-8">
-          <div class="row">
+      <div class="col-md-8">
+        <div class="row">
           <div class="col-md-12">
             <div class="gap gap-small"></div>
             <div *ngIf="searchsomething" style="background-color:#f8c1c3">
@@ -68,57 +69,59 @@
               <p class="resultSearch" style="color: #ee6e73;">
                 {{ 'admin_label_noResult' | translate }} <b><u> {{ cityName }}</u></b></p>
             </div>
-                <div class="box-body table-responsive">
-                  <table id="example1" class="table table-bordered table-striped">
-                    <thead>
-                      <tr style="background-color: rgb(237, 131, 35);color: white;">
-                        <th class="center upper">{{ 'admin_label_id' | translate }}</th>
-                        <th class="center upper">{{ 'admin_label_country' | translate }}</th>
-                        <th class="center upper">{{ 'admin_label_state' | translate }}</th>
-                        <th class="center upper">{{ 'admin_label_city' | translate }}</th>
-                        <th class="center upper">{{ 'admin_label_address' | translate }}</th>
-                        <th colspan="2" class="center upper">Action</th>
-                      </tr>
-                    </thead>
-                    <tbody *ngFor="let location of locations; let i = index">
-                      <td class="center blue-text">{{ i + 1 }}</td>
-                      <td class="center">{{ location.country }}</td>
-                      <td class="center">{{ location.state }}</td>
-                      <td class="center">{{ location.city }}</td>
-                      <td class="center">{{ location.address }}</td>
-                      <td class="center"><a class="btn" (click)="edit(location)">{{ 'admin_label_edit' | translate }}
-                          <i class="fa fa-edit" aria-hidden="true"></i></a></td>
-                      <td class="center"><a class="btn" style="color: #ee6e73 !important;"
-                          (click)="sweetalert(location)">{{ 'admin_label_delete' | translate }} <i
-                            class="fa fa-trash-o"></i></a></td>
-                    </tbody>
-                    <tfoot>
-                      <div *ngIf="offline; then thisBlock, else elseBlock"></div>
-                      <ng-template #thisBlock>
-                        <tr style="background-color: #f8c1c3;">
-                        <th colspan="7" style="font-size: 14px !important;"><p style="color: #ee6e73 !important">{{ 'admin_offline_message' | translate }}</p>
-                        </th>
-                      </tr>
-                      </ng-template>
+            <div class="box-body table-responsive">
+              <table id="example1" class="table table-bordered table-striped">
+                <thead>
+                  <tr style="background-color: rgb(237, 131, 35);color: white;">
+                    <th class="center upper">{{ 'admin_label_id' | translate }}</th>
+                    <th class="center upper">{{ 'admin_label_country' | translate }}</th>
+                    <th class="center upper">{{ 'admin_label_state' | translate }}</th>
+                    <th class="center upper">{{ 'admin_label_city' | translate }}</th>
+                    <th class="center upper">{{ 'admin_label_address' | translate }}</th>
+                    <th colspan="2" class="center upper">Action</th>
+                  </tr>
+                </thead>
+                <tbody *ngFor="let location of locations; let i = index">
+                  <td class="center blue-text">{{ i + 1 }}</td>
+                  <td class="center">{{ location.country }}</td>
+                  <td class="center">{{ location.state }}</td>
+                  <td class="center">{{ location.city }}</td>
+                  <td class="center">{{ location.address }}</td>
+                  <td class="center"><a class="btn" (click)="edit(location)">{{ 'admin_label_edit' | translate }}
+                      <i class="fa fa-edit" aria-hidden="true"></i></a></td>
+                  <td class="center"><a class="btn" style="color: #ee6e73 !important;"
+                      (click)="sweetalert(location)">{{ 'admin_label_delete' | translate }} <i
+                        class="fa fa-trash-o"></i></a></td>
+                </tbody>
+                <tfoot>
+                  <div *ngIf="offline; then thisBlock, else elseBlock"></div>
+                  <ng-template #thisBlock>
+                    <tr style="background-color: #f8c1c3;">
+                      <th colspan="7" style="font-size: 14px !important;">
+                        <p style="color: #ee6e73 !important">{{ 'admin_offline_message' | translate }}</p>
+                      </th>
+                    </tr>
+                  </ng-template>
 
-                      <ng-template  #elseBlock>
-                        <tr style="background-color: #E3F2FD;">
-                        <th colspan="7">
-                        </th>
-                      </tr>
-                      </ng-template>
-                    </tfoot>
-                  </table>
-                </div>
-                <button class="btn btn-primary rightButton" routerLink="../create">{{ 'create_transit_and_stops' | translate }}</button>
+                  <ng-template #elseBlock>
+                    <tr style="background-color: #E3F2FD;">
+                      <th colspan="7">
+                      </th>
+                    </tr>
+                  </ng-template>
+                </tfoot>
+              </table>
+            </div>
+            <button class="btn btn-primary rightButton"
+              routerLink="../create">{{ 'create_transit_and_stops' | translate }}</button>
           </div>
         </div>
-        </div>
-        </ng-template>
-        <!-- to end no data -->
-    </div>
+      </div>
+    </ng-template>
+    <!-- to end no data -->
+  </div>
 </div>
 
 <div *ngIf="loader">
- <app-loader></app-loader>
+  <app-loader></app-loader>
 </div>

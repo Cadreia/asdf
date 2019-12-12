@@ -106,6 +106,8 @@
   "addOfficialUser_successfull_message": "You successfully Added an oficial User to this Agency",
   "create_successfull_message": "You successfully Created a new Transit/Stop location.",
   "delete_no_journey_error": "Fail to Delete this Transit/Stop location. A journey has been assigned already to this location.",
+  "delete_agency_user_successful_message": "Agency User has been deleted successfully",
+
   "create_transit_and_stops": "Click here to add more transit and stop locations",
   "create_official_agency": "Click here to add an Official Agency",
   "create_official_agency_label": "Create Official Agency",
@@ -118,6 +120,8 @@
   "error_adding_afficial_agency_user": "Error adding a new Agency User. This User is already a member of an Agency",
   "error_invalid_user_email": "the email you entered is not a valid gowaka email address",
   "error_message_unauthorized_action": "You are not authorized to perform this operation",
+  "error_invalid_agency_user": "Error! The user you are trying to delete does not exist",
+  "error_user_not_in_agency": "Error! The user you are attempting to delete is not a member of your agency",
 
   "login_successfull_message": "You Successfully login into Gowaka, an E-mail has been to you, please check",
   "login_successfull_title": "Login Successfully!",
