@@ -95,6 +95,7 @@ export class AdminComponent implements OnInit {
       response => {
         console.log(response);
         this.toaster.successDeleteTransit();
+        this.getTransitsAndStops();
         this.router.navigate(['public/users/account/admin']);
       }, error => {
         console.log(error);
