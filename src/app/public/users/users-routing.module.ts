@@ -12,6 +12,7 @@ import { AgencyComponent } from './account/admins/agency/agency.component';
 import { AgencyGuard } from '../authentication/guard/agency.guard';
 import { AddOfficialAgencyComponent } from './account/admins/add-official-agency/add-official-agency.component';
 import { AgencyAdminGuard } from '../authentication/guard/agency-admin.guard';
+import { AddOfficialUsersComponent } from './account/admins/add-official-users/add-official-users.component';
 
 
 
@@ -48,13 +49,18 @@ const routes: Routes = [
     canActivate: [AuthGuard]
   },
   {
-    path: 'account/official-agency',
+    path: 'account/officialAgency',
     component: AgencyComponent,
     canActivate: [AgencyGuard]
   },
   {
     path: 'account/add',
     component: AddOfficialAgencyComponent,
+    canActivate: [AgencyGuard]
+  },
+  {
+    path: 'account/addOfficialUser',
+    component: AddOfficialUsersComponent,
     canActivate: [AgencyGuard]
   },
 ];
@@ -74,4 +80,5 @@ EditComponent,
 AddTransitComponent,
 AgencyComponent,
 AddOfficialAgencyComponent,
+AddOfficialUsersComponent
 ];

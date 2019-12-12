@@ -104,6 +104,7 @@
   "update_successfull_message": "Vous avez correctement mis à jour cet emplacement de transit / arrêt.",
   "update_location_exists_error": "Erreur lors de l'ajout de cet emplacement de transit / arrêt, un emplacement contenant ces informations existe déjà.",
   "delete_successfull_message": "Vous avez supprimé avec succès cet emplacement de transit / arrêt.",
+  "addOfficialUser_successfull_message": " Vous avez ajouté avec succès un utilisateur officiel à cette agence",
   "create_successfull_message": "Vous avez créé avec succès un nouvel emplacement de transit / arrêt.",
   "delete_no_journey_error": "Échec de la suppression de cet emplacement de transit / arrêt. Un trajet a déjà été affecté à cet emplacement.",
   "create_transit_and_stops": "Cliquez ici pour ajouter d'autres emplacements de transit et d'arrêt",
@@ -115,6 +116,7 @@
 
   "error_message_admin_email_invalid": "Erreur lors de la création d'une nouvelle agence. Cet e-mail d'administrateur n'existe pas",
   "error_message_admin_email_in_use": "Erreur lors de la création d'une nouvelle agence. Cet administrateur appartient déjà à une autre agence",
+  "error_invalid_user_email": "l'e-mail que vous avez entré n'est pas une adresse valide en gowaka",
 
   "login_successfull_message": " Vous êtes connecté avec succès à Gowaka, un courriel vous a été envoyé, vous pouvez vérifier",
   "login_successfull_title": "Vous Étes connecté avec succès!",
@@ -180,6 +182,6 @@
 
   "admin_placeholder_agency_name": "Saisissez le nom de l'agence",
   "admin_placeholder_admin_email": "Saisissez l'adresse e-mail de l'administrateur",
-  "admin_placeholder_agency_reg_number": "Saisissez le numéro d'enregistrement de l'agence"
-
+  "admin_placeholder_agency_reg_number": "Saisissez le numéro d'enregistrement de l'agence",
+  "Add_offical_users": "Ajouter d'autres utilisateurs officiels de cette agence"
 }

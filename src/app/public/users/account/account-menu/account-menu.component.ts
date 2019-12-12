@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { SharedService } from 'src/app/public/shared/sharedservice/shared.service';
 import { Router } from '@angular/router';
+import { config } from 'src/app/configs/app.config';
 
 @Component({
   selector: 'app-account-menu',
@@ -15,9 +16,9 @@ export class AccountMenuComponent implements OnInit {
   public addTransitLink: boolean;
   public officialAgencyLink: boolean;
   public uniqueAgencyLink: boolean;
+  public config = config;
   public imagepath = '../../../../../assets/template/images/logo/logo.ico';
-  constructor(private sharedService: SharedService,
-    private router: Router) { }
+  constructor(private sharedService: SharedService) { }
 
   ngOnInit() {
     this.userInfos = this.sharedService.getUserinfo();
@@ -37,23 +38,25 @@ export class AccountMenuComponent implements OnInit {
       this.isAdminAgency = false;
     }
 
-    if (window.location.href === 'http://localhost:4200/public/users/account/add' ||
-      window.location.href === 'http://localhost:4200/public/users/account/officialAgency') {
+    if (
+      window.location.href === `${this.config.account_raw_dir}/add` ||
+      window.location.href === `${this.config.account_raw_dir}/officialAgency` ||
+      window.location.href === `${this.config.account_raw_dir}/addOfficialUser`
+    ) {
       this.officialAgencyLink = true;
     }
 
     if (
-      window.location.href ===
-      'http://localhost:4200/public/users/account/create' ||
-      window.location.href ===
-      'http://localhost:4200/public/users/account/admin' ||
-      window.location.href ===
-      'http://localhost:4200/public/users/account/edit'
+      window.location.href === `${this.config.account_raw_dir}/create` ||
+      window.location.href === `${this.config.account_raw_dir}/admin` ||
+      window.location.href === `${this.config.account_raw_dir}/edit`
     ) {
       this.addTransitLink = true;
     }
 
-    if (window.location.href === 'http://localhost:4200/public/users/account/unique-agency') {
+    if (
+      window.location.href === `${this.config.account_raw_dir}/unique-agency`
+    ) {
       this.uniqueAgencyLink = true;
     }
   }

@@ -7,7 +7,7 @@ import { SharedService } from '../../shared/sharedservice/shared.service';
   providedIn: 'root'
 })
 export class AgencyGuard implements CanActivate {
-  constructor(private shareService: SharedService, private router: Router){}
+  constructor(private shareService: SharedService, private router: Router) {}
   canActivate(
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean> | boolean | UrlTree {

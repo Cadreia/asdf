@@ -103,6 +103,7 @@
   "update_successfull_message": "You successfully Updated this Transit/Stop location.",
   "update_location_exists_error": "Error Adding this Transit/Stop location, a location with this information already exists.",
   "delete_successfull_message": "You successfully Deleted this Transit/Stop location.",
+  "addOfficialUser_successfull_message": "You successfully Added an oficial User to this Agency",
   "create_successfull_message": "You successfully Created a new Transit/Stop location.",
   "delete_no_journey_error": "Fail to Delete this Transit/Stop location. A journey has been assigned already to this location.",
   "create_transit_and_stops": "Click here to add more transit and stop locations",
@@ -114,6 +115,8 @@
 
   "error_message_admin_email_invalid": "Error creating a new Agency. This Admin Email does not exist",
   "error_message_admin_email_in_use": "Error creating a new Agency. This Admin already belongs to another agency",
+  "error_adding_afficial_agency_user": "Error adding a new Agency User. This User is already a member of an Agency",
+  "error_invalid_user_email": "the email you entered is not a valid gowaka email address",
 
   "login_successfull_message": "You Successfully login into Gowaka, an E-mail has been to you, please check",
   "login_successfull_title": "Login Successfully!",
@@ -179,5 +182,6 @@
 
   "admin_placeholder_agency_name": "Enter agency name",
   "admin_placeholder_admin_email": "Enter admin email",
-  "admin_placeholder_agency_reg_number": "Enter agency registration number"
+  "admin_placeholder_agency_reg_number": "Enter agency registration number",
+  "Add_offical_users": "Add more Official Users of this Agency"
 }

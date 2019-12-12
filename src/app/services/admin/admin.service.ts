@@ -78,4 +78,12 @@ export class AdminService {
       })
       .pipe(retry(1), catchError(this.errorhandler.handleError));
   }
+
+  addOfficialAgencyUser(addUser: any): Observable<any> {
+    return this.http
+      .post<any>(`${this.baseUrl}/api/protected/agency/user`, addUser, {
+        headers: this.Requestheader
+      })
+      .pipe(retry(1), catchError(this.errorhandler.handleError));
+  }
 }

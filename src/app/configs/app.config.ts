@@ -7,5 +7,6 @@ export const config = {
   create_new: '../register',
   login_dir: '../login',
   account_dir: 'public/users/account',
+  account_raw_dir: 'http://localhost:4200/public/users/account',
 
 };

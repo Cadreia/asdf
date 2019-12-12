@@ -44,6 +44,13 @@ export class MessageService {
     this.toastr.success(deletesuccessmesage);
   }
 
+  successAddOfficialUser() {
+    const addOfficialUser = this.translation.messages[
+      ('addOfficialUser_successfull_message')
+    ];
+    this.toastr.success(addOfficialUser);
+  }
+
   successEmailPasswordReset() {
     const successResetBody = this.translation.messages[
       ('passsword_reset_link_body')
@@ -168,9 +175,23 @@ export class MessageService {
     this.toastr.error(invalidAdminEmailMessage, this.errorTitle);
   }
 
+  OfficialUserEmailNotExist() {
+    const invalidAdminEmailMessage = this.translation.messages[
+      ('error_invalid_user_email')
+    ];
+    this.toastr.error(invalidAdminEmailMessage, this.errorTitle);
+  }
+
   adminEmailInUse() {
     const inUseAdminEmailMessage = this.translation.messages[
       ('error_message_admin_email_in_use')
+    ];
+    this.toastr.error(inUseAdminEmailMessage, this.errorTitle);
+  }
+
+  officialUserInUse() {
+    const inUseAdminEmailMessage = this.translation.messages[
+      ('error_adding_afficial_agency_user')
     ];
     this.toastr.error(inUseAdminEmailMessage, this.errorTitle);
   }
