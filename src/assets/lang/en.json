@@ -117,6 +117,7 @@
   "error_message_admin_email_in_use": "Error creating a new Agency. This Admin already belongs to another agency",
   "error_adding_afficial_agency_user": "Error adding a new Agency User. This User is already a member of an Agency",
   "error_invalid_user_email": "the email you entered is not a valid gowaka email address",
+  "error_message_unauthorized_action": "You are not authorized to perform this operation",
 
   "login_successfull_message": "You Successfully login into Gowaka, an E-mail has been to you, please check",
   "login_successfull_title": "Login Successfully!",
@@ -179,6 +180,9 @@
   "admin_label_agency_name": "Agency Name",
   "admin_label_admin_email": "Admin Email",
   "admin_label_agency_reg_number": "Agency Registration Number",
+  "admin_label_user_id": "Id",
+  "admin_label_user_fullname": "Full Name",
+  "admin_label_user_roles": "Roles",
 
   "admin_placeholder_agency_name": "Enter agency name",
   "admin_placeholder_admin_email": "Enter admin email",

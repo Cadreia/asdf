@@ -117,6 +117,7 @@
   "error_message_admin_email_invalid": "Erreur lors de la création d'une nouvelle agence. Cet e-mail d'administrateur n'existe pas",
   "error_message_admin_email_in_use": "Erreur lors de la création d'une nouvelle agence. Cet administrateur appartient déjà à une autre agence",
   "error_invalid_user_email": "l'e-mail que vous avez entré n'est pas une adresse valide en gowaka",
+  "error_message_unauthorized_action": "Vous n'êtes pas autorisé à effectuer cette opération",
 
   "login_successfull_message": " Vous êtes connecté avec succès à Gowaka, un courriel vous a été envoyé, vous pouvez vérifier",
   "login_successfull_title": "Vous Étes connecté avec succès!",
@@ -179,6 +180,9 @@
   "admin_label_agency_name": "Nom d'agence",
   "admin_label_admin_email": "Courriel de l'administrateur",
   "admin_label_agency_reg_number": "Numéro d'enregistrement d'agence",
+  "admin_label_user_id": "Id",
+  "admin_label_user_fullname": "Nom Complet",
+  "admin_label_user_roles": "Rôles",
 
   "admin_placeholder_agency_name": "Saisissez le nom de l'agence",
   "admin_placeholder_admin_email": "Saisissez l'adresse e-mail de l'administrateur",
