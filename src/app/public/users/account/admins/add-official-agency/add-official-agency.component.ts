@@ -49,16 +49,13 @@ export class AddOfficialAgencyComponent implements OnInit {
         if (!(error && (Object.keys(error).length === 0))) {
           if (error.errorCode === 0) {
             this.toaster.offlineMessage();
-          }
-          if (error.errorCode === 500) {
+          } else if (error.errorCode === 500) {
             this.toaster.internalError();
-          }
-          if (error.errorCode === 401) {
+          } else if (error.errorCode === 401) {
             if (error.code === 'ACCESS_DENIED') {
               this.toaster.accessDenied();
             }
-          }
-          if (error.errorCode === 422) {
+          } else if (error.errorCode === 422) {
               if (error.code === 'USER_ALREADY_IN_AN_AGENCY') {
               this.toaster.adminEmailInUse();
             }

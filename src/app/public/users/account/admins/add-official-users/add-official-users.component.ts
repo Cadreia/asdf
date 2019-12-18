@@ -40,7 +40,7 @@ loader: boolean;
           if (error.errorCode === 0) {
             this.toaster.offlineMessage();
           }
-          if (error.errorCode === 404) {
+          if (error.errorCode === 422) {
             if (error.code === 'RESOURCE_NOT_FOUND') {
               this.toaster.OfficialUserEmailNotExist();
             }
