@@ -28,49 +28,49 @@ export class AgencyComponent implements OnInit {
 
   ngOnInit() {
     this.loading = true;
-    //this.getAgencyUsers();
-    this.users = [
-      {
-        "fullName": "John Doe",
-        "id": "1",
-        "roles": [
-          "ROLE_USERS",
-          "ROLE_AGENCY_MANAGER"
-        ]
-      },
-      {
-        "fullName": "Mary Jay",
-        "id": "2",
-        "roles": [
-          "ROLE_USERS",
-          "ROLE_AGENCY_OPERATOR"
-        ]
-      },
-      {
-        "fullName": "Angelina Jolie",
-        "id": "3",
-        "roles": [
-          "ROLE_USERS",
-          "ROLE_AGENCY_MANAGER"
-        ]
-      },
-      {
-        "fullName": "Sammy Paine",
-        "id": "4",
-        "roles": [
-          "ROLE_USERS",
-          "ROLE_AGENCY_BOOKING"
-        ]
-      },
-      {
-        "fullName": "Josiah Goodluck",
-        "id": "5",
-        "roles": [
-          "ROLE_USERS",
-          "ROLE_AGENCY_CHECKING"
-        ]
-      }
-    ]
+    this.getAgencyUsers();
+    // this.users = [
+    //   {
+    //     "fullName": "John Doe",
+    //     "id": "1",
+    //     "roles": [
+    //       "ROLE_USERS",
+    //       "ROLE_AGENCY_MANAGER"
+    //     ]
+    //   },
+    //   {
+    //     "fullName": "Mary Jay",
+    //     "id": "2",
+    //     "roles": [
+    //       "ROLE_USERS",
+    //       "ROLE_AGENCY_OPERATOR"
+    //     ]
+    //   },
+    //   {
+    //     "fullName": "Angelina Jolie",
+    //     "id": "3",
+    //     "roles": [
+    //       "ROLE_USERS",
+    //       "ROLE_AGENCY_MANAGER"
+    //     ]
+    //   },
+    //   {
+    //     "fullName": "Sammy Paine",
+    //     "id": "4",
+    //     "roles": [
+    //       "ROLE_USERS",
+    //       "ROLE_AGENCY_BOOKING"
+    //     ]
+    //   },
+    //   {
+    //     "fullName": "Josiah Goodluck",
+    //     "id": "5",
+    //     "roles": [
+    //       "ROLE_USERS",
+    //       "ROLE_AGENCY_CHECKING"
+    //     ]
+    //   }
+    // ]
 
     if (this.sharedSevice.IsAdmin()) {
       this.isAdmin = true;
