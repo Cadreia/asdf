@@ -121,7 +121,7 @@
   "error_invalid_user_email": "l'e-mail que vous avez entré n'est pas une adresse valide en gowaka",
   "error_message_unauthorized_action": "Vous n'êtes pas autorisé à effectuer cette opération",
   "error_invalid_agency_user": "Erreur! L'utilisateur que vous essayez de supprimer n'existe pas",
-  "error_user_not_in_agency": "Erreur! L'utilisateur que vous tentez de supprimer n'est pas membre de votre agence",
+  "error_user_not_in_agency": "L'opération a échoué! Cet utilisateur n'est pas membre de votre agence",
 
   "login_successfull_message": " Vous êtes connecté avec succès à Gowaka, un courriel vous a été envoyé, vous pouvez vérifier",
   "login_successfull_title": "Vous Étes connecté avec succès!",
@@ -131,6 +131,16 @@
   "user_logout_message": "Vous vous déconnectez avec succès. Vous ne pouvez accéder aux fonctionnalités réelles de la plateforme GoWaka qu'en vous connectant.",
   "header_offline_message": "vous n'êtes pas en ligne .. veuillez vérifier votre connexion Internet",
   "changepassword_successfull_message": "Félicitations, votre mot de passe a été modifié avec succès, vous pouvez vous reconnecter pour vérifier",
+
+  "swal_delete_agency_user": "Voulez-vous vraiment envoyer cette demande de suppression d'utilisateur?",
+  "swal_delete_transit": "Voulez-vous vraiment envoyer cette demande de suppression de transit?",
+  "swal_text": "Vous ne pourrez pas revenir sur cela!",
+  "swal_accept": "Oui, envoyez-le!",
+  "swal_deny": "Non, annule!",
+  "swal_request_sent": "Demande envoyée!",
+  "swal_request_sent_second": "La demande de suppression a été envoyée. Attendez les commentaires.",
+  "swal_cancelled": "Annulé",
+  "swal_everything_unchanged": "Tout reste inchangé",
 
   "account_menu_member_since": "Membre depuis",
   "account_menu_overview": "Vue d'ensemble",
@@ -159,6 +169,7 @@
   "Edit_transit_and_stops": "Modifier le transit et les arrêts",
   "Add_transit_and_stops": "Ajouter plus d'emplacement pour le transit et les arrêts",
   "Add_label_back": "Retour",
+  "Update_user_roles": "Mettre à jour les rôles d'utilisateur de l'agence",
 
   "about_label_title": "À propos du service de réservation en ligne de GoWaka",
   "about_label_description": "GoWaka est un service de réservation en ligne utilisé par les agences de voyages africaines du secteur des autobus et trains et les organisateurs d’événements pour la gestion facile de leurs activités opérationnelles. GoWaka est basé au Cameroun.",

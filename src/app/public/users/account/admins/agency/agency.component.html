@@ -31,14 +31,21 @@
                 <td class="center">{{ user.id }}</td>
                 <td class="center">{{ user.fullName }}</td>
                 <td class="center">{{ user.roles }}</td>
-                <td class="center"><a class="btn" style="color: #ee6e73 !important;"
-                    (click)="sweetalert(user)">{{ 'admin_label_delete' | translate }}<i class="fa fa-trash-o"></i></a>
+                <td class="center"><a class="btn btn-info btn-sm" (click)="edit(user)">{{ 'admin_label_edit' | translate }}<i class="fa fa-trash-o"></i></a>
                 </td>
+                <td class="center"><a class="btn btn-danger btn-sm" (click)="sweetalert(user)">{{ 'admin_label_delete' | translate }}<i class="fa fa-trash-o"></i></a>
+                </td>                
               </tbody>
             </table>
+
+            <div *ngIf="users==''" class="mx-auto alert alert-danger">
+              <h6 class="text-center">There is no available user</h6>
+            </div>
+      
           </div>
         </div>
       </div>
+
       <button class="btn btn-primary rightButton" routerLink="../addOfficialUser">Add Official Agency User</button>
     </div>
   </div>

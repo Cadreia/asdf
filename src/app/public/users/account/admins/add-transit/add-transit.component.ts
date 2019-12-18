@@ -4,6 +4,10 @@ import { MessageService } from 'src/app/services/messages/message.service';
 import { AdminService } from 'src/app/services/admin/admin.service';
 import { SharedService } from 'src/app/public/shared/sharedservice/shared.service';
 import { Router } from '@angular/router';
+import { ICountry } from 'src/app/interface/country';
+import { IState } from 'src/app/interface/state';
+import { ICity } from 'src/app/interface/city';
+import { CountriesService } from 'src/app/services/countries/countries.service';
 
 @Component({
   selector: 'app-add-transit',
@@ -16,18 +20,31 @@ public addtransitform: FormGroup;
 public userInfos: any;
 public isAdmin: boolean;
 public loader: boolean;
+public countries: ICountry[] = [];
+public states: IState[] = [];
+public cities: ICity[] = [];
+
   constructor(private formBuilder: FormBuilder,
               private toaster: MessageService,
               private adminService: AdminService,
               private sharedService: SharedService,
-              private router: Router) { }
+              private router: Router,
+              private countriesService: CountriesService,
+              ) {
+               
+            
+               }
 
   ngOnInit() {
     this.addtransitform = this.formBuilder.group({
-      country: ['', Validators.required],
-      state: ['', Validators.required],
-      city: ['', Validators.required],
+      countrySelect: ['', [Validators.required]],
+      stateSelect: ['', [Validators.required]],
+      citySelect: ['', [Validators.required]],
       address: ['', Validators.required]
+    });
+
+    this.countriesService.getAllCountries().subscribe((countries: ICountry[]) => {
+      this.countries = countries;
     });
 
     this.userInfos = this.sharedService.getUserinfo();
@@ -71,7 +88,28 @@ public loader: boolean;
       }
     );
   }
+
   getAccessToken() {
     return localStorage.getItem('accessToken');
+  }
+
+  onChangeCountry(countryValue: any) {
+     this.addtransitform.controls['countrySelect'].setValue(countryValue, {
+           onlySelf: true
+         });
+         this.states.length = 0;
+         console.log(this.addtransitform.get("stateSelect"));
+         this.cities.length = 0;
+         this.countriesService.getStatesOfCountry(this.addtransitform.value.countrySelect.id);
+         this.states = this.countriesService.selectStates;
+  }
+
+  onChangeState(stateValue: any) {
+    this.addtransitform.controls['stateSelect'].setValue(stateValue, {
+          onlySelf: true
+        });
+        this.cities.length = 0;
+        this.countriesService.getCitiesOfState(this.addtransitform.value.stateSelect.id);
+        this.cities = this.countriesService.selectCities;
   }
 }

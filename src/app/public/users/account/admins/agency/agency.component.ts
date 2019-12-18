@@ -2,8 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { SharedService } from 'src/app/public/shared/sharedservice/shared.service';
 import { AdminService } from 'src/app/services/admin/admin.service';
 import { MessageService } from 'src/app/services/messages/message.service';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute, Params } from '@angular/router';
 import Swal from 'sweetalert2';
+import { TranslationService } from 'src/app/services/translate/translation.service';
+import { AgencyUser } from 'src/app/model/agency-user';
 
 @Component({
   selector: 'app-agency',
@@ -13,18 +15,62 @@ import Swal from 'sweetalert2';
 export class AgencyComponent implements OnInit {
   isAdmin: boolean;
   isAgencyAdmin: boolean;
-  users: any[] = [];
+  users: AgencyUser[] = [];
   loading: boolean;
 
   constructor(private sharedSevice: SharedService,
     private adminService: AdminService,
     private toaster: MessageService,
-    private router: Router
+    private router: Router,
+    private translationService: TranslationService,
+    private route: ActivatedRoute
   ) { }
 
   ngOnInit() {
     this.loading = true;
-    this.getAgencyUsers();
+    //this.getAgencyUsers();
+    this.users = [
+      {
+        "fullName": "John Doe",
+        "id": "1",
+        "roles": [
+          "ROLE_USERS",
+          "ROLE_AGENCY_MANAGER"
+        ]
+      },
+      {
+        "fullName": "Mary Jay",
+        "id": "2",
+        "roles": [
+          "ROLE_USERS",
+          "ROLE_AGENCY_OPERATOR"
+        ]
+      },
+      {
+        "fullName": "Angelina Jolie",
+        "id": "3",
+        "roles": [
+          "ROLE_USERS",
+          "ROLE_AGENCY_MANAGER"
+        ]
+      },
+      {
+        "fullName": "Sammy Paine",
+        "id": "4",
+        "roles": [
+          "ROLE_USERS",
+          "ROLE_AGENCY_BOOKING"
+        ]
+      },
+      {
+        "fullName": "Josiah Goodluck",
+        "id": "5",
+        "roles": [
+          "ROLE_USERS",
+          "ROLE_AGENCY_CHECKING"
+        ]
+      }
+    ]
 
     if (this.sharedSevice.IsAdmin()) {
       this.isAdmin = true;
@@ -48,28 +94,28 @@ export class AgencyComponent implements OnInit {
     });
 
     swalWithBootstrapButtons.fire({
-      title: 'Are you sure you want to send this delete user request?',
-      text: 'You won\'t be able to revert this!',
+      title: this.translationService.messages[('swal_delete_agency_user')],
+      text: this.translationService.messages[('swal_text')],
       timer: 15000,
       timerProgressBar: true,
       icon: 'warning',
       showCancelButton: true,
-      confirmButtonText: 'Yes, send it!',
-      cancelButtonText: 'No, cancel!',
+      confirmButtonText: this.translationService.messages[('swal_accept')],
+      cancelButtonText: this.translationService.messages[('swal_deny')],
     }).then((result) => {
       if (result.value) {
         this.deleteAgencyUser(user),
           swalWithBootstrapButtons.fire(
-            'Request sent!',
-            'The delete request has been sent. Wait for feedback.',
+            this.translationService.messages[('swal_request_sent')],
+            this.translationService.messages[('swal_request_sent_second')],
             'success',
           );
       } else if (
         result.dismiss === Swal.DismissReason.cancel
       ) {
         swalWithBootstrapButtons.fire(
-          'Cancelled',
-          'Everything remains unchanged',
+          this.translationService.messages[('swal_cancelled')],
+          this.translationService.messages[('swal_everything_unchanged')],
           'error'
         );
       }
@@ -131,4 +177,12 @@ export class AgencyComponent implements OnInit {
       }
     });
   }
+
+  edit(officialUser: AgencyUser) {
+    this.adminService.editMode = true;
+    this.route.params.subscribe((params: Params) => {
+      this.router.navigateByUrl('public/users/account/edit-user', { state: officialUser })
+    })
+  }
+
 }

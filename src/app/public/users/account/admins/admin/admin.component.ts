@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { SharedService } from 'src/app/public/shared/sharedservice/shared.service';
 import Swal from 'sweetalert2';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { TranslationService } from 'src/app/services/translate/translation.service';
 
 @Component({
   selector: 'app-admin',
@@ -28,7 +29,9 @@ export class AdminComponent implements OnInit {
     private router: Router,
     private sharedService: SharedService,
     private readonly toaster: MessageService,
-    private formBuilder: FormBuilder) { }
+    private formBuilder: FormBuilder,
+    private translationService: TranslationService
+    ) { }
 
   ngOnInit() {
     this.search = this.formBuilder.group({
@@ -60,21 +63,21 @@ export class AdminComponent implements OnInit {
     });
 
     swalWithBootstrapButtons.fire({
-      title: 'Are you sure you want to send this delete transit request?',
-      text: 'You won\'t be able to revert this!',
+      title: this.translationService.messages[('swal_delete_agency_user')],
+      text: this.translationService.messages[('swal_text')],
       timer: 15000,
       timerProgressBar: true,
       icon: 'warning',
       showCancelButton: true,
-      confirmButtonText: 'Yes, send it!',
-      cancelButtonText: 'No, cancel!',
+      confirmButtonText: this.translationService.messages['swal_accept'],
+      cancelButtonText: this.translationService.messages[('swal_deny')],
       // reverseButtons: true
     }).then((result) => {
       if (result.value) {
         this.deleteTransit(location),
           swalWithBootstrapButtons.fire(
-            'Request sent!',
-            'The delete request has been sent. Wait for feedback.',
+            this.translationService.messages[('swal_request_sent')],
+            this.translationService.messages[('swal_request_sent_second')],
             'success',
           );
       } else if (
@@ -82,8 +85,8 @@ export class AdminComponent implements OnInit {
         result.dismiss === Swal.DismissReason.cancel
       ) {
         swalWithBootstrapButtons.fire(
-          'Cancelled',
-          'Everything remains unchanged',
+          this.translationService.messages[('swal_cancelled')],
+          this.translationService.messages[('swal_everything_unchanged')],
           'error'
         );
       }

@@ -7,13 +7,13 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthGuard } from '../../authentication/guard/auth.guard';
 import { AgencyGuard } from '../../authentication/guard/agency.guard';
 import { LoaderComponent } from '../../users/account/loader/loader.component';
-
-
+import { NgSelectModule } from '@ng-select/ng-select';
 
 @NgModule({
   declarations: [TranslatePipe, LoaderComponent],
-  imports: [CommonModule, ReactiveFormsModule, FormsModule],
-  exports: [TranslatePipe, LoaderComponent, CommonModule, ReactiveFormsModule, FormsModule],
+  imports: [CommonModule, ReactiveFormsModule, FormsModule, NgSelectModule
+  ],
+  exports: [TranslatePipe, LoaderComponent, CommonModule, ReactiveFormsModule, FormsModule, NgSelectModule],
   providers: [
     {
       provide: HTTP_INTERCEPTORS,

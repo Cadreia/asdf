@@ -20,6 +20,7 @@ export class AdminService {
   baseUrl = config.api_base_url;
   public errorhandler = new ErrorhandlerService();
   Requestheader = this.shareService.requestheader;
+  editMode: boolean;
   constructor(
     private http: HttpClient,
     private shareService: SharedService
@@ -98,6 +99,14 @@ export class AdminService {
   deleteOfficialAgencyUser(user): Observable<void> {
     return this.http
       .delete<void>(`${this.baseUrl}/api/protected/agency/user/${user.id}`, {
+        headers: this.Requestheader
+      })
+      .pipe(retry(1), catchError(this.errorhandler.handleError));
+  }
+
+  updateRoles(roles) {
+    return this.http
+      .post<any>(`${this.baseUrl}/api/protected/agency/user/role`, roles, {
         headers: this.Requestheader
       })
       .pipe(retry(1), catchError(this.errorhandler.handleError));

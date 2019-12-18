@@ -1,63 +1,82 @@
-
 <div class="container">
 
-    <h5 class="innerContent">{{ 'admin_manage_edit' | translate }}</h5>
-    <div class="row">
-<app-account-menu></app-account-menu>
-        <div class="col-md-8">
-          <div class="row">
-            <div class="gap gap-small"></div>
-                <div class="box-body table-responsive">
-                      <div class="col-md-8">
-                        <h4>{{ 'Add_transit_and_stops' | translate }}</h4>
-                          <form [formGroup]="addtransitform" (ngSubmit)="createTransitForm()">
-                            <div class="form-group">
-                                <label class="text">{{ 'admin_label_country' | translate }}</label>
-                                <input class="form-control" type="text" placeholder="enter the country"
-                                formControlName="country" name="country"
-                                [class.is-invalid]="addtransitform.controls['country'].invalid && addtransitform.controls['country'].dirty">
-                                <div class="errorStyle" *ngIf="addtransitform.controls['country'].invalid && addtransitform.controls['country'].dirty">
-                                  <small *ngIf="addtransitform.controls['country']?.errors.required">{{ 'edit_required_error' | translate }}<br></small>
-                                </div>
-                            </div>
+  <h5 class="innerContent">{{ 'admin_manage_edit' | translate }}</h5>
+  <div class="row">
+    <app-account-menu></app-account-menu>
+    <div class="col-md-8">
+      <div class="row">
+        <div class="gap gap-small"></div>
+        <div class="box-body table-responsive">
+          <div class="col-md-8">
+            <h4>{{ 'Add_transit_and_stops' | translate }}</h4>
+            <form [formGroup]="addtransitform" (ngSubmit)="createTransitForm()">
+              <h4>States: </h4>
+              {{ sampleStates | json }}
 
-                            <div class="form-group">
-                                <label class="text">{{ 'admin_label_state' | translate }}</label>
-                                <input class="form-control" formControlName="state" name="state" type="text" placeholder="enter the state"
-                                [class.is-invalid]="addtransitform.controls['state'].invalid && addtransitform.controls['state'].dirty">
-                                <div class="errorStyle" *ngIf="addtransitform.controls['state'].invalid && addtransitform.controls['state'].dirty">
-                                  <b *ngIf="addtransitform.controls['state']?.errors.required">{{ 'edit_required_error' | translate }}<br></b>
-                                </div>
-                            </div>
-
-                            <div class="form-group">
-                                <label class="text">{{ 'admin_label_city' | translate }}</label>
-                                <input class="form-control" type="text" formControlName="city" name="city" placeholder="enter the city"
-                                [class.is-invalid]="addtransitform.controls['city'].invalid && addtransitform.controls['city'].dirty"/>
-                                <div class="errorStyle" *ngIf="addtransitform.controls['city'].invalid && addtransitform.controls['city'].dirty">
-                                  <b *ngIf="addtransitform.controls['city']?.errors.required">{{ 'edit_required_error' | translate }}<br></b>
-                                </div>
-                            </div>
-
-                            <div class="form-group">
-                                <label class="text">{{ 'admin_label_address' | translate }}</label>
-                                <input class="form-control" type="text" formControlName="address" name="address" placeholder="enter the address"
-                                 [class.is-invalid]="addtransitform.controls['address'].invalid && addtransitform.controls['address'].dirty"/>
-                                <div class="errorStyle" *ngIf="addtransitform.controls['address'].invalid && addtransitform.controls['address'].dirty">
-                                  <b *ngIf="addtransitform.controls['address']?.errors.required">{{ 'edit_required_error' | translate }}<br></b>
-                                </div>
-                            </div>
-
-                            <input class="btn btn-primary submitButton" type="submit" value="Update" [disabled]="!addtransitform.valid" />
-                              <div class="gap gap-small"></div>
-                            <a class="btn btn-default" routerLink="../admin"><i class="fa  fa-mail-reply"></i>{{ 'Add_label_back' | translate }}</a>
-                        </form>
-                      </div>
+              <div class="form-group">
+                <label class="text">{{ 'admin_label_country' | translate }}</label>
+                <select class="form-control" formControlName="countrySelect"
+                  (change)="onChangeCountry($event.target.value)" [class.is-invalid]="addtransitform.controls['countrySelect'].invalid && addtransitform.controls['countrySelect'].dirty">
+                  <option value="" disabled selected>--Select Country--</option>
+                  <option [ngValue]="country" *ngFor="let country of countries">{{ country.name }}</option>
+                </select>
+                <div class="errorStyle" *ngIf="addtransitform.controls['countrySelect'].invalid && addtransitform.controls['countrySelect'].dirty">
+                  <small *ngIf="addtransitform.controls['countrySelect']?.errors.required">{{ 'edit_required_error' | translate }}<br></small>
                 </div>
+                {{ addtransitform.controls['countrySelect'].valid }}
               </div>
+
+              <div class="form-group">
+                <label class="text">{{ 'admin_label_state' | translate }}</label>
+                <select class="form-control" formControlName="stateSelect"
+                  (change)="onChangeState($event.target.value)">
+                  <option value="" disabled selected>--Select State--</option>
+                  <option [ngValue]="state" *ngFor="let state of states">{{ state.name }}</option>
+                </select>
+                {{ addtransitform.controls['stateSelect'].valid }}
+              </div>
+
+              <div class="form-group">
+                <label class="text">{{ 'admin_label_city' | translate }}</label>
+                <select
+                  [class.is-invalid]="addtransitform.controls['citySelect'].invalid && addtransitform.controls['citySelect'].dirty"
+                  class="form-control" formControlName="citySelect">
+                  <option value="" disabled selected>--Select City--</option>
+                  <option [ngValue]="city" *ngFor="let city of cities">{{ city.name }}</option>
+                </select>
+                <div class="errorStyle"
+                  *ngIf="addtransitform.controls['citySelect'].invalid && addtransitform.controls['citySelect'].dirty">
+                  <b
+                    *ngIf="addtransitform.controls['citySelect']?.errors.required">{{ 'edit_required_error' | translate }}<br></b>
+                </div>
+                {{ addtransitform.controls['citySelect'].valid }}
+              </div>
+
+              <div class="form-group">
+                <label class="text">{{ 'admin_label_address' | translate }}</label>
+                <input class="form-control" type="text" formControlName="address" name="address"
+                  placeholder="enter the address"
+                  [class.is-invalid]="addtransitform.controls['address'].invalid && addtransitform.controls['address'].dirty" />
+                <div class="errorStyle"
+                  *ngIf="addtransitform.controls['address'].invalid && addtransitform.controls['address'].dirty">
+                  <b
+                    *ngIf="addtransitform.controls['address']?.errors.required">{{ 'edit_required_error' | translate }}<br></b>
+                </div>
+                {{ addtransitform.controls['address'].valid }}
+              </div>
+
+              <input class="btn btn-primary submitButton" type="submit" value="Update"
+                [disabled]="!addtransitform.valid" />
+              <div class="gap gap-small"></div>
+              <a class="btn btn-default" routerLink="../admin"><i
+                  class="fa fa-mail-reply"></i>{{ 'Add_label_back' | translate }}</a>
+            </form>
+          </div>
         </div>
+      </div>
     </div>
+  </div>
 </div>
 <div *ngIf="loader">
- <app-loader></app-loader>
+  <app-loader></app-loader>
 </div>

@@ -32,7 +32,7 @@ public requestheader = new HttpHeaders({
     if (localStorage.getItem('accessToken') === this.loginService.getAccessToken()) {
       if (this.userInfos.role.includes('ROLE_AGENCY_ADMIN') ||
         this.userInfos.role.includes('ROLE_AGENCY_MANAGER') ||
-        this.userInfos.role.includes('ROLE_AGENCY_OPERATO') ||
+        this.userInfos.role.includes('ROLE_AGENCY_OPERATOR') ||
         this.userInfos.role.includes('ROLE_AGENCY_BOOKING') ||
         this.userInfos.role.includes('ROLE_AGENCY_CHECKING') ||
         this.userInfos.role.includes('ROLE_GW_ADMIN')
