@@ -9,7 +9,7 @@ export class ErrorhandlerService {
   constructor() {}
   handleError(error: any) {
     let errorResponse = {};
-    console.log(error);
+    console.log('an error occoured', error);
     if (error.error instanceof HttpErrorResponse) {
       // client-side error
       errorResponse = { message: error.error.message, errorCode: error.error.status, code: error.code };
