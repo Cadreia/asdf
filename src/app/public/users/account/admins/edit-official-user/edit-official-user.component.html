@@ -11,12 +11,7 @@
                             <div class="form-group">
                                 <label class="text">{{ 'admin_label_user_id' | translate }}</label>
                                 <input class="form-control" type="text" value="{{ user.id }}" autofocus="true"
-                                    formControlName="id" [readonly]="true">
-                                <div class="errorStyle"
-                                    *ngIf="updateRolesForm.controls['fullName'].invalid && updateRolesForm.controls['fullName'].dirty">
-                                    <b
-                                        *ngIf="updateRolesForm.controls['id']?.errors.required">{{ 'edit_required_error' | translate }}<br></b>
-                                </div>
+                                    formControlName="userId" [readonly]="true">
                             </div>
 
                             <div class="form-group">
@@ -27,8 +22,8 @@
 
                             <div class="form-group">
                                 <label class="text">{{ 'admin_label_user_roles' | translate }}</label>
-                                <select multiple class="form-control" formControlName="roles" >
-                                    <option *ngFor="let role of allRoles">{{ role }}</option>
+                                <select multiple class="form-control" formControlName="roles">
+                                    <option [ngValue]="role" *ngFor="let role of allRoles">{{ role }}</option>
                                 </select>
                                 {{ updateRolesForm.controls['roles'].value }}
                                 

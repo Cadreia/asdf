@@ -102,6 +102,7 @@
   "reset_wrongCredential_error": "L'ancien mot de passe ne correspond pas à celui que vous avez saisi. Merci de, si vous avez oublié votre mot de passe: allez au lien mot de passe oublié de la page de connexion et réinitialisez-le.",
   "update_access_denied_error": "L'accès a été refusé, vous n'êtes pas un administrateur de Gowaka pour faire ce privilège.",
   "update_successfull_message": "Vous avez correctement mis à jour cet emplacement de transit / arrêt.",
+  "update_role_successfull_message": "Vous avez correctement mis à jour cet utilisateur d'agence.",
   "update_location_exists_error": "Erreur lors de l'ajout de cet emplacement de transit / arrêt, un emplacement contenant ces informations existe déjà.",
   "delete_successfull_message": "Vous avez supprimé avec succès cet emplacement de transit / arrêt.",
   "addOfficialUser_successfull_message": " Vous avez ajouté avec succès un utilisateur officiel à cette agence",
@@ -122,6 +123,7 @@
   "error_message_unauthorized_action": "Vous n'êtes pas autorisé à effectuer cette opération",
   "error_invalid_agency_user": "Erreur! L'utilisateur que vous essayez de supprimer n'existe pas",
   "error_user_not_in_agency": "L'opération a échoué! Cet utilisateur n'est pas membre de votre agence",
+  "error_user_not_exist": "Erreur! Cet utilisateur n'existe pas.",
 
   "login_successfull_message": " Vous êtes connecté avec succès à Gowaka, un courriel vous a été envoyé, vous pouvez vérifier",
   "login_successfull_title": "Vous Étes connecté avec succès!",

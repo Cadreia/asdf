@@ -101,6 +101,7 @@
   "reset_wrongCredential_error": "The old password do not match with the one you entered. Please if you have forgotten your password: go to the forgot password link in the login page and reset it.",
   "update_access_denied_error": "Access have been denied, you are not a Gowaka admin to do this privilege.",
   "update_successfull_message": "You successfully Updated this Transit/Stop location.",
+  "update_role_successfull_message": "You successfully updated this Agency User.",
   "update_location_exists_error": "Error Adding this Transit/Stop location, a location with this information already exists.",
   "delete_successfull_message": "You successfully Deleted this Transit/Stop location.",
   "addOfficialUser_successfull_message": "You successfully Added an oficial User to this Agency",
@@ -122,6 +123,7 @@
   "error_message_unauthorized_action": "You are not authorized to perform this operation",
   "error_invalid_agency_user": "Error! The user you are trying to delete does not exist",
   "error_user_not_in_agency": "Operation failed! This user is not a member of your agency",
+  "error_user_not_exist": "Error! This user does not exist.",
 
   "login_successfull_message": "You Successfully login into Gowaka, an E-mail has been to you, please check",
   "login_successfull_title": "Login Successfully!",
