@@ -24,9 +24,7 @@
                                 <label class="text">{{ 'admin_label_user_roles' | translate }}</label>
                                 <select multiple class="form-control" formControlName="roles">
                                     <option [ngValue]="role" *ngFor="let role of allRoles">{{ role }}</option>
-                                </select>
-                                {{ updateRolesForm.controls['roles'].value }}
-                                
+                                </select>                                
                             </div>
 
                             <input class="btn btn-primary submitButton" type="submit" value="Update"
