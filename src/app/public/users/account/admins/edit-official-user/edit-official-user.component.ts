@@ -14,7 +14,7 @@ import { Location } from '@angular/common';
 })
 export class EditOfficialUserComponent implements OnInit {
   user: any;
-  allRoles = [
+  allRoles: any[] = [
     'AGENCY_MANAGER',
     'AGENCY_OPERATOR',
     'AGENCY_BOOKING',
@@ -37,7 +37,7 @@ export class EditOfficialUserComponent implements OnInit {
   ngOnInit() {
     this.user = this.location.getState();
 
-    if(!this.adminService.editMode) {
+    if (!this.adminService.editMode) {
       this.router.navigate(['public/users/account/officialAgency']);
     }
 
@@ -53,36 +53,36 @@ export class EditOfficialUserComponent implements OnInit {
   }
 
   updateRoles() {
-     this.loader = true;
-     this.adminService.updateRoles(this.updateRolesForm.value).subscribe(
-       (response: any) => {
-         this.loader = false;
-         this.toaster.successUpdateRole();
-         this.router.navigate(['public/users/account/officialAgency']);
-       },
-       (error: any) => {
-         this.router.navigate(['public/users/account/officialAgency']);
-         this.loader = false;
-         if (!(error && Object.keys(error).length === 0)) {
-           if (error.errorCode === 0) {
-             this.toaster.offlineMessage();
-           }
-           if (error.errorCode === 401) {
-             if (error.code === 'ACCESS_DENIED') {
-               this.toaster.accessDenied();
-             }
-           }
-           if(error.errorCode === 422) {
-             if (error.code === 'RESOURCE_NOT_FOUND') {
+    this.loader = true;
+    this.adminService.updateRoles(this.updateRolesForm.value).subscribe(
+      (response: any) => {
+        this.loader = false;
+        this.toaster.successUpdateRole();
+        this.router.navigate(['public/users/account/officialAgency']);
+      },
+      (error: any) => {
+        this.router.navigate(['public/users/account/officialAgency']);
+        this.loader = false;
+        if (!(error && Object.keys(error).length === 0)) {
+          if (error.errorCode === 0) {
+            this.toaster.offlineMessage();
+          }
+          if (error.errorCode === 401) {
+            if (error.code === 'ACCESS_DENIED') {
+              this.toaster.accessDenied();
+            }
+          }
+          if (error.errorCode === 422) {
+            if (error.code === 'RESOURCE_NOT_FOUND') {
               this.toaster.userNotExist();
             }
-             if (error.code === 'USER_NOT_IN_AGENCY') {
+            if (error.code === 'USER_NOT_IN_AGENCY') {
               this.toaster.userNotAgencyMember();
-             }
-           }
-         }
-       }
-     );
+            }
+          }
+        }
+      }
+    );
   }
 
   get roles() {

@@ -28,7 +28,7 @@ export class EditComponent implements OnInit {
     private sharedService: SharedService,
     private formBuilder: FormBuilder,
     private toaster: MessageService
-  ) {}
+  ) { }
 
   ngOnInit() {
     if (localStorage.hasOwnProperty('editvalues')) {

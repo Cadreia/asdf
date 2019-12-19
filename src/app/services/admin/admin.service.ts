@@ -12,6 +12,8 @@ import { Observable } from 'rxjs';
 import { Transit } from 'src/app/model/transit';
 import { SharedService } from 'src/app/public/shared/sharedservice/shared.service';
 import { OfficialAgency } from 'src/app/model/official-agency';
+import { Car } from 'src/app/model/car';
+import { AgencyUser } from 'src/app/model/agency-user';
 
 @Injectable({
   providedIn: 'root'
@@ -88,9 +90,9 @@ export class AdminService {
       .pipe(retry(1), catchError(this.errorhandler.handleError));
   }
 
-  getOfficialAgencyUsers() {
+  getOfficialAgencyUsers(): Observable<AgencyUser[]> {
     return this.http
-      .get<any>(`${this.baseUrl}/api/protected/agency/user`, {
+      .get<AgencyUser[]>(`${this.baseUrl}/api/protected/agency/user`, {
         headers: this.Requestheader
       })
       .pipe(retry(1), catchError(this.errorhandler.handleError));
@@ -107,6 +109,14 @@ export class AdminService {
   updateRoles(roles) {
     return this.http
       .post<any>(`${this.baseUrl}/api/protected/agency/user/role`, roles, {
+        headers: this.Requestheader
+      })
+      .pipe(retry(1), catchError(this.errorhandler.handleError));
+  }
+
+  getCars(): Observable<Car[]> {
+    return this.http
+      .get<Car[]>(`${this.baseUrl}/api/protected/agency/car`, {
         headers: this.Requestheader
       })
       .pipe(retry(1), catchError(this.errorhandler.handleError));

@@ -24,7 +24,6 @@ table{
   margin:16px !important;
   margin-top: -3px !important;
 }
-
 .center{
   text-align: center !important;
 }
@@ -53,6 +52,7 @@ th {
 th {
   font-size: 17px;
 }
+
 tbody:nth-child(odd){
   background-color: #e6e6e6 !important;
 }
@@ -64,9 +64,7 @@ tbody:nth-child(odd){
   font-family: Times New Roman;
 }
 
-
 .margin{
   margin: 10px;
 }
 
-@import '../../../../authentication/login/login.component.scss';

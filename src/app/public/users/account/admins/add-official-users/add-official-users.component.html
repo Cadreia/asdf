@@ -1,37 +1,42 @@
-
 <div class="container">
 
-    <h5 class="innerContent">{{ 'admin_manage_edit' | translate }}</h5>
-    <div class="row">
-<app-account-menu></app-account-menu>
-        <div class="col-md-8">
-          <div class="row">
-            <div class="gap gap-small"></div>
-                <div class="box-body table-responsive">
-                      <div class="col-md-8">
-                        <h4>{{ 'Add_offical_users' | translate }}</h4>
-                          <form [formGroup]="addOfficialUser" (ngSubmit)="createOfficialUser()">
+  <h5 class="innerContent">{{ 'admin_manage_edit' | translate }}</h5>
+  <div class="row">
+    <app-account-menu></app-account-menu>
+    <div class="col-md-8">
+      <div class="row">
+        <div class="gap gap-small"></div>
+        <div class="box-body table-responsive">
+          <div class="col-md-8">
+            <h4>{{ 'Add_offical_users' | translate }}</h4>
+            <form [formGroup]="addOfficialUser" (ngSubmit)="createOfficialUser()">
 
-                            <div class="form-group">
-                                <label class="text">{{ 'register_label_email' | translate }}</label>
-                                <input class="form-control" type="text" formControlName="email" name="email" placeholder="enter the user email"
-                                 [class.is-invalid]="addOfficialUser.controls['email'].invalid && addOfficialUser.controls['email'].dirty"/>
-                                <div class="errorStyle" *ngIf="addOfficialUser.controls['email'].invalid && addOfficialUser.controls['email'].dirty">
-                                  <b *ngIf="addOfficialUser.controls['email']?.errors.required">{{ 'edit_required_error' | translate }}<br></b>
-                                  <b *ngIf="addOfficialUser.controls['email']?.errors.email">{{ 'edit_email_error' | translate }}<br></b>
-                                </div>
-                            </div>
-
-                            <input class="btn btn-primary submitButton" type="submit" value="Update" [disabled]="!addOfficialUser.valid" />
-                              <div class="gap gap-small"></div>
-                            <a class="btn btn-default" routerLink="../officialAgency"><i class="fa  fa-mail-reply"></i>{{ 'Add_label_back' | translate }}</a>
-                        </form>
-                      </div>
+              <div class="form-group">
+                <label class="text">{{ 'register_label_email' | translate }}</label>
+                <input class="form-control" type="text" formControlName="email" name="email"
+                  placeholder="enter the user email"
+                  [class.is-invalid]="addOfficialUser.controls['email'].invalid && addOfficialUser.controls['email'].dirty" />
+                <div class="errorStyle"
+                  *ngIf="addOfficialUser.controls['email'].invalid && addOfficialUser.controls['email'].dirty">
+                  <b
+                    *ngIf="addOfficialUser.controls['email']?.errors.required">{{ 'edit_required_error' | translate }}<br></b>
+                  <b
+                    *ngIf="addOfficialUser.controls['email']?.errors.email">{{ 'edit_email_error' | translate }}<br></b>
                 </div>
               </div>
+
+              <input class="btn btn-primary submitButton" type="submit" value="Update"
+                [disabled]="!addOfficialUser.valid" />
+              <div class="gap gap-small"></div>
+              <a class="btn btn-default" routerLink="../officialAgency"><i
+                  class="fa  fa-mail-reply"></i>{{ 'Add_label_back' | translate }}</a>
+            </form>
+          </div>
         </div>
+      </div>
     </div>
+  </div>
 </div>
 <div *ngIf="loader">
- <app-loader></app-loader>
+  <app-loader></app-loader>
 </div>

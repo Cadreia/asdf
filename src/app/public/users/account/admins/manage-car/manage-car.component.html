@@ -1,0 +1,50 @@
+<div class="container">
+    <div class="gap gap-small"></div>
+    <div class="row">
+        <app-account-menu></app-account-menu>
+        <div class="col-md-8">
+            <div class="row">
+                <div class="col-md-12">
+                    <h4 class="text-center">{{ 'agency_title_user_roles' | translate }}</h4>
+                    <div class="gap gap-small"></div>
+                    <div class="box-body table-responsive">
+                      <table class="table table-bordered table-striped">
+                        <thead>
+                          <tr style="background-color: rgb(237, 131, 35);color: white;">
+                            <th class="center upper">{{ 'admin_label_user_id' | translate }}</th>
+                            <th class="center upper">{{ 'admin_label_car_name' | translate }}</th>
+                            <th class="center upper">{{ 'admin_label_car_numberOfSeats' | translate }}</th>
+                            <th class="center upper">{{ 'admin_label_car_licensePlateNumber' | translate }}</th>
+                            <th class="center upper">{{ 'admin_label_car_isCarApproved' | translate }}</th>
+                            <th colspan="2" class="center upper">{{ 'admin_label_action' | translate }}</th>
+                          </tr>
+                        </thead>
+                        <tbody *ngFor="let car of cars; let i = index">
+                          <td class="center">{{ car.id }}</td>
+                          <td class="center">{{ car.name }}</td>
+                          <td class="center">{{ car.numberOfSeats }}</td>
+                          <td class="center">{{ car.licensePlateNumber }}</td>
+                          <td class="center">{{ car.isCarApproved }}</td>
+                          <td class="center"><a class="btn btn-info btn-sm"
+                              (click)="edit(user)">{{ 'admin_label_edit' | translate }}<i class="fa fa-trash-o"></i></a>
+                          </td>
+                          <td class="center"><a class="btn btn-danger btn-sm"
+                              (click)="sweetalert(user)">{{ 'admin_label_delete' | translate }}<i class="fa fa-trash-o"></i></a>
+                          </td>
+                        </tbody>
+                      </table>
+          
+                      <div *ngIf="users==''" class="mx-auto alert alert-danger">
+                        <h6 class="text-center">There is no available user</h6>
+                      </div>
+          
+                    </div>
+                  </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div *ngIf="loader">
+    <app-loader></app-loader>
+</div>

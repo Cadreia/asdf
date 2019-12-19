@@ -10,14 +10,18 @@ import { config } from 'src/app/configs/app.config';
 })
 export class AccountMenuComponent implements OnInit {
   public userInfos: any;
-  public isAdmin: boolean;
-  public isAdminOfficial: boolean;
-  public isAdminAgency: boolean;
   public addTransitLink: boolean;
   public officialAgencyLink: boolean;
   public uniqueAgencyLink: boolean;
+  public manageCarLink: boolean;
   public config = config;
   public imagepath = '../../../../../assets/template/images/logo/logo.ico';
+
+  public isAdmin: boolean;
+  public isAdminOfficial: boolean;
+  public isAdminAgency: boolean;
+  public isAgencyManager: boolean;
+
   constructor(private sharedService: SharedService) { }
 
   ngOnInit() {
@@ -37,11 +41,17 @@ export class AccountMenuComponent implements OnInit {
     } else {
       this.isAdminAgency = false;
     }
+    if (this.sharedService.IsAgencyManager()) {
+      this.isAgencyManager = true;
+    } else {
+      this.isAgencyManager = false;
+    }
 
     if (
       window.location.href === `${this.config.account_raw_dir}/add` ||
       window.location.href === `${this.config.account_raw_dir}/officialAgency` ||
-      window.location.href === `${this.config.account_raw_dir}/addOfficialUser`
+      window.location.href === `${this.config.account_raw_dir}/addOfficialUser` ||
+      window.location.href === `${this.config.account_raw_dir}/edit-user`
     ) {
       this.officialAgencyLink = true;
     }
@@ -58,6 +68,12 @@ export class AccountMenuComponent implements OnInit {
       window.location.href === `${this.config.account_raw_dir}/unique-agency`
     ) {
       this.uniqueAgencyLink = true;
+    }
+
+    if (
+      window.location.href === `${this.config.account_raw_dir}/manage-car`
+    ) {
+      this.manageCarLink = true;
     }
   }
   getAccessToken() {

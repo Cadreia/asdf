@@ -1,5 +1,5 @@
 <div class="container" style="margin-top: 50px; margin-bottom: 20px">
-
+  <div class="gap gap-small"></div>
   <div *ngIf="isAdmin">
     <h5>{{ 'create_official_agency_label_canCreate'| translate }}</h5>
   </div>
@@ -13,9 +13,10 @@
         routerLink="../add">{{ 'create_official_agency' | translate }}</button>
     </div>
 
-    <div class="col-md-8" *ngIf="isAgencyAdmin">
+    <div class="col-md-8 " *ngIf="isAgencyAdmin">
       <div class="row">
         <div class="col-md-12">
+          <h4 class="text-center">{{ 'agency_title_user_roles' | translate }}</h4>
           <div class="gap gap-small"></div>
           <div class="box-body table-responsive">
             <table id="example1" class="table table-bordered table-striped">
@@ -31,17 +32,19 @@
                 <td class="center">{{ user.id }}</td>
                 <td class="center">{{ user.fullName }}</td>
                 <td class="center">{{ user.roles }}</td>
-                <td class="center"><a class="btn btn-info btn-sm" (click)="edit(user)">{{ 'admin_label_edit' | translate }}<i class="fa fa-trash-o"></i></a>
+                <td class="center"><a class="btn btn-info btn-sm"
+                    (click)="edit(user)">{{ 'admin_label_edit' | translate }}<i class="fa fa-trash-o"></i></a>
                 </td>
-                <td class="center"><a class="btn btn-danger btn-sm" (click)="sweetalert(user)">{{ 'admin_label_delete' | translate }}<i class="fa fa-trash-o"></i></a>
-                </td>                
+                <td class="center"><a class="btn btn-danger btn-sm"
+                    (click)="sweetalert(user)">{{ 'admin_label_delete' | translate }}<i class="fa fa-trash-o"></i></a>
+                </td>
               </tbody>
             </table>
 
             <div *ngIf="users==''" class="mx-auto alert alert-danger">
               <h6 class="text-center">There is no available user</h6>
             </div>
-      
+
           </div>
         </div>
       </div>

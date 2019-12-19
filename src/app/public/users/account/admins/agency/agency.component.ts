@@ -112,9 +112,9 @@ export class AgencyComponent implements OnInit {
 
   getAgencyUsers() {
     this.adminService.getOfficialAgencyUsers().subscribe((users: any[]) => {
+      // this.route.data.subscribe((data: { users: any[]} ) => {
       this.loading = false;
       this.users = users;
-      console.log("Agency Users" + this.users);
     }, error => {
       this.loading = false;
       console.log(error);

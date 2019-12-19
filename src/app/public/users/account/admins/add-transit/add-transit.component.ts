@@ -8,7 +8,6 @@ import { ICountry } from 'src/app/interface/country';
 import { IState } from 'src/app/interface/state';
 import { ICity } from 'src/app/interface/city';
 import { CountriesService } from 'src/app/services/countries/countries.service';
-import { JsonPipe } from '@angular/common';
 
 @Component({
   selector: 'app-add-transit',
@@ -105,8 +104,8 @@ export class AddTransitComponent implements OnInit {
     this.states.length, this.cities.length = 0;
     this.countriesService.getStatesOfCountry(this.addtransitform.value.country.id);
     this.states = this.countriesService.selectStates;
-    this.addtransitform.controls['state'].setErrors({'incorrect': true});
-    this.addtransitform.controls['city'].setErrors({'incorrect': true});
+    this.addtransitform.controls['state'].setErrors({ 'incorrect': true });
+    this.addtransitform.controls['city'].setErrors({ 'incorrect': true });
   }
 
   onChangeState(stateValue: any) {
