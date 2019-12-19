@@ -10,46 +10,45 @@
           <div class="col-md-8">
             <h4>{{ 'Add_transit_and_stops' | translate }}</h4>
             <form [formGroup]="addtransitform" (ngSubmit)="createTransitForm()">
-              <h4>States: </h4>
-              {{ sampleStates | json }}
 
               <div class="form-group">
                 <label class="text">{{ 'admin_label_country' | translate }}</label>
-                <select class="form-control" formControlName="countrySelect"
-                  (change)="onChangeCountry($event.target.value)" [class.is-invalid]="addtransitform.controls['countrySelect'].invalid && addtransitform.controls['countrySelect'].dirty">
+                <select class="form-control" formControlName="country"
+                  (change)="onChangeCountry()" [class.is-invalid]="addtransitform.controls['country'].invalid && addtransitform.controls['country'].dirty">
                   <option value="" disabled selected>--Select Country--</option>
                   <option [ngValue]="country" *ngFor="let country of countries">{{ country.name }}</option>
                 </select>
-                <div class="errorStyle" *ngIf="addtransitform.controls['countrySelect'].invalid && addtransitform.controls['countrySelect'].dirty">
-                  <small *ngIf="addtransitform.controls['countrySelect']?.errors.required">{{ 'edit_required_error' | translate }}<br></small>
+                <!-- <div class="errorStyle" *ngIf="addtransitform.controls['country'].invalid && addtransitform.controls['country'].dirty">
+                  <small *ngIf="addtransitform.controls['country']?.errors.required">{{ 'edit_required_error' | translate }}<br></small>
+                </div> -->
+                <div class="errorStyle" *ngIf="addtransitform.controls['country'].invalid && addtransitform.controls['country'].dirty">
+                  <small *ngIf="addtransitform.controls['country'].errors?.required">{{ 'edit_required_error' | translate }}<br></small>
                 </div>
-                {{ addtransitform.controls['countrySelect'].valid }}
               </div>
 
               <div class="form-group">
                 <label class="text">{{ 'admin_label_state' | translate }}</label>
-                <select class="form-control" formControlName="stateSelect"
-                  (change)="onChangeState($event.target.value)">
+                <select class="form-control" formControlName="state"
+                  (change)="onChangeState()">
                   <option value="" disabled selected>--Select State--</option>
                   <option [ngValue]="state" *ngFor="let state of states">{{ state.name }}</option>
                 </select>
-                {{ addtransitform.controls['stateSelect'].valid }}
+                <!-- <div class="errorStyle" *ngIf="addtransitform.controls['state'].invalid && addtransitform.controls['state'].dirty">
+                  <small *ngIf="addtransitform.controls['state'].errors?.required">{{ 'edit_required_error' | translate }}<br></small>
+                </div> -->
               </div>
 
               <div class="form-group">
                 <label class="text">{{ 'admin_label_city' | translate }}</label>
                 <select
-                  [class.is-invalid]="addtransitform.controls['citySelect'].invalid && addtransitform.controls['citySelect'].dirty"
-                  class="form-control" formControlName="citySelect">
+                  [class.is-invalid]="addtransitform.controls['city'].invalid && addtransitform.controls['city'].dirty"
+                  class="form-control" formControlName="city">
                   <option value="" disabled selected>--Select City--</option>
-                  <option [ngValue]="city" *ngFor="let city of cities">{{ city.name }}</option>
+                  <option [ngValue]="city.name" *ngFor="let city of cities">{{ city.name }}</option>
                 </select>
-                <div class="errorStyle"
-                  *ngIf="addtransitform.controls['citySelect'].invalid && addtransitform.controls['citySelect'].dirty">
-                  <b
-                    *ngIf="addtransitform.controls['citySelect']?.errors.required">{{ 'edit_required_error' | translate }}<br></b>
-                </div>
-                {{ addtransitform.controls['citySelect'].valid }}
+                <!-- <div class="errorStyle" *ngIf="addtransitform.controls['city'].invalid && addtransitform.controls['city'].dirty">
+                  <small *ngIf="handleError('city', 'required')">{{ 'edit_required_error' | translate }}<br></small>
+                </div> -->
               </div>
 
               <div class="form-group">
@@ -62,11 +61,9 @@
                   <b
                     *ngIf="addtransitform.controls['address']?.errors.required">{{ 'edit_required_error' | translate }}<br></b>
                 </div>
-                {{ addtransitform.controls['address'].valid }}
               </div>
 
-              <input class="btn btn-primary submitButton" type="submit" value="Update"
-                [disabled]="!addtransitform.valid" />
+              <input class="btn btn-primary submitButton" type="submit" value="Update" [disabled]="!addtransitform.valid"/>
               <div class="gap gap-small"></div>
               <a class="btn btn-default" routerLink="../admin"><i
                   class="fa fa-mail-reply"></i>{{ 'Add_label_back' | translate }}</a>
