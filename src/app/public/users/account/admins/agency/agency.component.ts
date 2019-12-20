@@ -6,6 +6,8 @@ import { Router, ActivatedRoute, Params } from '@angular/router';
 import Swal from 'sweetalert2';
 import { TranslationService } from 'src/app/services/translate/translation.service';
 import { AgencyUser } from 'src/app/model/agency-user';
+import { FormControl, FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-agency',
@@ -17,60 +19,74 @@ export class AgencyComponent implements OnInit {
   isAgencyAdmin: boolean;
   users: AgencyUser[] = [];
   loading: boolean;
+  toppings = new FormControl();
+user: any;
+  allRoles = [
+    'AGENCY_MANAGER',
+    'AGENCY_OPERATOR',
+    'AGENCY_BOOKING',
+    'AGENCY_CHECKING'
+  ];
+  updateRolesForm: FormGroup;
+  public loader: boolean;
 
   constructor(private sharedSevice: SharedService,
-    private adminService: AdminService,
-    private toaster: MessageService,
-    private router: Router,
-    private translationService: TranslationService,
-    private route: ActivatedRoute
+              private adminService: AdminService,
+              private toaster: MessageService,
+              private router: Router,
+              private location: Location,
+              private translationService: TranslationService,
+              private route: ActivatedRoute,
+              private formBuilder: FormBuilder,
   ) { }
 
   ngOnInit() {
+    console.log(this.location.getState());
+    this.user = this.location.getState();
+
+    if (!this.adminService.editMode) {
+      this.router.navigate(['public/users/account/officialAgency']);
+    }
+
+    this.updateRolesForm = this.formBuilder.group({
+      userId: [''],
+      roles: [this.user.roles, Validators.required]
+    });
+
     this.loading = true;
-    //this.getAgencyUsers();
-    this.users = [
-      {
-        "fullName": "John Doe",
-        "id": "1",
-        "roles": [
-          "ROLE_USERS",
-          "ROLE_AGENCY_MANAGER"
-        ]
+    if (!this.adminService.editMode) {
+      this.router.navigate(['public/users/account/officialAgency']);
+    }
+    if (!this.sharedSevice.IsAdminAgency()) {
+      this.router.navigate(['public/users/account/overview']);
+    }
+
+
+    this.adminService.getOfficialAgencyUsers().subscribe(
+      (allusers: any[]) => {
+        this.loading = false;
+        this.users = allusers;
+        console.log('the users are: ', allusers);
       },
-      {
-        "fullName": "Mary Jay",
-        "id": "2",
-        "roles": [
-          "ROLE_USERS",
-          "ROLE_AGENCY_OPERATOR"
-        ]
-      },
-      {
-        "fullName": "Angelina Jolie",
-        "id": "3",
-        "roles": [
-          "ROLE_USERS",
-          "ROLE_AGENCY_MANAGER"
-        ]
-      },
-      {
-        "fullName": "Sammy Paine",
-        "id": "4",
-        "roles": [
-          "ROLE_USERS",
-          "ROLE_AGENCY_BOOKING"
-        ]
-      },
-      {
-        "fullName": "Josiah Goodluck",
-        "id": "5",
-        "roles": [
-          "ROLE_USERS",
-          "ROLE_AGENCY_CHECKING"
-        ]
+      error => {
+        this.loading = false;
+        console.log(error);
+        if (!(error && Object.keys(error).length === 0)) {
+          if (error.errorCode === 0) {
+            this.toaster.offlineMessage();
+          }
+          if (error.errorCode === 500) {
+            this.toaster.internalError();
+          } else if (error.errorCode === 403) {
+            this.toaster.unAuthorized();
+          } else if (error.errorCode === 422) {
+            if (error.code === 'RESOURCE_NOT_FOUND') {
+              this.toaster.unAuthorized();
+            }
+          }
+        }
       }
-    ]
+    );
 
     if (this.sharedSevice.IsAdmin()) {
       this.isAdmin = true;
@@ -84,6 +100,53 @@ export class AgencyComponent implements OnInit {
     }
   }
 
+  get roles() {
+    return this.updateRolesForm.get('roles');
+  }
+
+  updateRoles() {
+    this.loader = true;
+    console.log(this.updateRolesForm.value);
+    this.adminService.updateRoles(this.updateRolesForm.value).subscribe(
+      (response: any) => {
+        this.loader = false;
+        this.toaster.successUpdateRole();
+        this.router.navigate(['public/users/account/officialAgency']);
+        setTimeout(function() {
+          window.location.reload();
+        }, 2000);
+      },
+      (error: any) => {
+        this.router.navigate(['public/users/account/officialAgency']);
+        this.loader = false;
+        if (!(error && Object.keys(error).length === 0)) {
+          if (error.errorCode === 0) {
+            this.toaster.offlineMessage();
+          }
+          if (error.errorCode === 401) {
+            if (error.code === 'ACCESS_DENIED') {
+              this.toaster.accessDenied();
+            }
+          }
+          if (error.errorCode === 422) {
+            if (error.code === 'RESOURCE_NOT_FOUND') {
+              this.toaster.userNotExist();
+            }
+            if (error.code === 'USER_NOT_IN_AGENCY') {
+              this.toaster.userNotAgencyMember();
+            }
+          }
+        }
+      }
+    );
+  }
+
+  changeRoles(event) {
+    console.log(event);
+    this.roles.setValue(['ROLE_USERS', event.target.value], {
+      }
+      );
+    }
   sweetalert(user) {
     const swalWithBootstrapButtons = Swal.mixin({
       customClass: {
@@ -128,7 +191,6 @@ export class AgencyComponent implements OnInit {
       response => {
         console.log(response);
         this.toaster.successDeleteAgencyUser();
-        this.getAgencyUsers();
         this.router.navigate(['public/users/account/officialAgency']);
       }, error => {
         console.log(error);
@@ -153,36 +215,11 @@ export class AgencyComponent implements OnInit {
     );
   }
 
-  getAgencyUsers() {
-    this.adminService.getOfficialAgencyUsers().subscribe((users: any[]) => {
-      this.loading = false;
-      this.users = users;
-      console.log("Agency Users" + this.users);
-    }, error => {
-      this.loading = false;
-      console.log(error);
-      if (!(error && Object.keys(error).length === 0)) {
-        if (error.errorCode === 0) {
-          this.toaster.offlineMessage();
-        }
-        if (error.errorCode === 500) {
-          this.toaster.internalError();
-        } else if (error.errorCode === 403) {
-          this.toaster.unAuthorized();
-        } else if (error.errorCode === 422) {
-          if (error.code === 'RESOURCE_NOT_FOUND') {
-            this.toaster.unAuthorized();
-          }
-        }
-      }
-    });
-  }
-
-  edit(officialUser: AgencyUser) {
-    this.adminService.editMode = true;
-    this.route.params.subscribe((params: Params) => {
-      this.router.navigateByUrl('public/users/account/edit-user', { state: officialUser })
-    })
-  }
+  // edit(officialUser: AgencyUser) {
+  //   this.adminService.editMode = true;
+  //   this.route.params.subscribe((params: Params) => {
+  //     this.router.navigateByUrl('public/users/account/edit-user', { state: officialUser });
+  //   });
+  // }
 
 }

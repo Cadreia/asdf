@@ -90,7 +90,7 @@
   "password_reset_link_title": "Redirection Link",
   "passsword_reset_link_body": "A link has been sent to your email to reset account, please check your email and follow the link to reset your Gowaka account password.",
 
-  "register_error_title": "Error authentication to Gowaka!",
+  "register_error_title": "Error authenticating to Gowaka!",
   "register_successfull_message": "Registration to Gowaka was successful, please check your email for confirmation before login in",
   "register_successfull_title": "Welcome to Gowaka!",
   "register_422_error_invalid_email": "The email address you entered is invalid. Please enter a valid email address to continue",
@@ -101,6 +101,7 @@
   "reset_wrongCredential_error": "The old password do not match with the one you entered. Please if you have forgotten your password: go to the forgot password link in the login page and reset it.",
   "update_access_denied_error": "Access have been denied, you are not a Gowaka admin to do this privilege.",
   "update_successfull_message": "You successfully Updated this Transit/Stop location.",
+  "update_role_successfull_message": "You successfully updated this Agency User.",
   "update_location_exists_error": "Error Adding this Transit/Stop location, a location with this information already exists.",
   "delete_successfull_message": "You successfully Deleted this Transit/Stop location.",
   "addOfficialUser_successfull_message": "You successfully Added an oficial User to this Agency",
@@ -119,9 +120,10 @@
   "error_message_admin_email_in_use": "Error creating a new Agency. This Admin already belongs to another agency",
   "error_adding_afficial_agency_user": "Error adding a new Agency User. This User is already a member of an Agency",
   "error_invalid_user_email": "The email you entered is not a valid gowaka email address",
-  "error_message_unauthorized_action": "You are not authorized to perform this operation",
+  "error_message_unauthorized_action": "You are not authorized to perform this operation. Please log out and log in again with required priveledges.",
   "error_invalid_agency_user": "Error! The user you are trying to delete does not exist",
   "error_user_not_in_agency": "Operation failed! This user is not a member of your agency",
+  "error_user_not_exist": "Error! This user does not exist.",
 
   "login_successfull_message": "You Successfully login into Gowaka, an E-mail has been to you, please check",
   "login_successfull_title": "Login Successfully!",
@@ -149,6 +151,8 @@
   "account_menu_reservation": "Make Reservation",
   "account_menu_manageTransitandStop": "Manage Transit and Stop",
   "account_menu_manageOfficialAgency": "Manage Official Agency",
+  "account_menu_manageCar": "Manage Car",
+
   "overview_label_account_profile": "GoWaka Account profile for",
   "overview_label_travel_statistics": "Travel Statistics",
   "overview_label_event_attended": "Events Attended",
@@ -197,10 +201,17 @@
   "admin_label_agency_reg_number": "Agency Registration Number",
   "admin_label_user_id": "Id",
   "admin_label_user_fullname": "Full Name",
-  "admin_label_user_roles": "Roles",
+  "admin_label_user_roles": "Chose your Role(s)",
+  "admin_label_current_role": "Current User roles are:",
+  "admin_label_car_name": "Name",
+  "admin_label_car_numberOfSeats": "Number of Seats",
+  "admin_label_car_licensePlateNumber": "License Plate Number",
+  "admin_label_car_isCarApproved": "Is Approved?",
 
   "admin_placeholder_agency_name": "Enter agency name",
   "admin_placeholder_admin_email": "Enter admin email",
   "admin_placeholder_agency_reg_number": "Enter agency registration number",
-  "Add_offical_users": "Add more Official Users of this Agency"
+
+  "Add_offical_users": "Add more Official Users of this Agency",
+  "agency_title_user_roles": "Users and Corresponding Roles"
 }

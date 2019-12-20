@@ -30,6 +30,13 @@ export class MessageService {
     this.toastr.success(updatemesage);
   }
 
+  successUpdateRole() {
+    const updatemesage = this.translation.messages[
+      ('update_role_successfull_message')
+    ];
+    this.toastr.success(updatemesage);
+  }
+
   successCreateTransit() {
     const updatemesage = this.translation.messages[
       ('create_successfull_message')
@@ -220,6 +227,13 @@ export class MessageService {
   userNotAgencyMember() {
     const message = this.translation.messages[
       ('error_user_not_in_agency')
+    ];
+    this.toastr.error(message, this.errorTitle);
+  }
+
+  userNotExist() {
+    const message = this.translation.messages[
+      ('error_user_not_exist')
     ];
     this.toastr.error(message, this.errorTitle);
   }

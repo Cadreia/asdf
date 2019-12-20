@@ -28,20 +28,71 @@
                 </tr>
               </thead>
               <tbody *ngFor="let user of users; let i = index">
-                <td class="center">{{ user.id }}</td>
+                <td class="center">{{ i + 1 }}</td>
                 <td class="center">{{ user.fullName }}</td>
                 <td class="center">{{ user.roles }}</td>
-                <td class="center"><a class="btn btn-info btn-sm" (click)="edit(user)">{{ 'admin_label_edit' | translate }}<i class="fa fa-trash-o"></i></a>
+                <td class="center"><a class="btn btn-info btn-sm" data-toggle="modal"  attr.data-target="#myModal{{ user.id }}">{{ 'admin_label_edit' | translate }}<i class="fa fa-edit"></i></a>
+
                 </td>
                 <td class="center"><a class="btn btn-danger btn-sm" (click)="sweetalert(user)">{{ 'admin_label_delete' | translate }}<i class="fa fa-trash-o"></i></a>
-                </td>                
+                </td>
+                <div id="myModal{{ user.id }}" class="modal fade" role="dialog">
+                  <div class="modal-dialog">
+
+                    <!-- Modal content-->
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">{{ 'Update_user_roles' | translate }}</h4>
+                      </div>
+                      <div class="modal-body">
+                        <p>{{ 'admin_label_current_role' | translate }} <b>{{ user.roles }}</b></p>
+                          <div class="row">
+
+                            <!-- <mat-form-field>
+                              <mat-label>Select the roles</mat-label>
+                              <mat-select [formControl]="toppings" multiple style="z-index:200; position:absolute">
+                                <mat-option *ngFor="let topping of toppingList" [value]="topping">{{ topping }}</mat-option>
+                              </mat-select>
+                            </mat-form-field>
+                            -->
+                        <form [formGroup]="updateRolesForm" (ngSubmit)="updateRoles()">
+                        {{ updateRolesForm.value | json }}
+                            <div class="form-group">
+                                <input class="form-control" type="text" value="{{ user.id }}"
+                                    formControlName="userId">
+                            </div>
+
+                            <div class="form-group">
+                                <label class="text">{{ 'admin_label_user_roles' | translate }}</label>
+                                <select multiple class="form-control" formControlName="roles">
+                                    <option [ngValue]="role" *ngFor="let role of allRoles">{{ role }}</option>
+                                </select>
+                            </div>
+
+                            <input class="btn btn-primary submitButton" type="submit" value="Update"
+                                [disabled]="!updateRolesForm.valid" />
+                            <div class="gap gap-small"></div>
+                        </form>
+                        <div *ngIf="loader">
+                            <app-loader></app-loader>
+                        </div>
+                        </div>
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
               </tbody>
             </table>
 
             <div *ngIf="users==''" class="mx-auto alert alert-danger">
               <h6 class="text-center">There is no available user</h6>
             </div>
-      
+
           </div>
         </div>
       </div>
@@ -50,3 +101,4 @@
     </div>
   </div>
 </div>
+

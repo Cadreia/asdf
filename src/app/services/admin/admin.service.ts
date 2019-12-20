@@ -88,7 +88,7 @@ export class AdminService {
       .pipe(retry(1), catchError(this.errorhandler.handleError));
   }
 
-  getOfficialAgencyUsers() {
+  getOfficialAgencyUsers(): Observable<any> {
     return this.http
       .get<any>(`${this.baseUrl}/api/protected/agency/user`, {
         headers: this.Requestheader
