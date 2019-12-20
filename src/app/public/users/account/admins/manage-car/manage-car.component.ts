@@ -18,6 +18,7 @@ export class ManageCarComponent implements OnInit {
     ) { }
 
   ngOnInit() {
+    this.loading = true;
     this.getAgencyBuses();
   }
 
