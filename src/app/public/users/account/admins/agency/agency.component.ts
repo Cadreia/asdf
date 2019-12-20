@@ -103,7 +103,11 @@ user: any;
   get roles() {
     return this.updateRolesForm.get('roles');
   }
-
+  getUserid(userid) {
+    this.updateRolesForm.patchValue({
+      userId: userid
+    });
+  }
   updateRoles() {
     this.loader = true;
     console.log(this.updateRolesForm.value);

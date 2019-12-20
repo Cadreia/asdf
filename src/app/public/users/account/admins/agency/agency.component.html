@@ -24,14 +24,14 @@
                 <tr style="background-color: rgb(237, 131, 35);color: white;">
                   <th class="center upper">{{ 'admin_label_user_fullname' | translate }}</th>
                   <th class="center upper">{{ 'admin_label_user_roles' | translate }}</th>
-                  <th colspan="2" class="center upper">{{ 'admin_label_action' | translate }}</th>
+                  <th colspan="3" class="center upper">{{ 'admin_label_action' | translate }}</th>
                 </tr>
               </thead>
               <tbody *ngFor="let user of users; let i = index">
                 <td class="center">{{ i + 1 }}</td>
                 <td class="center">{{ user.fullName }}</td>
                 <td class="center">{{ user.roles }}</td>
-                <td class="center"><a class="btn btn-info btn-sm" data-toggle="modal"  attr.data-target="#myModal{{ user.id }}">{{ 'admin_label_edit' | translate }}<i class="fa fa-edit"></i></a>
+                <td class="center"><a class="btn btn-info btn-sm" data-toggle="modal" (click)="getUserid(user.id)"  attr.data-target="#myModal{{ user.id }}">{{ 'admin_label_edit' | translate }}<i class="fa fa-edit"></i></a>
 
                 </td>
                 <td class="center"><a class="btn btn-danger btn-sm" (click)="sweetalert(user)">{{ 'admin_label_delete' | translate }}<i class="fa fa-trash-o"></i></a>
@@ -57,9 +57,8 @@
                             </mat-form-field>
                             -->
                         <form [formGroup]="updateRolesForm" (ngSubmit)="updateRoles()">
-                        {{ updateRolesForm.value | json }}
                             <div class="form-group">
-                                <input class="form-control" type="text" value="{{ user.id }}"
+                                <input class="form-control" type="hidden" value="{{ user.id }}"
                                     formControlName="userId">
                             </div>
 
