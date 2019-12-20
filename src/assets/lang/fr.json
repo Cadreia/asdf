@@ -212,5 +212,6 @@
   "admin_placeholder_agency_reg_number": "Saisissez le numéro d'enregistrement de l'agence",
 
   "Add_offical_users": "Ajouter d'autres utilisateurs officiels de cette agence",
-  "agency_title_user_roles": "Utilisateurs et rôles correspondants"
+  "agency_title_user_roles": "Utilisateurs et rôles correspondants",
+  "manage_agency_buses_title": "Bus d'agence"
 }

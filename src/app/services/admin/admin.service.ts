@@ -114,7 +114,7 @@ export class AdminService {
       .pipe(retry(1), catchError(this.errorhandler.handleError));
   }
 
-  getCars(): Observable<Car[]> {
+  getAgencyBuses(): Observable<Car[]> {
     return this.http
       .get<Car[]>(`${this.baseUrl}/api/protected/agency/car`, {
         headers: this.Requestheader
