@@ -205,7 +205,7 @@
   "admin_label_car_name": "Nom",
   "admin_label_car_numberOfSeats": "Nombre de places",
   "admin_label_car_licensePlateNumber": "Numéro de plaque d'immatriculation",
-  "admin_label_car_isCarApproved": "Est approuvé?",
+  "admin_label_car_status": "Statut",
 
   "admin_placeholder_agency_name": "Saisissez le nom de l'agence",
   "admin_placeholder_admin_email": "Saisissez l'adresse e-mail de l'administrateur",

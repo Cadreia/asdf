@@ -205,7 +205,7 @@
   "admin_label_car_name": "Name",
   "admin_label_car_numberOfSeats": "Number of Seats",
   "admin_label_car_licensePlateNumber": "License Plate Number",
-  "admin_label_car_isCarApproved": "Is Approved?",
+  "admin_label_car_status": "Status",
 
   "admin_placeholder_agency_name": "Enter agency name",
   "admin_placeholder_admin_email": "Enter admin email",
