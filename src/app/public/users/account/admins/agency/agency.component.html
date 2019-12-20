@@ -22,14 +22,12 @@
             <table id="example1" class="table table-bordered table-striped">
               <thead>
                 <tr style="background-color: rgb(237, 131, 35);color: white;">
-                  <th class="center upper">{{ 'admin_label_user_id' | translate }}</th>
                   <th class="center upper">{{ 'admin_label_user_fullname' | translate }}</th>
                   <th class="center upper">{{ 'admin_label_user_roles' | translate }}</th>
                   <th colspan="2" class="center upper">{{ 'admin_label_action' | translate }}</th>
                 </tr>
               </thead>
               <tbody *ngFor="let user of users; let i = index">
-                <td class="center">{{ user.id }}</td>
                 <td class="center">{{ user.fullName }}</td>
                 <td class="center">{{ user.roles }}</td>
                 <td class="center"><a class="btn btn-info btn-sm"

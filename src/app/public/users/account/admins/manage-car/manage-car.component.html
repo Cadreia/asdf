@@ -11,16 +11,14 @@
             <table class="table table-bordered table-striped">
               <thead>
                 <tr style="background-color: rgb(237, 131, 35);color: white;">
-                  <th class="center upper">{{ 'admin_label_user_id' | translate }}</th>
                   <th class="center upper">{{ 'admin_label_car_name' | translate }}</th>
                   <th class="center upper">{{ 'admin_label_car_numberOfSeats' | translate }}</th>
                   <th class="center upper">{{ 'admin_label_car_licensePlateNumber' | translate }}</th>
                   <th class="center upper">{{ 'admin_label_car_status' | translate }}</th>
-                  <!-- <th colspan="2" class="center upper">{{ 'admin_label_action' | translate }}</th> -->
+                  <th colspan="2" class="center upper">{{ 'admin_label_action' | translate }}</th>
                 </tr>
               </thead>
               <tbody *ngFor="let car of cars; let i = index">
-                <td class="center">{{ car.id }}</td>
                 <td class="center">{{ car.name }}</td>
                 <td class="center">{{ car.numberOfSeats }}</td>
                 <td class="center">{{ car.licensePlateNumber }}</td>
@@ -31,12 +29,12 @@
                 <ng-template #showUnapproved>
                   <td class="center text-danger" style="font-weight: bold;">Unapproved</td>
                 </ng-template>
-                <!-- <td class="center"><a class="btn btn-info btn-sm"
-                              (click)="edit(user)">{{ 'admin_label_edit' | translate }}<i class="fa fa-edit"></i></a>
-                          </td>
-                          <td class="center"><a class="btn btn-danger btn-sm"
-                              (click)="sweetalert(user)">{{ 'admin_label_delete' | translate }}<i class="fa fa-trash-o"></i></a>
-                          </td> -->
+                <td class="center"><a class="btn btn-info btn-sm"
+                    (click)="edit(user)">{{ 'admin_label_edit' | translate }}<i class="fa fa-edit"></i></a>
+                </td>
+                <td class="center"><a class="btn btn-danger btn-sm"
+                    (click)="sweetalert(user)">{{ 'admin_label_delete' | translate }}<i class="fa fa-trash-o"></i></a>
+                </td>
               </tbody>
             </table>
 
