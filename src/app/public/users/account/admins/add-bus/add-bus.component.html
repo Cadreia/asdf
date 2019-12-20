@@ -12,10 +12,9 @@
                             <label class="text">{{ 'admin_label_car_name' | translate }}</label>
                             <input class="form-control" type="text" autofocus="true" formControlName="name"
                                 [class.is-invalid]="addBusForm.controls['name'].invalid && addBusForm.controls['name'].touched" />
-                            <div class="errorStyle"
-                                *ngIf="addBusForm.controls['name'].invalid && addBusForm.controls['name'].touched">
+                            <div class="errorStyle" *ngIf="addBusForm.controls['name'].invalid && addBusForm.controls['name'].touched">
                                 <small><b
-                                        *ngIf="addBusForm.controls['name']?.errors.required">{{ 'edit_required_error' | translate }}<br></b></small>
+                                        *ngIf="addBusForm.controls['name']?.errors.required">* {{ 'edit_required_error' | translate }}<br></b></small>
                             </div>
                         </div>
 
@@ -27,7 +26,7 @@
                             <div class="errorStyle"
                                 *ngIf="addBusForm.controls['licensePlateNumber'].invalid && addBusForm.controls['licensePlateNumber'].touched">
                                 <small><b
-                                        *ngIf="addBusForm.controls['licensePlateNumber']?.errors.required">{{ 'edit_required_error' | translate }}<br></b></small>
+                                        *ngIf="addBusForm.controls['licensePlateNumber']?.errors.required">* {{ 'edit_required_error' | translate }}<br></b></small>
                             </div>
                         </div>
 
@@ -38,9 +37,9 @@
                             <div class="errorStyle"
                                 *ngIf="addBusForm.controls['numberOfSeats'].invalid && addBusForm.controls['numberOfSeats'].touched">
                                 <small><b
-                                        *ngIf="addBusForm.controls['numberOfSeats']?.errors.required">{{ 'edit_required_error' | translate }}<br></b></small>
+                                        *ngIf="addBusForm.controls['numberOfSeats']?.errors.required">* {{ 'edit_required_error' | translate }}<br></b></small>
                                         <small><b
-                                            *ngIf="addBusForm.controls['numberOfSeats']?.errors.min">{{ 'number_min_error' | translate }}<br></b></small>
+                                            *ngIf="addBusForm.controls['numberOfSeats']?.errors.min">* {{ 'number_min_error' | translate }}<br></b></small>
                             </div>
                         </div>
 
