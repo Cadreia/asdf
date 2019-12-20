@@ -15,6 +15,7 @@ import { AddOfficialUsersComponent } from './account/admins/add-official-users/a
 import { EditOfficialUserComponent } from './account/admins/edit-official-user/edit-official-user.component';
 import { AgencyUsersResolverService } from '../shared/resolvers/agency-users/agency-users-resolver.service';
 import { ManageCarComponent } from './account/admins/manage-car/manage-car.component';
+import { AddBusComponent } from './account/admins/add-bus/add-bus.component';
 
 
 
@@ -76,6 +77,11 @@ const routes: Routes = [
     component: ManageCarComponent,
     canActivate: [AgencyGuard]
   },
+  {
+    path: 'account/add-bus',
+    component: AddBusComponent,
+    canActivate: [AgencyGuard]
+  },
 ];
 
 @NgModule({
@@ -94,5 +100,7 @@ AddTransitComponent,
 AgencyComponent,
 AddOfficialAgencyComponent,
 AddOfficialUsersComponent,
-EditOfficialUserComponent
+EditOfficialUserComponent,
+ManageCarComponent,
+AddBusComponent
 ];

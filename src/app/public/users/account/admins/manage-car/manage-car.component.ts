@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { AdminService } from 'src/app/services/admin/admin.service';
 import { Car } from 'src/app/model/car';
 import { MessageService } from 'src/app/services/messages/message.service';
+import { SharedService } from 'src/app/public/shared/sharedservice/shared.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-manage-car',
@@ -9,13 +11,14 @@ import { MessageService } from 'src/app/services/messages/message.service';
   styleUrls: ['./manage-car.component.scss']
 })
 export class ManageCarComponent implements OnInit {
-  public cars: Car[];
+  public agencyBuses: Car[] = [];
   loading: boolean;
 
   constructor(
     private adminService: AdminService,
     private toaster: MessageService,
-
+    private sharedService: SharedService,
+    private router: Router
     ) { }
 
   ngOnInit() {
@@ -25,10 +28,9 @@ export class ManageCarComponent implements OnInit {
 
 
   getAgencyBuses() {
-    this.adminService.getAgencyBuses().subscribe((cars: Car[]) => {
+    this.adminService.getAgencyBuses().subscribe((buses: Car[]) => {
       this.loading = false;
-      this.cars = cars;
-      console.log(this.cars);
+      this.agencyBuses = buses;
     }, error => {
       this.loading = false;
       console.log(error);

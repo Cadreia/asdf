@@ -121,4 +121,12 @@ export class AdminService {
       })
       .pipe(retry(1), catchError(this.errorhandler.handleError));
   }
+
+  addAgencyBus(busData: any): Observable<any> {
+    return this.http
+      .post<any>(`${this.baseUrl}/api/protected/agency/car`, busData, {
+        headers: this.Requestheader
+      })
+      .pipe(retry(1), catchError(this.errorhandler.handleError));
+  }
 }

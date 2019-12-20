@@ -20,7 +20,7 @@ const setTranslationFactory = (translationService: TranslationService) => {
     AppComponent,
     HeaderComponent,
     FooterComponent,
-    routingComponents
+    routingComponents,
   ],
   imports: [
     BrowserModule,

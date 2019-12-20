@@ -62,6 +62,7 @@
   "register__email_invalid_error": "Les champs de l'email sont valides",
   "edit_required_error": "Ce champ est obligatoire",
   "edit_email_error": "Veuillez fournir une adresse email valide",
+  "number_min_error": "Le nombre fourni ne doit pas être inférieur à 1",
   "register__fullname_minCharacter_error": "Le nom complet doit comporter au moins 3 caractères",
   "register__phoneNumber_required_error": "Le numéro de téléphone est requis",
   "register__phoneNumber_digit_error": "Le numéro de téléphone doit comporter au moins 9 chiffres",
@@ -116,6 +117,7 @@
   "create_official_agency_label_nonCreated": "Aucune agence officielle a été créé",
 
   "success_message_create_agency": "Vous avez créé avec succès une nouvelle agence",
+  "success_message_create_bus": "You successfully created a new Bus",
 
   "error_message_admin_email_invalid": "Erreur lors de la création d'une nouvelle agence. Cet e-mail d'administrateur n'existe pas",
   "error_message_admin_email_in_use": "Erreur lors de la création d'une nouvelle agence. Cet administrateur appartient déjà à une autre agence",
@@ -124,6 +126,9 @@
   "error_invalid_agency_user": "Erreur! L'utilisateur que vous essayez de supprimer n'existe pas",
   "error_user_not_in_agency": "L'opération a échoué! Cet utilisateur n'est pas membre de votre agence",
   "error_user_not_exist": "Erreur! Cet utilisateur n'existe pas.",
+  "error_invalid_input_fields": "Un ou plusieurs champs de saisie comportent des erreurs. Veuillez remplir correctement les champs.",
+  "error_license_plate_num_in_use": "Ce numéro de plaque d'immatriculation a déjà été pris.",
+  "error_general_title": "Erreur!",
 
   "login_successfull_message": " Vous êtes connecté avec succès à Gowaka, un courriel vous a été envoyé, vous pouvez vérifier",
   "login_successfull_title": "Vous Étes connecté avec succès!",
@@ -213,5 +218,9 @@
 
   "Add_offical_users": "Ajouter d'autres utilisateurs officiels de cette agence",
   "agency_title_user_roles": "Utilisateurs et rôles correspondants",
-  "manage_agency_buses_title": "Bus d'agence"
+  "agency_add_user_button": "Ajouter un utilisateur officiel de l'agence",
+
+  "manage_agency_buses_title": "Bus d'agence",
+  "manage_agency_buses_button": "Ajouter un bus",
+  "add_bus_title": "Créer un nouveau bus"
 }

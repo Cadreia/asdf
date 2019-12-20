@@ -18,7 +18,7 @@ export class AgencyComponent implements OnInit {
   users: AgencyUser[] = [];
   loading: boolean;
 
-  constructor(private sharedSevice: SharedService,
+  constructor(private sharedService: SharedService,
     private adminService: AdminService,
     private toaster: MessageService,
     private router: Router,
@@ -29,12 +29,12 @@ export class AgencyComponent implements OnInit {
   ngOnInit() {
     this.loading = true;
     this.getAgencyUsers();
-    if (this.sharedSevice.IsAdmin()) {
+    if (this.sharedService.IsAdmin()) {
       this.isAdmin = true;
     } else {
       this.isAdmin = false;
     }
-    if (this.sharedSevice.IsAdminAgency()) {
+    if (this.sharedService.IsAdminAgency()) {
       this.isAgencyAdmin = true;
     } else {
       this.isAgencyAdmin = false;

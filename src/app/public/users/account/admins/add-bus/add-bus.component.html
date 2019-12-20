@@ -1,0 +1,64 @@
+<div class="container" style="margin-top: 50px; margin-bottom: 20px">
+    <div class="gap gap-small"></div>
+    <div class="row">
+        <app-account-menu></app-account-menu>
+        <div class="col-md-8">
+            <div class="row">
+                <div class="gap gap-small"></div>
+                <div class="col-md-8">
+                    <h4>{{ 'add_bus_title' | translate }}</h4>
+                    <form [formGroup]="addBusForm" (ngSubmit)="onSubmit()">
+                        <div class="form-group">
+                            <label class="text">{{ 'admin_label_car_name' | translate }}</label>
+                            <input class="form-control" type="text" autofocus="true" formControlName="name"
+                                [class.is-invalid]="addBusForm.controls['name'].invalid && addBusForm.controls['name'].touched" />
+                            <div class="errorStyle"
+                                *ngIf="addBusForm.controls['name'].invalid && addBusForm.controls['name'].touched">
+                                <small><b
+                                        *ngIf="addBusForm.controls['name']?.errors.required">{{ 'edit_required_error' | translate }}<br></b></small>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="text">{{ 'admin_label_car_licensePlateNumber' | translate }}</label>
+                            <input class="form-control" type="text" autofocus="true"
+                                formControlName="licensePlateNumber"
+                                [class.is-invalid]="addBusForm.controls['licensePlateNumber'].invalid && addBusForm.controls['licensePlateNumber'].touched" />
+                            <div class="errorStyle"
+                                *ngIf="addBusForm.controls['licensePlateNumber'].invalid && addBusForm.controls['licensePlateNumber'].touched">
+                                <small><b
+                                        *ngIf="addBusForm.controls['licensePlateNumber']?.errors.required">{{ 'edit_required_error' | translate }}<br></b></small>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="text">{{ 'admin_label_car_numberOfSeats' | translate }}</label>
+                            <input class="form-control" type="number" autofocus="true" min="1" formControlName="numberOfSeats"
+                                [class.is-invalid]="addBusForm.controls['numberOfSeats'].invalid && addBusForm.controls['numberOfSeats'].touched" />
+                            <div class="errorStyle"
+                                *ngIf="addBusForm.controls['numberOfSeats'].invalid && addBusForm.controls['numberOfSeats'].touched">
+                                <small><b
+                                        *ngIf="addBusForm.controls['numberOfSeats']?.errors.required">{{ 'edit_required_error' | translate }}<br></b></small>
+                                        <small><b
+                                            *ngIf="addBusForm.controls['numberOfSeats']?.errors.min">{{ 'number_min_error' | translate }}<br></b></small>
+                            </div>
+                        </div>
+
+                        <input class="btn btn-primary submitButton" type="submit" value="Update"/>
+                        <div class="gap gap-small"></div>
+                        <a class="btn btn-default mx-auto" routerLink="../manage-car"><i
+                                class="fa fa-mail-reply"></i>{{ 'Add_label_back' | translate }}</a>
+                    </form>
+
+                    <!-- <ng-select [items]="user.roles" bindLabel="roles" [multiple]="true" [closeOnSelect]="false"
+                        [searchable]="false">
+                    </ng-select> -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div *ngIf="loader">
+    <app-loader></app-loader>
+</div>

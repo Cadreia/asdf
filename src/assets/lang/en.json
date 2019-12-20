@@ -62,6 +62,7 @@
   "register__email_invalid_error": "The email fields is in valid",
   "edit_required_error": "This field is required",
   "edit_email_error": "Please provide a valid email address",
+  "number_min_error": "The number provided must not be less than 1",
   "register__fullname_minCharacter_error": "The Full name must have a minimum of 3 characters",
   "register__phoneNumber_required_error": "The phone Number is required",
   "register__phoneNumber_digit_error": "The phone number must have a minimum of 9 digits",
@@ -113,8 +114,10 @@
   "create_official_agency": "Click here to add an Official Agency",
   "create_official_agency_label": "Create Official Agency",
   "create_official_agency_label_nonCreated": "No Official Agency have been created yet",
+
   "create_official_agency_label_canCreate": "Official Agency Can create",
   "success_message_create_agency": "You successfully created a new Agency",
+  "success_message_create_bus": "You successfully created a new Bus",
 
   "error_message_admin_email_invalid": "Error creating a new Agency. This Admin Email does not exist",
   "error_message_admin_email_in_use": "Error creating a new Agency. This Admin already belongs to another agency",
@@ -124,12 +127,15 @@
   "error_invalid_agency_user": "Error! The user you are trying to delete does not exist",
   "error_user_not_in_agency": "Operation failed! This user is not a member of your agency",
   "error_user_not_exist": "Error! This user does not exist.",
+  "error_invalid_input_fields": "One or more input fields have errors. Please fill in the fields correctly.",
+  "error_license_plate_num_in_use": "This license plate number has already been taken.",
+  "error_general_title": "Error!",
 
   "login_successfull_message": "You Successfully login into Gowaka, an E-mail has been to you, please check",
   "login_successfull_title": "Login Successfully!",
   "login_notverified_email_error": "you registered successfully but you have not yet verified your email, please check your email for verification",
   "login_notverified_email_error_title": "email not verified!",
-  "login_wrongCredential_error": "email and password do not match. Visit the Forgot Password link bellow if you have forgotten your password",
+  "login_wrongCredential_error": "Email and Password do not match! Visit the Forgot Password link below if you have forgotten your password.",
   "user_logout_message": "You logout successfully, you can only access real features of GoWaka platform by login In.",
   "header_offline_message": "you are offline.. please check youe internet connection",
   "changepassword_successfull_message": "Congratulations, your Password have been changed successfully, you can re-login to check",
@@ -213,5 +219,9 @@
 
   "Add_offical_users": "Add more Official Users of this Agency",
   "agency_title_user_roles": "Users and Corresponding Roles",
-  "manage_agency_buses_title": "Agency Buses"
+  "agency_add_user_button": "Add Official Agency User",
+
+  "manage_agency_buses_title": "Agency Buses",
+  "manage_agency_buses_button": "Add Bus",
+  "add_bus_title": "Create New Bus"
 }

@@ -12,6 +12,7 @@ export class MessageService {
   ) {}
 
   private errorTitle = this.translation.messages[('register_error_title')];
+  private errorGeneral = this.translation.messages[('error_general_title')];
 
   successmessage() {
     const successRegistrationBody = this.translation.messages[
@@ -236,5 +237,26 @@ export class MessageService {
       ('error_user_not_exist')
     ];
     this.toastr.error(message, this.errorTitle);
+  }
+
+  successAddBus() {
+    const message = this.translation.messages[
+      ('success_message_create_bus')
+    ];
+    this.toastr.success(message);
+  }
+
+  validationError() {
+    const message = this.translation.messages[
+      ('error_invalid_input_fields')
+    ];
+    this.toastr.error(message, this.errorGeneral);
+  }
+
+  licensePlateNumberInUse() {
+    const message = this.translation.messages[
+      ('error_license_plate_num_in_use')
+    ];
+    this.toastr.error(message, this.errorGeneral);
   }
 }

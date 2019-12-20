@@ -5,40 +5,38 @@
         <div class="col-md-8">
             <div class="row">
                 <div class="gap gap-small"></div>
-                <div class="box-body table-responsive">
-                    <div class="col-md-8">
-                        <h4>{{ 'Update_user_roles' | translate }}</h4>
-                        <form [formGroup]="updateRolesForm" (ngSubmit)="updateRoles()">
-                            <div class="form-group">
-                                <label class="text">{{ 'admin_label_user_id' | translate }}</label>
-                                <input class="form-control" type="text" value="{{ user.id }}" autofocus="true"
-                                    formControlName="userId" [readonly]="true">
-                            </div>
+                <div class="col-md-8">
+                    <h4>{{ 'Update_user_roles' | translate }}</h4>
+                    <form [formGroup]="updateRolesForm" (ngSubmit)="updateRoles()">
+                        <div class="form-group">
+                            <label class="text">{{ 'admin_label_user_id' | translate }}</label>
+                            <input class="form-control" type="text" value="{{ user.id }}" autofocus="true"
+                                formControlName="userId" [readonly]="true">
+                        </div>
 
-                            <div class="form-group">
-                                <label class="text">{{ 'admin_label_user_fullname' | translate }}</label>
-                                <input class="form-control" type="text" value="{{ user.fullName }}" autofocus="true"
-                                    formControlName="fullName">
-                            </div>
+                        <div class="form-group">
+                            <label class="text">{{ 'admin_label_user_fullname' | translate }}</label>
+                            <input class="form-control" type="text" value="{{ user.fullName }}" autofocus="true"
+                                formControlName="fullName">
+                        </div>
 
-                            <div class="form-group">
-                                <label class="text">{{ 'admin_label_user_roles' | translate }}</label>
-                                <select multiple class="form-control" formControlName="roles">
-                                    <option [ngValue]="role" *ngFor="let role of allRoles">{{ role }}</option>
-                                </select>
-                            </div>
+                        <div class="form-group">
+                            <label class="text">{{ 'admin_label_user_roles' | translate }}</label>
+                            <select multiple class="form-control" formControlName="roles">
+                                <option [ngValue]="role" *ngFor="let role of allRoles">{{ role }}</option>
+                            </select>
+                        </div>
 
-                            <input class="btn btn-primary submitButton" type="submit" value="Update"
-                                [disabled]="!updateRolesForm.valid" />
-                            <div class="gap gap-small"></div>
-                                <a class="btn btn-default mx-auto" routerLink="../officialAgency"><i
-                                        class="fa fa-mail-reply"></i>{{ 'Add_label_back' | translate }}</a>
-                        </form>
+                        <input class="btn btn-primary submitButton" type="submit" value="Update"
+                            [disabled]="!updateRolesForm.valid" />
+                        <div class="gap gap-small"></div>
+                        <a class="btn btn-default mx-auto" routerLink="../officialAgency"><i
+                                class="fa fa-mail-reply"></i>{{ 'Add_label_back' | translate }}</a>
+                    </form>
 
-                        <!-- <ng-select [items]="user.roles" bindLabel="roles" [multiple]="true" [closeOnSelect]="false"
+                    <!-- <ng-select [items]="user.roles" bindLabel="roles" [multiple]="true" [closeOnSelect]="false"
                         [searchable]="false">
                     </ng-select> -->
-                    </div>
                 </div>
             </div>
         </div>

@@ -18,11 +18,11 @@
                   <th colspan="2" class="center upper">{{ 'admin_label_action' | translate }}</th>
                 </tr>
               </thead>
-              <tbody *ngFor="let car of cars; let i = index">
-                <td class="center">{{ car.name }}</td>
-                <td class="center">{{ car.numberOfSeats }}</td>
-                <td class="center">{{ car.licensePlateNumber }}</td>
-                <div *ngIf="car.isCarApproved == true; then showApproved; else showUnapproved"></div>
+              <tbody *ngFor="let bus of agencyBuses; let i = index">
+                <td class="center">{{ bus.name }}</td>
+                <td class="center">{{ bus.numberOfSeats }}</td>
+                <td class="center">{{ bus.licensePlateNumber }}</td>
+                <div *ngIf="bus.isCarApproved == true; then showApproved; else showUnapproved"></div>
                 <ng-template #showApproved>
                   <td class="center text-success" style="font-weight: bold;">Approved</td>
                 </ng-template>
@@ -38,13 +38,16 @@
               </tbody>
             </table>
 
-            <div *ngIf="users==''" class="mx-auto alert alert-danger">
-              <h6 class="text-center">There is no available user</h6>
+            <div *ngIf="agencyBuses==''" class="mx-auto alert alert-danger">
+              <h6 class="text-center">There is no available bus</h6>
             </div>
 
           </div>
         </div>
       </div>
+
+      <button class="btn btn-primary rightButton" routerLink="../add-bus"><i class="fa fa-plus"></i> {{ 'manage_agency_buses_button' | translate }}</button>
+
     </div>
   </div>
 </div>
