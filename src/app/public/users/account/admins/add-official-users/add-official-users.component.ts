@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AdminService } from 'src/app/services/admin/admin.service';
 import { Router } from '@angular/router';
 import { MessageService } from 'src/app/services/messages/message.service';
+import { LoginService } from 'src/app/services/login/login.service';
 
 @Component({
   selector: 'app-add-official-users',
@@ -15,7 +16,9 @@ export class AddOfficialUsersComponent implements OnInit {
   constructor(private formBuilder: FormBuilder,
     private adminService: AdminService,
     private router: Router,
-    private toaster: MessageService) { }
+    private toaster: MessageService,
+    private loginService: LoginService
+    ) { }
 
   ngOnInit() {
     this.addOfficialUser = this.formBuilder.group({
@@ -43,13 +46,15 @@ export class AddOfficialUsersComponent implements OnInit {
           if (error.errorCode === 422) {
             if (error.code === 'RESOURCE_NOT_FOUND') {
               this.toaster.OfficialUserEmailNotExist();
-            }
-          }
-          if (error.errorCode === 422) {
-            if (error.code === 'USER_ALREADY_IN_AN_AGENCY') {
+            } else if (error.code === 'USER_ALREADY_IN_AN_AGENCY') {
               this.toaster.officialUserInUse();
             }
           }
+          else if (error.errorCode === 403) {
+            this.loginService.logout();
+            this.router.navigateByUrl('/public/authentication/login');
+          }           
+          
         }
       }
     );

@@ -10,7 +10,7 @@
                     <form [formGroup]="addBusForm" (ngSubmit)="onSubmit()">
                         <div class="form-group">
                             <label class="text">{{ 'admin_label_car_name' | translate }}</label>
-                            <input class="form-control" type="text" autofocus="true" formControlName="name"
+                            <input class="form-control" type="text" autofocus="true" formControlName="name" placeholder="{{ 'admin_placeholder_car_name' | translate }}"
                                 [class.is-invalid]="addBusForm.controls['name'].invalid && addBusForm.controls['name'].touched" />
                             <div class="errorStyle" *ngIf="addBusForm.controls['name'].invalid && addBusForm.controls['name'].touched">
                                 <small><b
@@ -20,7 +20,7 @@
 
                         <div class="form-group">
                             <label class="text">{{ 'admin_label_car_licensePlateNumber' | translate }}</label>
-                            <input class="form-control" type="text" autofocus="true"
+                            <input class="form-control" type="text" autofocus="true" placeholder="{{ 'admin_placeholder_car_licensePlateNumber' | translate }}"
                                 formControlName="licensePlateNumber"
                                 [class.is-invalid]="addBusForm.controls['licensePlateNumber'].invalid && addBusForm.controls['licensePlateNumber'].touched" />
                             <div class="errorStyle"
@@ -32,7 +32,7 @@
 
                         <div class="form-group">
                             <label class="text">{{ 'admin_label_car_numberOfSeats' | translate }}</label>
-                            <input class="form-control" type="number" autofocus="true" min="1" formControlName="numberOfSeats"
+                            <input class="form-control" type="number" autofocus="true" min="1" value="70" formControlName="numberOfSeats"
                                 [class.is-invalid]="addBusForm.controls['numberOfSeats'].invalid && addBusForm.controls['numberOfSeats'].touched" />
                             <div class="errorStyle"
                                 *ngIf="addBusForm.controls['numberOfSeats'].invalid && addBusForm.controls['numberOfSeats'].touched">

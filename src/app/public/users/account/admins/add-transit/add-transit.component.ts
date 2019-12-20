@@ -8,6 +8,7 @@ import { ICountry } from 'src/app/interface/country';
 import { IState } from 'src/app/interface/state';
 import { ICity } from 'src/app/interface/city';
 import { CountriesService } from 'src/app/services/countries/countries.service';
+import { LoginService } from 'src/app/services/login/login.service';
 
 @Component({
   selector: 'app-add-transit',
@@ -30,6 +31,7 @@ export class AddTransitComponent implements OnInit {
     private sharedService: SharedService,
     private router: Router,
     private countriesService: CountriesService,
+    private loginService: LoginService
   ) {
 
 
@@ -82,6 +84,9 @@ export class AddTransitComponent implements OnInit {
             if (error.code === 'ACCESS_DENIED') {
               this.toaster.accessDenied();
             }
+          } else if (error.errorCode === 403) {
+            this.loginService.logout();
+            this.router.navigateByUrl('/public/authentication/login');
           } else if (error.errorCode === 409) {
             if (error.code === 'TRANSIT_AND_STOP_ALREADY_IN_USE') {
               this.toaster.locationExists();

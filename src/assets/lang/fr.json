@@ -122,7 +122,7 @@
   "error_message_admin_email_invalid": "Erreur lors de la création d'une nouvelle agence. Cet e-mail d'administrateur n'existe pas",
   "error_message_admin_email_in_use": "Erreur lors de la création d'une nouvelle agence. Cet administrateur appartient déjà à une autre agence",
   "error_invalid_user_email": "l'e-mail que vous avez entré n'est pas une adresse valide en gowaka",
-  "error_message_unauthorized_action": "Vous n'êtes pas autorisé à effectuer cette opération. Veuillez vous déconnecter et vous reconnecter avec les privilèges requis.",
+  "error_message_unauthorized_action": "Vous n'êtes pas autorisé à effectuer cette opération. Veuillez vous déconnecter et vous reconnecter pour revérifier votre compte.",
   "error_invalid_agency_user": "Erreur! L'utilisateur que vous essayez de supprimer n'existe pas",
   "error_user_not_in_agency": "L'opération a échoué! Cet utilisateur n'est pas membre de votre agence",
   "error_user_not_exist": "Erreur! Cet utilisateur n'existe pas.",
@@ -216,6 +216,8 @@
   "admin_placeholder_agency_name": "Saisissez le nom de l'agence",
   "admin_placeholder_admin_email": "Saisissez l'adresse e-mail de l'administrateur",
   "admin_placeholder_agency_reg_number": "Saisissez le numéro d'enregistrement de l'agence",
+  "admin_placeholder_car_licensePlateNumber": "e.g, 123CE09",
+  "admin_placeholder_car_name": "e.g, Musango VIP",
 
   "Add_offical_users": "Ajouter d'autres utilisateurs officiels de cette agence",
   "agency_title_user_roles": "Utilisateurs et rôles correspondants",

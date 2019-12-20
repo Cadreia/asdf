@@ -8,6 +8,7 @@ import { TranslationService } from 'src/app/services/translate/translation.servi
 import { AgencyUser } from 'src/app/model/agency-user';
 import { FormControl, FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Location } from '@angular/common';
+import { LoginService } from 'src/app/services/login/login.service';
 
 @Component({
   selector: 'app-agency',
@@ -15,20 +16,20 @@ import { Location } from '@angular/common';
   styleUrls: ['./agency.component.scss']
 })
 export class AgencyComponent implements OnInit {
-  isAdmin: boolean;
-  isAgencyAdmin: boolean;
-  users: AgencyUser[] = [];
-  loading: boolean;
-  toppings = new FormControl();
-user: any;
-  allRoles = [
+  public isAdmin: boolean;
+  public isAgencyAdmin: boolean;
+  public users: AgencyUser[] = [];
+  public loading: boolean;
+  public toppings = new FormControl();
+  public user: any;
+  public updateRolesForm: FormGroup;
+  public loader: boolean;
+  public allRoles: string[] = [
     'AGENCY_MANAGER',
     'AGENCY_OPERATOR',
     'AGENCY_BOOKING',
     'AGENCY_CHECKING'
   ];
-  updateRolesForm: FormGroup;
-  public loader: boolean;
 
   constructor(private sharedService: SharedService,
               private adminService: AdminService,
@@ -36,8 +37,8 @@ user: any;
               private router: Router,
               private location: Location,
               private translationService: TranslationService,
-              private route: ActivatedRoute,
               private formBuilder: FormBuilder,
+              private loginService: LoginService
   ) { }
 
   ngOnInit() {
@@ -132,6 +133,9 @@ user: any;
             if (error.code === 'ACCESS_DENIED') {
               this.toaster.accessDenied();
             }
+          } else if (error.errorCode === 403) {
+            this.loginService.logout();
+            this.router.navigateByUrl('/public/authentication/login');
           }
           if (error.errorCode === 422) {
             if (error.code === 'RESOURCE_NOT_FOUND') {

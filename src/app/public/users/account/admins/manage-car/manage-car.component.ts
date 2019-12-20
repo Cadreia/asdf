@@ -4,6 +4,7 @@ import { Car } from 'src/app/model/car';
 import { MessageService } from 'src/app/services/messages/message.service';
 import { SharedService } from 'src/app/public/shared/sharedservice/shared.service';
 import { Router } from '@angular/router';
+import { LoginService } from 'src/app/services/login/login.service';
 
 @Component({
   selector: 'app-manage-car',
@@ -17,8 +18,8 @@ export class ManageCarComponent implements OnInit {
   constructor(
     private adminService: AdminService,
     private toaster: MessageService,
-    private sharedService: SharedService,
-    private router: Router
+    private router: Router,
+    private loginService: LoginService
     ) { }
 
   ngOnInit() {
@@ -41,7 +42,8 @@ export class ManageCarComponent implements OnInit {
         if (error.errorCode === 500) {
           this.toaster.internalError();
         } else if (error.errorCode === 403) {
-          this.toaster.unAuthorized();
+          this.loginService.logout();
+          this.router.navigateByUrl('/public/authentication/login');
         } else if (error.errorCode === 422) {
           if (error.code === 'RESOURCE_NOT_FOUND') {
             this.toaster.unAuthorized();
