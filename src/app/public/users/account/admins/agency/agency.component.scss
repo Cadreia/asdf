@@ -15,6 +15,15 @@ table{
   font-size: 16px;
   font-style: italic;
 }
+.submitButton {
+  width: 100%;
+  border: none !important;
+}
+
+.submitButton:disabled {
+  background-color: rgb(187, 184, 184);
+  cursor: not-allowed !important;
+}
 .btn-close {
   float: right !important;
   margin-left: 15px;

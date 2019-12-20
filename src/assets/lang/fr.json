@@ -84,7 +84,7 @@
   "login__label_forgotPassword": "Mot de passe oublié",
   "login__label_placeholder_email": "Veuillez entrer l'adresse email de votre compte pour continuer",
   "login__label_placeholder_password": "Veuillez saisir le mot de passe de votre compte pour continuer.",
-   "login_label_login": "Connectez",
+  "login_label_login": "Connectez",
 
 
   "password_mismatch_messsage": "Les deux mots de passe ne correspondent pas, les champs mot de passe et confirmer le mot de passe ne correspondent pas. Veuillez vérifier et soumettre à nouveau!",
@@ -207,6 +207,7 @@
   "admin_label_user_id": "Id",
   "admin_label_user_fullname": "Nom Complet",
   "admin_label_user_roles": "Rôles",
+  "admin_label_current_role": "Les rôles d'utilisateur actuels sont:",
   "admin_label_car_name": "Nom",
   "admin_label_car_numberOfSeats": "Nombre de places",
   "admin_label_car_licensePlateNumber": "Numéro de plaque d'immatriculation",
