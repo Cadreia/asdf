@@ -20,7 +20,7 @@ export class AddOfficialAgencyComponent implements OnInit {
     private router: Router,
     private adminService: AdminService,
     private toaster: MessageService
-    ) { }
+  ) { }
 
   ngOnInit() {
     this.addAgencyForm = this.formBuilder.group({
@@ -31,7 +31,7 @@ export class AddOfficialAgencyComponent implements OnInit {
 
     if (!this.sharedService.IsAdmin()) {
       this.router.navigate(['public/users/account/overview']);
-      }
+    }
   }
 
   onSubmit() {
@@ -56,7 +56,7 @@ export class AddOfficialAgencyComponent implements OnInit {
               this.toaster.accessDenied();
             }
           } else if (error.errorCode === 422) {
-              if (error.code === 'USER_ALREADY_IN_AN_AGENCY') {
+            if (error.code === 'USER_ALREADY_IN_AN_AGENCY') {
               this.toaster.adminEmailInUse();
             }
           }

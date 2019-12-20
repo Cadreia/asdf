@@ -9,14 +9,14 @@ import { LoginService } from 'src/app/services/login/login.service';
   styleUrls: ['./booking.component.scss']
 })
 export class BookingComponent implements OnInit {
-public userInfos: any;
+  public userInfos: any;
   constructor(private sharedService: SharedService, private router: Router, private loginService: LoginService) { }
 
   ngOnInit() {
-     if (localStorage.hasOwnProperty('userDetails') && localStorage.getItem('accessToken') === this.loginService.getAccessToken()) {
-    this.userInfos = this.sharedService.getUserinfo();
+    if (localStorage.hasOwnProperty('userDetails') && localStorage.getItem('accessToken') === this.loginService.getAccessToken()) {
+      this.userInfos = this.sharedService.getUserinfo();
     } else {
-    this.router.navigate(['']);
+      this.router.navigate(['']);
     }
   }
 

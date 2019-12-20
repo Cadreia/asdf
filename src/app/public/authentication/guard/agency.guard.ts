@@ -11,7 +11,7 @@ export class AgencyGuard implements CanActivate {
   canActivate(
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean> | boolean | UrlTree {
-      if (this.shareService.IsAdmin() || this.shareService.IsAdminAgency()) {
+      if (this.shareService.IsAdmin() || this.shareService.IsAdminAgency() || this.shareService.IsAgencyManager()) {
         return true;
       } else {
         this.router.navigate(['public/users/account/overview']);

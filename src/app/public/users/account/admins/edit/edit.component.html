@@ -1,65 +1,76 @@
-
 <div class="container">
 
-    <h5 class="innerContent">{{ 'admin_manage_edit' | translate }}</h5>
-    <div class="row">
+  <h5 class="innerContent">{{ 'admin_manage_edit' | translate }}</h5>
+  <div class="row">
 
-<app-account-menu></app-account-menu>
-        <div class="col-md-8">
-          <div class="row">
-            <div class="gap gap-small"></div>
-                <div class="box-body table-responsive">
-                      <div class="col-md-8">
-                        <h4>{{ 'Edit_transit_and_stops' | translate }}</h4>
-                          <form [formGroup]="updateform" (ngSubmit)="sendTransitForm()">
-                            <div class="form-group">
-                                <label class="text">{{ 'admin_label_country' | translate }}</label>
-                                <input class="form-control" type="text" value="{{ EditContent.country }}" autofocus="true"
-                                formControlName="country" name="country"
-                                [class.is-invalid]="updateform.controls['country'].invalid && updateform.controls['country'].dirty">
-                                <div class="errorStyle" *ngIf="updateform.controls['country'].invalid && updateform.controls['country'].dirty">
-                                  <b *ngIf="updateform.controls['country']?.errors.required">{{ 'edit_required_error' | translate }}<br></b>
-                                </div>
-                            </div>
-
-                            <div class="form-group">
-                                <label class="text">{{ 'admin_label_state' | translate }}</label>
-                                <input class="form-control" formControlName="state" name="state" type="text" value="{{ EditContent.state }}"
-                                [class.is-invalid]="updateform.controls['state'].invalid && updateform.controls['state'].dirty">
-                                <div class="errorStyle" *ngIf="updateform.controls['state'].invalid && updateform.controls['state'].dirty">
-                                  <b *ngIf="updateform.controls['state']?.errors.required">{{ 'edit_required_error' | translate }}<br></b>
-                                </div>
-                            </div>
-
-                            <div class="form-group">
-                                <label class="text">{{ 'admin_label_city' | translate }}</label>
-                                <input class="form-control" type="text" formControlName="city" name="city" value="{{ EditContent.city }}"
-                                [class.is-invalid]="updateform.controls['city'].invalid && updateform.controls['city'].dirty"/>
-                                <div class="errorStyle" *ngIf="updateform.controls['city'].invalid && updateform.controls['city'].dirty">
-                                  <b *ngIf="updateform.controls['city']?.errors.required">{{ 'edit_required_error' | translate }}<br></b>
-                                </div>
-                            </div>
-
-                            <div class="form-group">
-                                <label class="text">{{ 'admin_label_address' | translate }}</label>
-                                <input class="form-control" type="text" formControlName="address" name="address" value="{{ EditContent.address }}"
-                                 [class.is-invalid]="updateform.controls['address'].invalid && updateform.controls['address'].dirty"/>
-                                <div class="errorStyle" *ngIf="updateform.controls['address'].invalid && updateform.controls['address'].dirty">
-                                  <b *ngIf="updateform.controls['address']?.errors.required">{{ 'edit_required_error' | translate }}<br></b>
-                                </div>
-                            </div>
-
-                            <input class="btn btn-primary submitButton" type="submit" value="Update" [disabled]="!updateform.valid" />
-                              <div class="gap gap-small"></div>
-                            <a class="btn btn-default" (click)="clear()" routerLink="../admin"><i class="fa  fa-mail-reply"></i>{{ 'Add_label_back' | translate }}</a>
-                        </form>
-                      </div>
+    <app-account-menu></app-account-menu>
+    <div class="col-md-8">
+      <div class="row">
+        <div class="gap gap-small"></div>
+        <div class="box-body table-responsive">
+          <div class="col-md-8">
+            <h4>{{ 'Edit_transit_and_stops' | translate }}</h4>
+            <form [formGroup]="updateform" (ngSubmit)="sendTransitForm()">
+              <div class="form-group">
+                <label class="text">{{ 'admin_label_country' | translate }}</label>
+                <input class="form-control" type="text" value="{{ EditContent.country }}" autofocus="true"
+                  formControlName="country" name="country"
+                  [class.is-invalid]="updateform.controls['country'].invalid && updateform.controls['country'].dirty">
+                <div class="errorStyle"
+                  *ngIf="updateform.controls['country'].invalid && updateform.controls['country'].dirty">
+                  <b
+                    *ngIf="updateform.controls['country']?.errors.required">{{ 'edit_required_error' | translate }}<br></b>
                 </div>
               </div>
+
+              <div class="form-group">
+                <label class="text">{{ 'admin_label_state' | translate }}</label>
+                <input class="form-control" formControlName="state" name="state" type="text"
+                  value="{{ EditContent.state }}"
+                  [class.is-invalid]="updateform.controls['state'].invalid && updateform.controls['state'].dirty">
+                <div class="errorStyle"
+                  *ngIf="updateform.controls['state'].invalid && updateform.controls['state'].dirty">
+                  <b
+                    *ngIf="updateform.controls['state']?.errors.required">{{ 'edit_required_error' | translate }}<br></b>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="text">{{ 'admin_label_city' | translate }}</label>
+                <input class="form-control" type="text" formControlName="city" name="city"
+                  value="{{ EditContent.city }}"
+                  [class.is-invalid]="updateform.controls['city'].invalid && updateform.controls['city'].dirty" />
+                <div class="errorStyle"
+                  *ngIf="updateform.controls['city'].invalid && updateform.controls['city'].dirty">
+                  <b
+                    *ngIf="updateform.controls['city']?.errors.required">{{ 'edit_required_error' | translate }}<br></b>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="text">{{ 'admin_label_address' | translate }}</label>
+                <input class="form-control" type="text" formControlName="address" name="address"
+                  value="{{ EditContent.address }}"
+                  [class.is-invalid]="updateform.controls['address'].invalid && updateform.controls['address'].dirty" />
+                <div class="errorStyle"
+                  *ngIf="updateform.controls['address'].invalid && updateform.controls['address'].dirty">
+                  <b
+                    *ngIf="updateform.controls['address']?.errors.required">{{ 'edit_required_error' | translate }}<br></b>
+                </div>
+              </div>
+
+              <input class="btn btn-primary submitButton" type="submit" value="Update" [disabled]="!updateform.valid" />
+              <div class="gap gap-small"></div>
+              <a class="btn btn-default" (click)="clear()" routerLink="../admin"><i
+                  class="fa  fa-mail-reply"></i>{{ 'Add_label_back' | translate }}</a>
+            </form>
+          </div>
         </div>
+      </div>
     </div>
+  </div>
 </div>
 
 <div *ngIf="loader">
-<app-loader></app-loader>
+  <app-loader></app-loader>
 </div>

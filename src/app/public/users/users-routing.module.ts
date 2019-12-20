@@ -13,6 +13,8 @@ import { AgencyGuard } from '../authentication/guard/agency.guard';
 import { AddOfficialAgencyComponent } from './account/admins/add-official-agency/add-official-agency.component';
 import { AddOfficialUsersComponent } from './account/admins/add-official-users/add-official-users.component';
 import { EditOfficialUserComponent } from './account/admins/edit-official-user/edit-official-user.component';
+import { AgencyUsersResolverService } from '../shared/resolvers/agency-users/agency-users-resolver.service';
+import { ManageCarComponent } from './account/admins/manage-car/manage-car.component';
 
 
 
@@ -51,6 +53,7 @@ const routes: Routes = [
   {
     path: 'account/officialAgency',
     component: AgencyComponent,
+    // resolve: { users: AgencyUsersResolverService },
     canActivate: [AgencyGuard]
   },
   {
@@ -66,6 +69,11 @@ const routes: Routes = [
   {
     path: 'account/edit-user',
     component: EditOfficialUserComponent,
+    canActivate: [AgencyGuard]
+  },
+  {
+    path: 'account/manage-car',
+    component: ManageCarComponent,
     canActivate: [AgencyGuard]
   },
 ];

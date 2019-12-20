@@ -213,5 +213,6 @@
   "admin_placeholder_agency_reg_number": "Enter agency registration number",
 
   "Add_offical_users": "Add more Official Users of this Agency",
-  "agency_title_user_roles": "Users and Corresponding Roles"
+  "agency_title_user_roles": "Users and Corresponding Roles",
+  "manage_agency_buses_title": "Agency Buses"
 }

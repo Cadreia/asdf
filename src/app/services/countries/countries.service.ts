@@ -27,8 +27,6 @@ export class CountriesService {
       for(let state of this.states) {
         for(var key in state) {
           if (key == 'country_id' && state[key] === countryId) {
-            let statesName = state['name'];
-            console.log('States Name: ' + statesName);
             this.selectStates.push(state);
           }
         }
@@ -48,9 +46,5 @@ export class CountriesService {
         }
       }
     });
-  }
-
-  getAllCities() {
-    
   }
 }

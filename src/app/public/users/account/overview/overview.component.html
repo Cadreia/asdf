@@ -1,61 +1,62 @@
 <div class="container" style="margin-top: 50px; margin-bottom: 20px">
 
-    <h5>{{ 'overview_label_account_profile' | translate }} {{ userInfos.fullName.split(' ')[0] }}</h5>
-    <div class="row">
-        <app-account-menu></app-account-menu>
-        <div class="col-md-8">
-            <h5></h5>
-            <ul class="list list-inline user-profile-statictics mb30">
+  <h5>{{ 'overview_label_account_profile' | translate }} {{ userInfos.fullName.split(' ')[0] }}</h5>
+  <div class="row">
+    <app-account-menu></app-account-menu>
+    <div class="col-md-8">
+      <h5></h5>
+      <ul class="list list-inline user-profile-statictics mb30">
 
-                <li><i class="fa fa-calendar user-profile-statictics-icon"></i>
-                    <h5>0</h5>
-                    <p>{{ 'overview_label_event_attended' | translate }}</p>
-                </li>
-                <li><i class="fa fa-train user-profile-statictics-icon"></i>
-                    <h5>0</h5>
-                    <p>{{ 'overview_label_trainTrips' | translate }}</p>
-                </li>
-                <li><i class="fa fa-bus user-profile-statictics-icon"></i>
-                    <h5>0</h5>
-                    <p>{{ 'overview_label_busTrips' | translate }}</p>
-                </li>
-            </ul>
+        <li><i class="fa fa-calendar user-profile-statictics-icon"></i>
+          <h5>0</h5>
+          <p>{{ 'overview_label_event_attended' | translate }}</p>
+        </li>
+        <li><i class="fa fa-train user-profile-statictics-icon"></i>
+          <h5>0</h5>
+          <p>{{ 'overview_label_trainTrips' | translate }}</p>
+        </li>
+        <li><i class="fa fa-bus user-profile-statictics-icon"></i>
+          <h5>0</h5>
+          <p>{{ 'overview_label_busTrips' | translate }}</p>
+        </li>
+      </ul>
 
-            <div class="gap gap-small"></div>
+      <div class="gap gap-small"></div>
 
-            <div class="gap gap-small"></div>
-            <div id="" class="row">
+      <div class="gap gap-small"></div>
+      <div id="" class="row">
 
-                <h5>{{ 'overview_label_account_info' | translate }}</h5>
+        <h5>{{ 'overview_label_account_info' | translate }}</h5>
 
-                <div class="gap gap-small"></div>
-                <div class="box-body table-responsive">
-                  <table id="example1" class="table table-bordered table-striped">
-                    <thead>
-                      <tr style="background-color: rgb(237, 131, 35);color: white  ">
-                        <th>{{ 'register_label_firstName' | translate }}</th>
-                        <th>{{ 'register_label_lastName' | translate }}</th>
-                        <th>{{ 'register_label_email' | translate }}</th>
-                        <th >{{ 'register_label_role' | translate }}</th>
-                        <th>{{ 'overview_label_accountEdit' | translate }}</th>
-                      </tr>
-                    </thead>
-                    <tbody style="max-width:50px !important">
-                      <td>{{ userInfos.fullName.split(' ')[0] }}</td>
-                      <td>{{ userInfos.fullName.split(' ')[1] }}</td>
-                      <td>{{ userInfos.email }}</td>
-                      <td>{{ userInfos.role }}</td>
-                      <td style="text-align: center;"><a class="btn btn-warning fa fa-edit" routerLink="../setting">{{ 'overview_label_edit'| translate }}</a></td>
-                    </tbody>
-                    <tfoot>
-                      <tr>
-                        <th colspan="4"></th>
-                        <th></th>
-                      </tr>
-                    </tfoot>
-                  </table>
-                </div>
-            </div>
+        <div class="gap gap-small"></div>
+        <div class="box-body table-responsive">
+          <table id="example1" class="table table-bordered table-striped">
+            <thead>
+              <tr style="background-color: rgb(237, 131, 35);color: white  ">
+                <th>{{ 'register_label_firstName' | translate }}</th>
+                <th>{{ 'register_label_lastName' | translate }}</th>
+                <th>{{ 'register_label_email' | translate }}</th>
+                <th>{{ 'register_label_role' | translate }}</th>
+                <th>{{ 'overview_label_accountEdit' | translate }}</th>
+              </tr>
+            </thead>
+            <tbody style="max-width:50px !important">
+              <td>{{ userInfos.fullName.split(' ')[0] }}</td>
+              <td>{{ userInfos.fullName.split(' ')[1] }}</td>
+              <td>{{ userInfos.email }}</td>
+              <td>{{ userInfos.role }}</td>
+              <td style="text-align: center;"><a class="btn btn-warning fa fa-edit"
+                  routerLink="../setting">{{ 'overview_label_edit'| translate }}</a></td>
+            </tbody>
+            <tfoot>
+              <tr>
+                <th colspan="4"></th>
+                <th></th>
+              </tr>
+            </tfoot>
+          </table>
         </div>
+      </div>
     </div>
+  </div>
 </div>

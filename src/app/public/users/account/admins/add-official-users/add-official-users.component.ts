@@ -10,12 +10,12 @@ import { MessageService } from 'src/app/services/messages/message.service';
   styleUrls: ['./add-official-users.component.scss']
 })
 export class AddOfficialUsersComponent implements OnInit {
-addOfficialUser: FormGroup;
-loader: boolean;
+  addOfficialUser: FormGroup;
+  loader: boolean;
   constructor(private formBuilder: FormBuilder,
-              private adminService: AdminService,
-              private router: Router,
-              private toaster: MessageService) { }
+    private adminService: AdminService,
+    private router: Router,
+    private toaster: MessageService) { }
 
   ngOnInit() {
     this.addOfficialUser = this.formBuilder.group({

@@ -1,0 +1,54 @@
+<div class="container" style="margin-top: 50px; margin-bottom: 20px">
+  <div class="gap gap-small"></div>
+  <div class="row">
+    <app-account-menu></app-account-menu>
+    <div class="col-md-8">
+      <div class="row">
+        <div class="col-md-12">
+          <h4 class="text-center">{{ 'manage_agency_buses_title' | translate }}</h4>
+          <div class="gap gap-small"></div>
+          <div class="box-body table-responsive">
+            <table class="table table-bordered table-striped">
+              <thead>
+                <tr style="background-color: rgb(237, 131, 35);color: white;">
+                  <th class="center upper">{{ 'admin_label_car_name' | translate }}</th>
+                  <th class="center upper">{{ 'admin_label_car_numberOfSeats' | translate }}</th>
+                  <th class="center upper">{{ 'admin_label_car_licensePlateNumber' | translate }}</th>
+                  <th class="center upper">{{ 'admin_label_car_status' | translate }}</th>
+                  <th colspan="2" class="center upper">{{ 'admin_label_action' | translate }}</th>
+                </tr>
+              </thead>
+              <tbody *ngFor="let car of cars; let i = index">
+                <td class="center">{{ car.name }}</td>
+                <td class="center">{{ car.numberOfSeats }}</td>
+                <td class="center">{{ car.licensePlateNumber }}</td>
+                <div *ngIf="car.isCarApproved == true; then showApproved; else showUnapproved"></div>
+                <ng-template #showApproved>
+                  <td class="center text-success" style="font-weight: bold;">Approved</td>
+                </ng-template>
+                <ng-template #showUnapproved>
+                  <td class="center text-danger" style="font-weight: bold;">Unapproved</td>
+                </ng-template>
+                <td class="center"><a class="btn btn-info btn-sm"
+                    >{{ 'admin_label_edit' | translate }}<i class="fa fa-edit"></i></a>
+                </td>
+                <td class="center"><a class="btn btn-danger btn-sm"
+                    >{{ 'admin_label_delete' | translate }}<i class="fa fa-trash-o"></i></a>
+                </td>
+              </tbody>
+            </table>
+
+            <div *ngIf="users==''" class="mx-auto alert alert-danger">
+              <h6 class="text-center">There is no available user</h6>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="loading">
+  <app-loader></app-loader>
+</div>

@@ -13,12 +13,12 @@ import { Location } from '@angular/common';
 })
 export class EditOfficialUserComponent implements OnInit {
   user: any;
-  allRoles = [
+  allRoles: any[] = [
     'AGENCY_MANAGER',
     'AGENCY_OPERATOR',
     'AGENCY_BOOKING',
     'AGENCY_CHECKING'
-  ];
+  ]
   updateRolesForm: FormGroup;
   public loader: boolean;
   public imagepath = '../../../../../assets/template/images/logo/logo.ico';
@@ -34,7 +34,6 @@ export class EditOfficialUserComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log(this.location.getState());
     this.user = this.location.getState();
 
     if (!this.adminService.editMode) {
@@ -45,7 +44,7 @@ export class EditOfficialUserComponent implements OnInit {
       this.router.navigate(['public/users/account/overview']);
     }
     this.updateRolesForm = this.formBuilder.group({
-      id: [this.user.id, Validators.required],
+      userId: [this.user.id, Validators.required],
       fullName: [{ value: this.user.fullName, disabled: true }, Validators.required],
       roles: [this.user.roles, Validators.required]
     });
@@ -88,13 +87,5 @@ export class EditOfficialUserComponent implements OnInit {
 
   get roles() {
     return this.updateRolesForm.get('roles');
-  }
-
-  changeRoles(event) {
-    console.log(event);
-    this.roles.setValue(['ROLE_USERS', event.target.value], {
-      }
-      );
-
   }
 }

@@ -31,7 +31,7 @@ export class AdminComponent implements OnInit {
     private readonly toaster: MessageService,
     private formBuilder: FormBuilder,
     private translationService: TranslationService
-    ) { }
+  ) { }
 
   ngOnInit() {
     this.search = this.formBuilder.group({

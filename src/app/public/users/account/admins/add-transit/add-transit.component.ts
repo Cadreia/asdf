@@ -15,31 +15,31 @@ import { CountriesService } from 'src/app/services/countries/countries.service';
   styleUrls: ['./add-transit.component.scss']
 })
 export class AddTransitComponent implements OnInit {
-public imagepath = '../../../../../assets/template/images/logo/logo.ico';
-public addtransitform: FormGroup;
-public userInfos: any;
-public isAdmin: boolean;
-public loader: boolean;
-public countries: ICountry[] = [];
-public states: IState[] = [];
-public cities: ICity[] = [];
+  public imagepath = '../../../../../assets/template/images/logo/logo.ico';
+  public addtransitform: FormGroup;
+  public userInfos: any;
+  public isAdmin: boolean;
+  public loader: boolean;
+  public countries: ICountry[] = [];
+  public states: IState[] = [];
+  public cities: ICity[] = [];
 
   constructor(private formBuilder: FormBuilder,
-              private toaster: MessageService,
-              private adminService: AdminService,
-              private sharedService: SharedService,
-              private router: Router,
-              private countriesService: CountriesService,
-              ) {
-               
-            
-               }
+    private toaster: MessageService,
+    private adminService: AdminService,
+    private sharedService: SharedService,
+    private router: Router,
+    private countriesService: CountriesService,
+  ) {
+
+
+  }
 
   ngOnInit() {
     this.addtransitform = this.formBuilder.group({
-      countrySelect: ['', [Validators.required]],
-      stateSelect: ['', [Validators.required]],
-      citySelect: ['', [Validators.required]],
+      country: ['', [Validators.required]],
+      state: ['', [Validators.required]],
+      city: ['', [Validators.required]],
       address: ['', Validators.required]
     });
 
@@ -49,7 +49,7 @@ public cities: ICity[] = [];
 
     this.userInfos = this.sharedService.getUserinfo();
     if (this.sharedService.IsAdmin()) {
-    this.isAdmin = true;
+      this.isAdmin = true;
     } else {
       this.isAdmin = false;
       this.router.navigate(['public/users/account/overview']);
@@ -57,6 +57,9 @@ public cities: ICity[] = [];
   }
 
   createTransitForm() {
+    this.addtransitform.value.country = this.addtransitform.value.country.name;
+    this.addtransitform.value.state = this.addtransitform.value.state.name;
+
     this.loader = true;
     console.log(this.addtransitform.value);
     this.adminService.addTransitForm(this.addtransitform.value).subscribe(
@@ -89,27 +92,25 @@ public cities: ICity[] = [];
     );
   }
 
+  handleError(controlName, errorName) {
+    return this.addtransitform.controls[controlName].hasError(errorName);
+  }
+
   getAccessToken() {
     return localStorage.getItem('accessToken');
   }
 
-  onChangeCountry(countryValue: any) {
-     this.addtransitform.controls['countrySelect'].setValue(countryValue, {
-           onlySelf: true
-         });
-         this.states.length = 0;
-         console.log(this.addtransitform.get("stateSelect"));
-         this.cities.length = 0;
-         this.countriesService.getStatesOfCountry(this.addtransitform.value.countrySelect.id);
-         this.states = this.countriesService.selectStates;
+  onChangeCountry() {
+    this.states.length, this.cities.length = 0;
+    this.countriesService.getStatesOfCountry(this.addtransitform.value.country.id);
+    this.states = this.countriesService.selectStates;
+    this.addtransitform.controls['state'].setErrors({ 'incorrect': true });
+    this.addtransitform.controls['city'].setErrors({ 'incorrect': true });
   }
 
   onChangeState(stateValue: any) {
-    this.addtransitform.controls['stateSelect'].setValue(stateValue, {
-          onlySelf: true
-        });
-        this.cities.length = 0;
-        this.countriesService.getCitiesOfState(this.addtransitform.value.stateSelect.id);
-        this.cities = this.countriesService.selectCities;
+    this.cities.length = 0;
+    this.countriesService.getCitiesOfState(this.addtransitform.value.state.id);
+    this.cities = this.countriesService.selectCities;
   }
 }

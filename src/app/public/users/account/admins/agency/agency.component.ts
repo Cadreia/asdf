@@ -112,7 +112,7 @@ user: any;
         this.loader = false;
         this.toaster.successUpdateRole();
         this.router.navigate(['public/users/account/officialAgency']);
-        setTimeout(function() {
+        setTimeout( function() {
           window.location.reload();
         }, 2000);
       },

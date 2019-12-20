@@ -45,6 +45,11 @@
           ><i class="fa fa-tasks"></i>{{ 'account_menu_manageOfficialAgency' | translate }}</a
         >
       </li>
+      <li *ngIf="isAgencyManager || isAdminAgency" [class]="manageCarLink ? 'active' : '' ">
+        <a  routerLink="../manage-car"
+          ><i class="fa fa-tasks"></i>{{ 'account_menu_manageCar' | translate }}</a
+        >
+      </li>
     </ul>
   </aside>
   </div>
